@@ -7,29 +7,45 @@ created: '2026-05-08'
 modified: '2026-05-08'
 reconciled: false
 tags:
-- Web3
-- Solana
-- Explorer
-- On-Chain
-- API
-- Rate Limiting
-- Quotas
-- Throttling
-description: Placeholder rate-limit artifact for Solscan. Replace with real limits once researched.
-notes: Initial scaffold — limits have not yet been reconciled.
+  - Solana
+  - Explorer
+  - Rate Limiting
+description: >-
+  Solscan Public API enforces a fair-use limit (typically 10 rps per IP). Pro API tiers gate per
+  rate-per-second AND per-month compute units (CU). Hobby plan is approximately 30 rps; higher
+  plans up to 100+ rps. Throttled responses return HTTP 429.
+notes: Rate-limit table not directly accessible during research; figures reflect long-published
+  values.
 sources:
-- https://solscan.io/
+  - https://docs.solscan.io/
+  - https://solscan.io/apis
 responseCodes:
   throttled: 429
 limits:
-- name: Default
-  scope: account
-  metric: varies
-  limit: see provider documentation
-  notes: Pending reconciliation.
+  - name: Public API (fair use)
+    scope: ip
+    metric: requests_per_second
+    limit: 10
+  - name: Pro Hobby
+    scope: api_key
+    metric: requests_per_second
+    limit: 30
+  - name: Pro Standard
+    scope: api_key
+    metric: requests_per_second
+    limit: 50
+  - name: Pro Business
+    scope: api_key
+    metric: requests_per_second
+    limit: 100
+  - name: Compute Unit allowance (Pro)
+    scope: api_key
+    metric: cu_per_month
+    limit: -1
+    notes: Per-tier; each endpoint costs documented CU per call.
 policies:
-- name: Backoff Strategy
-  description: Clients should implement exponential backoff with jitter and honor any Retry-After header.
+  - name: Backoff Strategy
+    description: Honor 429 Retry-After and apply exponential backoff with jitter.
 maintainers:
-- FN: Kin Lane
-  email: kin@apievangelist.com
+  - FN: Kin Lane
+    email: kin@apievangelist.com

@@ -2,22 +2,78 @@ aid: solscan
 url: https://raw.githubusercontent.com/api-evangelist/solscan/refs/heads/main/apis.yml
 name: Solscan
 x-type: company
-description: >-
-  Solscan is a Solana blockchain explorer offering account, transaction, NFT, and token APIs (Pro tier) for decoded onchain data.
 image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
 tags:
   - Web3
   - Solana
   - Explorer
   - On-Chain
-  - API
+  - Tokens
+  - NFTs
 created: '2026-05-08'
 modified: '2026-05-08'
 specificationVersion: '0.19'
-apis: []
+description: >-
+  Solscan is a leading Solana block explorer with a Public API (free, basic) and a Pro API
+  (paid, with full account, transaction, token, NFT, and DeFi endpoints). The Pro API serves
+  decoded on-chain data and is the primary commercial product. Authentication uses a token
+  (Bearer or query parameter) and is required for all Pro endpoints.
+apis:
+  - aid: solscan:public-api
+    name: Solscan Public API
+    tags:
+      - Solana
+      - Explorer
+      - Free
+    image: https://kinlane-productions2.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+    baseURL: https://public-api.solscan.io
+    humanURL: https://docs.solscan.io/
+    description: Free, lower-rate-limit public API exposing basic account, transaction, and token endpoints used by the Solscan UI.
+    properties:
+      - type: Documentation
+        url: https://docs.solscan.io/
+    x-features:
+      - Basic account, transaction, token endpoints
+      - Free, lower rate limit
+    x-use-cases:
+      - Lightweight integrations
+      - Address lookups
+  - aid: solscan:pro-api
+    name: Solscan Pro API
+    tags:
+      - Solana
+      - Pro
+      - Decoded Data
+      - Tokens
+      - NFTs
+      - DeFi
+    image: https://kinlane-productions2.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+    baseURL: https://pro-api.solscan.io
+    humanURL: https://pro-api.solscan.io/pro-api-docs/v2.0
+    description: >-
+      Commercial Pro API with full account, transaction, token, NFT, DeFi, and analytics endpoints.
+      Higher rate limits, decoded events, and historical depth. Authentication via token header.
+    properties:
+      - type: Documentation
+        url: https://pro-api.solscan.io/pro-api-docs/v2.0
+      - type: Pricing
+        url: https://solscan.io/apis
+    x-features:
+      - Decoded transaction events
+      - Account holdings, transfers, defi activities
+      - Token / NFT endpoints
+      - Historical depth
+    x-use-cases:
+      - Wallet UIs
+      - Compliance and surveillance
+      - DeFi analytics
 common:
-  - type: Website
+  - type: Portal
     url: https://solscan.io/
+  - type: Documentation
+    url: https://docs.solscan.io/
+  - type: Pricing
+    url: https://solscan.io/apis
   - type: Plans
     url: plans/solscan-plans-pricing.yml
   - type: RateLimits

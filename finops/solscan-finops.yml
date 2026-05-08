@@ -5,21 +5,18 @@ provider: Solscan
 providerId: solscan
 created: '2026-05-08'
 modified: '2026-05-08'
-reconciled: false
+reconciled: true
 tags:
-- Web3
-- Solana
-- Explorer
-- On-Chain
-- API
-- FinOps
-- Cost Management
-- FOCUS
-description: FOCUS-aligned FinOps placeholder for Solscan. Pipeline will replace with real billing details.
-notes: Initial scaffold — billing model has not yet been reconciled.
+  - Solana
+  - Explorer
+  - FinOps
+  - FOCUS
+description: >-
+  FinOps view of Solscan. Subscription tiers gate a monthly compute-unit (CU) allowance plus a
+  per-second rate cap. Per-call CU cost varies by endpoint. Allocation is by API key.
 sources:
-- https://solscan.io/
-- https://focus.finops.org/focus-specification/v1-3/
+  - https://solscan.io/apis
+  - https://focus.finops.org/focus-specification/v1-3/
 alignedWith:
   framework: FinOps Foundation Framework
   frameworkUrl: https://www.finops.org/framework/
@@ -27,40 +24,45 @@ alignedWith:
   dataSpecVersion: '1.3'
   dataSpecUrl: https://focus.finops.org/focus-specification/v1-3/
 publisherName: Solscan
-serviceCategory: Web3
+serviceCategory: Crypto Explorer
 billingModel:
-  pricingCategory: To Be Reconciled
+  pricingCategory: Subscription with Metered CU Allowance
   billingFrequency: Monthly
   billingCurrency: USD
   chargeCategories:
-  - Usage
-  - Purchase
-  - Adjustment
+    - Subscription
+    - Usage
 focusColumns:
-  ServiceName: Solscan
-  ServiceCategory: Web3
+  ServiceName: Solscan Pro API
+  ServiceCategory: Crypto Explorer
   ProviderName: Solscan
   PublisherName: Solscan
   InvoiceIssuerName: Solscan
   BillingCurrency: USD
-  ChargeCategory: Usage
+  ChargeCategory: Subscription
 meters:
-- name: api_usage
-  description: Catch-all meter pending reconciliation.
-  unit: varies
-  aggregation: sum
-  dimensions:
-  - account
-  - resource
+  - name: subscription
+    description: Monthly Pro subscription per API key.
+    unit: month
+    aggregation: sum
+    dimensions:
+      - api_key
+  - name: compute_units
+    description: Per-call compute unit consumption against monthly allowance.
+    unit: cu
+    aggregation: sum
+    dimensions:
+      - api_key
+      - endpoint
 principles:
-- name: Visibility
-  description: Pull provider invoices or usage exports until a self-serve usage feed is documented.
-- name: Allocation
-  description: Tag invoice line items to consuming business units in your FinOps store.
-- name: Optimization
-  description: Levers depend on the provider's billing model; review at renewal once reconciled.
-- name: Accountability
-  description: Assign a contract owner to review billing against negotiated terms.
+  - name: Visibility
+    description: Track per-endpoint CU consumption to forecast tier sufficiency.
+  - name: Allocation
+    description: Tag each API key to a single owning workload.
+  - name: Optimization
+    description: Cache hot endpoints; bundle queries to reduce CU consumption.
+  - name: Accountability
+    description: Assign a billing owner per API key; review monthly CU vs allowance.
 maintainers:
-- FN: Kin Lane
-  email: kin@apievangelist.com
+  - FN: Kin Lane
+    email: kin@apievangelist.com
