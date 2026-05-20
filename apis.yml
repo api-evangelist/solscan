@@ -68,6 +68,8 @@ apis:
       - Compliance and surveillance
       - DeFi analytics
 common:
+  - type: GitHubOrganization
+    url: https://github.com/solscanofficial
   - type: Portal
     url: https://solscan.io/
   - type: Documentation
