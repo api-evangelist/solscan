@@ -1,0 +1,280 @@
+openapi: 3.1.0
+info:
+  title: Solscan Pro API
+  version: "2.0"
+  summary: Solscan Pro REST API for Solana account, token, transaction, block, and NFT data.
+  description: |
+    The Solscan Pro API exposes decoded Solana on-chain data including account
+    details, token holdings, transfers, DeFi activities, transaction details,
+    block info, and NFT collections. The Public API is a free, lower-rate-limit
+    surface; the Pro API is a paid service requiring an API token.
+
+    Authentication uses a token sent in the 'token' request header.
+  contact:
+    name: Solscan API Documentation
+    url: https://docs.solscan.io/
+servers:
+  - url: https://pro-api.solscan.io/v2.0
+    description: Solscan Pro API v2.0
+security:
+  - apiKeyAuth: []
+tags:
+  - name: Account
+    description: Solana account data
+  - name: Token
+    description: SPL token data
+  - name: Transaction
+    description: Transaction lookups
+  - name: Block
+    description: Block lookups
+  - name: NFT
+    description: NFT collection data
+paths:
+  /account/detail:
+    get:
+      tags: [Account]
+      summary: Get account details
+      operationId: getAccountDetail
+      parameters:
+        - $ref: '#/components/parameters/Address'
+      responses:
+        "200":
+          description: Account details
+  /account/data-decoded:
+    get:
+      tags: [Account]
+      summary: Get decoded account data
+      operationId: getAccountDecoded
+      parameters:
+        - $ref: '#/components/parameters/Address'
+      responses:
+        "200":
+          description: Decoded account data
+  /account/transfer:
+    get:
+      tags: [Account]
+      summary: Get account transfer history
+      operationId: getAccountTransfer
+      parameters:
+        - $ref: '#/components/parameters/Address'
+      responses:
+        "200":
+          description: Transfer history
+  /account/transfer-total:
+    get:
+      tags: [Account]
+      summary: Get aggregate transfer totals
+      operationId: getAccountTransferTotal
+      parameters:
+        - $ref: '#/components/parameters/Address'
+      responses:
+        "200":
+          description: Aggregate transfer totals
+  /account/defi-activities:
+    get:
+      tags: [Account]
+      summary: Get account DeFi activities
+      operationId: getAccountDefiActivities
+      parameters:
+        - $ref: '#/components/parameters/Address'
+      responses:
+        "200":
+          description: DeFi activity list
+  /account/balance-change:
+    get:
+      tags: [Account]
+      summary: Get balance change history
+      operationId: getAccountBalanceChange
+      parameters:
+        - $ref: '#/components/parameters/Address'
+      responses:
+        "200":
+          description: Balance changes
+  /account/transactions:
+    get:
+      tags: [Account]
+      summary: List account transactions
+      operationId: getAccountTransactions
+      parameters:
+        - $ref: '#/components/parameters/Address'
+      responses:
+        "200":
+          description: Transactions list
+  /account/portfolio:
+    get:
+      tags: [Account]
+      summary: Get portfolio composition
+      operationId: getAccountPortfolio
+      parameters:
+        - $ref: '#/components/parameters/Address'
+      responses:
+        "200":
+          description: Portfolio data
+  /account/token-accounts:
+    get:
+      tags: [Account]
+      summary: List associated token accounts
+      operationId: getAccountTokenAccounts
+      parameters:
+        - $ref: '#/components/parameters/Address'
+      responses:
+        "200":
+          description: Token accounts
+  /account/stake:
+    get:
+      tags: [Account]
+      summary: Get staking information
+      operationId: getAccountStake
+      parameters:
+        - $ref: '#/components/parameters/Address'
+      responses:
+        "200":
+          description: Stake details
+  /token/transfer:
+    get:
+      tags: [Token]
+      summary: List token transfers
+      operationId: getTokenTransfer
+      parameters:
+        - $ref: '#/components/parameters/TokenAddress'
+      responses:
+        "200":
+          description: Token transfers
+  /token/defi-activities:
+    get:
+      tags: [Token]
+      summary: List DeFi activity for a token
+      operationId: getTokenDefiActivities
+      parameters:
+        - $ref: '#/components/parameters/TokenAddress'
+      responses:
+        "200":
+          description: DeFi activity for token
+  /token/markets:
+    get:
+      tags: [Token]
+      summary: Get token markets
+      operationId: getTokenMarkets
+      parameters:
+        - $ref: '#/components/parameters/TokenAddress'
+      responses:
+        "200":
+          description: Markets data
+  /token/price-latest:
+    get:
+      tags: [Token]
+      summary: Get latest token price
+      operationId: getTokenPriceLatest
+      parameters:
+        - $ref: '#/components/parameters/TokenAddress'
+      responses:
+        "200":
+          description: Latest price
+  /token/price-history:
+    get:
+      tags: [Token]
+      summary: Get historical token price
+      operationId: getTokenPriceHistory
+      parameters:
+        - $ref: '#/components/parameters/TokenAddress'
+        - name: time
+          in: query
+          schema:
+            type: string
+          description: Time range for historical data
+      responses:
+        "200":
+          description: Price history
+  /token/holders:
+    get:
+      tags: [Token]
+      summary: Get token holder distribution
+      operationId: getTokenHolders
+      parameters:
+        - $ref: '#/components/parameters/TokenAddress'
+      responses:
+        "200":
+          description: Holder distribution
+  /transaction/last:
+    get:
+      tags: [Transaction]
+      summary: List most recent transactions
+      operationId: getTransactionLast
+      responses:
+        "200":
+          description: Recent transactions
+  /transaction/detail:
+    get:
+      tags: [Transaction]
+      summary: Get transaction details
+      operationId: getTransactionDetail
+      parameters:
+        - name: tx
+          in: query
+          required: true
+          schema:
+            type: string
+          description: Transaction signature / hash
+      responses:
+        "200":
+          description: Transaction details
+  /transaction/decoded:
+    get:
+      tags: [Transaction]
+      summary: Get decoded transaction actions
+      operationId: getTransactionDecoded
+      parameters:
+        - name: tx
+          in: query
+          required: true
+          schema:
+            type: string
+      responses:
+        "200":
+          description: Decoded transaction
+  /block/last:
+    get:
+      tags: [Block]
+      summary: Get latest block data
+      operationId: getBlockLast
+      responses:
+        "200":
+          description: Latest block
+  /nft/news:
+    get:
+      tags: [NFT]
+      summary: List emerging NFT releases
+      operationId: getNftNews
+      responses:
+        "200":
+          description: NFT news
+  /nft/collection-lists:
+    get:
+      tags: [NFT]
+      summary: List NFT collections
+      operationId: getNftCollectionLists
+      responses:
+        "200":
+          description: NFT collection metadata
+components:
+  securitySchemes:
+    apiKeyAuth:
+      type: apiKey
+      in: header
+      name: token
+      description: Solscan API token sent as 'token: {API_KEY}' header.
+  parameters:
+    Address:
+      name: address
+      in: query
+      required: true
+      schema:
+        type: string
+      description: Solana account address (base58)
+    TokenAddress:
+      name: address
+      in: query
+      required: true
+      schema:
+        type: string
+      description: SPL token mint address
