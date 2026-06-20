@@ -2,7 +2,7 @@ aid: solscan
 url: https://raw.githubusercontent.com/api-evangelist/solscan/refs/heads/main/apis.yml
 name: Solscan
 kind: company
-image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
 tags:
   - Web3
   - Solana
@@ -25,7 +25,7 @@ apis:
       - Solana
       - Explorer
       - Free
-    image: https://kinlane-productions2.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+    image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
     baseURL: https://public-api.solscan.io
     humanURL: https://docs.solscan.io/
     description: Free, lower-rate-limit public API exposing basic account, transaction, and token endpoints used by the Solscan UI.
@@ -47,7 +47,7 @@ apis:
       - Tokens
       - NFTs
       - DeFi
-    image: https://kinlane-productions2.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+    image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
     baseURL: https://pro-api.solscan.io
     humanURL: https://pro-api.solscan.io/pro-api-docs/v2.0
     description: >-
