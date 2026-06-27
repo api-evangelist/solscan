@@ -82,7 +82,7 @@ common:
     url: rate-limits/solscan-rate-limits.yml
   - type: FinOps
     url: finops/solscan-finops.yml
-  - type: LLMsTxt
+  - type: LlmsText
     url: https://docs.solscan.io/llms.txt
 maintainers:
   - FN: Kin Lane
