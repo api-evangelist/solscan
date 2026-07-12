@@ -68,6 +68,8 @@ apis:
       - Compliance and surveillance
       - DeFi analytics
 common:
+  - type: DomainSecurity
+    url: security/solscan-domain-security.yml
   - type: GitHubOrganization
     url: https://github.com/solscanofficial
   - type: Portal
