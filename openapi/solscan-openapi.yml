@@ -262,7 +262,7 @@ components:
       type: apiKey
       in: header
       name: token
-      description: Solscan API token sent as 'token: {API_KEY}' header.
+      description: "Solscan API token sent as 'token: {API_KEY}' header."
   parameters:
     Address:
       name: address
