@@ -31,54 +31,106 @@ description: >-
   decoded on-chain data and is the primary commercial product. Authentication uses a token
   (Bearer or query parameter) and is required for all Pro endpoints.
 apis:
-  - aid: solscan:public-api
-    name: Solscan Public API
-    tags:
-      - Solana
-      - Explorer
-      - Free
-    image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
-    baseURL: https://public-api.solscan.io
-    humanURL: https://docs.solscan.io/
-    description: Free, lower-rate-limit public API exposing basic account, transaction, and token endpoints used by the Solscan UI.
-    properties:
-      - type: Documentation
-        url: https://docs.solscan.io/
-    x-features:
-      - Basic account, transaction, token endpoints
-      - Free, lower rate limit
-    x-use-cases:
-      - Lightweight integrations
-      - Address lookups
-  - aid: solscan:pro-api
-    name: Solscan Pro API
-    tags:
-      - Solana
-      - Pro
-      - Decoded Data
-      - Tokens
-      - NFTs
-      - DeFi
-    image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
-    baseURL: https://pro-api.solscan.io
-    humanURL: https://pro-api.solscan.io/pro-api-docs/v2.0
-    description: >-
-      Commercial Pro API with full account, transaction, token, NFT, DeFi, and analytics endpoints.
-      Higher rate limits, decoded events, and historical depth. Authentication via token header.
-    properties:
-      - type: Documentation
-        url: https://pro-api.solscan.io/pro-api-docs/v2.0
-      - type: Pricing
-        url: https://solscan.io/apis
-    x-features:
-      - Decoded transaction events
-      - Account holdings, transfers, defi activities
-      - Token / NFT endpoints
-      - Historical depth
-    x-use-cases:
-      - Wallet UIs
-      - Compliance and surveillance
-      - DeFi analytics
+- aid: solscan:public-api
+  name: Solscan Public API
+  tags:
+  - Solana
+  - Explorer
+  - Free
+  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+  baseURL: https://public-api.solscan.io
+  humanURL: https://docs.solscan.io/
+  description: >-
+    Free, lower-rate-limit public API exposing basic account, transaction, and token endpoints used by
+    the Solscan UI.
+  properties:
+  - type: Documentation
+    url: https://docs.solscan.io/
+  x-features:
+  - Basic account, transaction, token endpoints
+  - Free, lower rate limit
+  x-use-cases:
+  - Lightweight integrations
+  - Address lookups
+- aid: solscan:pro-api
+  name: Solscan Pro API
+  tags:
+  - Solana
+  - Pro
+  - Decoded Data
+  - Tokens
+  - NFTs
+  - DeFi
+  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+  baseURL: https://pro-api.solscan.io
+  humanURL: https://pro-api.solscan.io/pro-api-docs/v2.0
+  description: >-
+    Commercial Pro API with full account, transaction, token, NFT, DeFi, and analytics endpoints. Higher
+    rate limits, decoded events, and historical depth. Authentication via token header.
+  properties:
+  - type: Documentation
+    url: https://pro-api.solscan.io/pro-api-docs/v2.0
+  - type: Pricing
+    url: https://solscan.io/apis
+  x-features:
+  - Decoded transaction events
+  - Account holdings, transfers, defi activities
+  - Token / NFT endpoints
+  - Historical depth
+  x-use-cases:
+  - Wallet UIs
+  - Compliance and surveillance
+  - DeFi analytics
+- aid: solscan:solscan-account-api
+  name: Solscan Account API
+  description: Solana account data
+  humanURL: https://docs.solscan.io/
+  baseURL: https://public-api.solscan.io
+  tags:
+  - Account
+  properties:
+  - type: OpenAPI
+    url: openapi/solscan-account-api-openapi.yml
+- aid: solscan:solscan-block-api
+  name: Solscan Block API
+  description: Block lookups
+  humanURL: https://docs.solscan.io/
+  baseURL: https://public-api.solscan.io
+  tags:
+  - Block
+  properties:
+  - type: OpenAPI
+    url: openapi/solscan-block-api-openapi.yml
+- aid: solscan:solscan-nft-api
+  name: Solscan NFT API
+  description: NFT collection data
+  humanURL: https://docs.solscan.io/
+  baseURL: https://public-api.solscan.io
+  tags:
+  - NFT
+  properties:
+  - type: OpenAPI
+    url: openapi/solscan-nft-api-openapi.yml
+- aid: solscan:solscan-token-api
+  name: Solscan Token API
+  description: SPL token data
+  humanURL: https://docs.solscan.io/
+  baseURL: https://public-api.solscan.io
+  tags:
+  - Token
+  properties:
+  - type: OpenAPI
+    url: openapi/solscan-token-api-openapi.yml
+- aid: solscan:solscan-transaction-api
+  name: Solscan Transaction API
+  description: Transaction lookups
+  humanURL: https://docs.solscan.io/
+  baseURL: https://public-api.solscan.io
+  tags:
+  - Transaction
+  properties:
+  - type: OpenAPI
+    url: openapi/solscan-transaction-api-openapi.yml
 common:
   - type: DomainSecurity
     url: security/solscan-domain-security.yml
