@@ -24,7 +24,7 @@ tags:
   - NFTs
 created: '2026-05-08'
 modified: '2026-05-08'
-specificationVersion: '0.19'
+specificationVersion: '0.23'
 description: >-
   Solscan is a leading Solana block explorer with a Public API (free, basic) and a Pro API
   (paid, with full account, transaction, token, NFT, and DeFi endpoints). The Pro API serves
