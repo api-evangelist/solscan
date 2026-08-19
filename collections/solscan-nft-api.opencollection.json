@@ -1,0 +1,48 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Solscan Pro NFT API",
+    "version": "2.0"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "token",
+      "value": "{{token}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "NFT",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List emerging NFT releases",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://pro-api.solscan.io/v2.0/nft/news"
+          },
+          "docs": "List emerging NFT releases"
+        },
+        {
+          "info": {
+            "name": "List NFT collections",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://pro-api.solscan.io/v2.0/nft/collection-lists"
+          },
+          "docs": "List NFT collections"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

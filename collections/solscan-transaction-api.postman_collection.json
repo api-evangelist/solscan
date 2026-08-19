@@ -1,0 +1,274 @@
+{
+  "item": [
+    {
+      "id": "25ad56fb-4d73-4343-97bc-d0682e52acc2",
+      "name": "Transaction",
+      "description": {
+        "content": "Transaction lookups",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "99417d49-33bb-45c4-917e-9ff9bc33dcb4",
+          "name": "List most recent transactions",
+          "request": {
+            "name": "List most recent transactions",
+            "description": {},
+            "url": {
+              "path": [
+                "transaction",
+                "last"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "3839c776-85fc-4247-8e8f-6bd7fa0e2ca0",
+              "name": "Recent transactions",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "transaction",
+                    "last"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "token",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "43c29e80-2d44-4d21-9af3-5a1a595b8430",
+          "name": "Get transaction details",
+          "request": {
+            "name": "Get transaction details",
+            "description": {},
+            "url": {
+              "path": [
+                "transaction",
+                "detail"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "tx",
+                  "value": "<string>",
+                  "description": "(Required) Transaction signature / hash"
+                }
+              ],
+              "variable": []
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "0ce842ca-33ad-4d43-a900-ee2f1e3ec1da",
+              "name": "Transaction details",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "transaction",
+                    "detail"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "tx",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "token",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "25d65c59-e07d-4aee-97d6-6f38498520f2",
+          "name": "Get decoded transaction actions",
+          "request": {
+            "name": "Get decoded transaction actions",
+            "description": {},
+            "url": {
+              "path": [
+                "transaction",
+                "decoded"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "tx",
+                  "value": "<string>",
+                  "description": "(Required) "
+                }
+              ],
+              "variable": []
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "54e97e69-2f1e-4c8c-9ee8-d599f4f784bf",
+              "name": "Decoded transaction",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "transaction",
+                    "decoded"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "tx",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "token",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://pro-api.solscan.io/v2.0",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "token"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "header"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "60160f38-2d44-4ad9-9310-c1048a1498b8",
+    "name": "Solscan Pro Transaction API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The Solscan Pro API exposes decoded Solana on-chain data including account\ndetails, token holdings, transfers, DeFi activities, transaction details,\nblock info, and NFT collections. The Public API is a free, lower-rate-limit\nsurface; the Pro API is a paid service requiring an API token.\n\nAuthentication uses a token sent in the 'token' request header.\n\n\nContact Support:\n Name: Solscan API Documentation",
+      "type": "text/plain"
+    }
+  }
+}

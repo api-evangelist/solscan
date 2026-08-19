@@ -1,0 +1,115 @@
+openapi: 3.2.0
+info:
+  title: Solscan Pro Token API
+  version: '2.0'
+  summary: Solscan Pro REST API for Solana account, token, transaction, block, and NFT data.
+  description: 'The Solscan Pro API exposes decoded Solana on-chain data including account
+
+    details, token holdings, transfers, DeFi activities, transaction details,
+
+    block info, and NFT collections. The Public API is a free, lower-rate-limit
+
+    surface; the Pro API is a paid service requiring an API token.
+
+
+    Authentication uses a token sent in the ''token'' request header.
+
+    '
+  contact:
+    name: Solscan API Documentation
+    url: https://docs.solscan.io/
+servers:
+- url: https://pro-api.solscan.io/v2.0
+  description: Solscan Pro API v2.0
+security:
+- apiKeyAuth: []
+tags:
+- name: Token
+  description: SPL token data
+paths:
+  /token/transfer:
+    get:
+      tags:
+      - Token
+      summary: List token transfers
+      operationId: getTokenTransfer
+      parameters:
+      - $ref: '#/components/parameters/TokenAddress'
+      responses:
+        '200':
+          description: Token transfers
+  /token/defi-activities:
+    get:
+      tags:
+      - Token
+      summary: List DeFi activity for a token
+      operationId: getTokenDefiActivities
+      parameters:
+      - $ref: '#/components/parameters/TokenAddress'
+      responses:
+        '200':
+          description: DeFi activity for token
+  /token/markets:
+    get:
+      tags:
+      - Token
+      summary: Get token markets
+      operationId: getTokenMarkets
+      parameters:
+      - $ref: '#/components/parameters/TokenAddress'
+      responses:
+        '200':
+          description: Markets data
+  /token/price-latest:
+    get:
+      tags:
+      - Token
+      summary: Get latest token price
+      operationId: getTokenPriceLatest
+      parameters:
+      - $ref: '#/components/parameters/TokenAddress'
+      responses:
+        '200':
+          description: Latest price
+  /token/price-history:
+    get:
+      tags:
+      - Token
+      summary: Get historical token price
+      operationId: getTokenPriceHistory
+      parameters:
+      - $ref: '#/components/parameters/TokenAddress'
+      - name: time
+        in: query
+        schema:
+          type: string
+        description: Time range for historical data
+      responses:
+        '200':
+          description: Price history
+  /token/holders:
+    get:
+      tags:
+      - Token
+      summary: Get token holder distribution
+      operationId: getTokenHolders
+      parameters:
+      - $ref: '#/components/parameters/TokenAddress'
+      responses:
+        '200':
+          description: Holder distribution
+components:
+  parameters:
+    TokenAddress:
+      name: address
+      in: query
+      required: true
+      schema:
+        type: string
+      description: SPL token mint address
+  securitySchemes:
+    apiKeyAuth:
+      type: apiKey
+      in: header
+      name: token
+      description: 'Solscan API token sent as ''token: {API_KEY}'' header.'

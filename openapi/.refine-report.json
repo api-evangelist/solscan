@@ -1,0 +1,29 @@
+{
+  "provider": "solscan",
+  "sources": [
+    "solscan-account-api-openapi.yml",
+    "solscan-block-api-openapi.yml",
+    "solscan-nft-api-openapi.yml",
+    "solscan-token-api-openapi.yml",
+    "solscan-transaction-api-openapi.yml"
+  ],
+  "outputs": [
+    "solscan-account-api-openapi.yml",
+    "solscan-block-api-openapi.yml",
+    "solscan-nft-api-openapi.yml",
+    "solscan-token-api-openapi.yml",
+    "solscan-transaction-api-openapi.yml"
+  ],
+  "archived": [],
+  "errors": [],
+  "warnings": [],
+  "notes": [
+    "solscan-account-api-openapi.yml: upgraded openapi 3.1.0 -> OpenAPI 3.2.0",
+    "solscan-block-api-openapi.yml: upgraded openapi 3.1.0 -> OpenAPI 3.2.0",
+    "solscan-nft-api-openapi.yml: upgraded openapi 3.1.0 -> OpenAPI 3.2.0",
+    "solscan-token-api-openapi.yml: upgraded openapi 3.1.0 -> OpenAPI 3.2.0",
+    "solscan-transaction-api-openapi.yml: upgraded openapi 3.1.0 -> OpenAPI 3.2.0",
+    "apis.yml register: already-registered"
+  ],
+  "skipped": []
+}

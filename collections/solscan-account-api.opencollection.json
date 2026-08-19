@@ -1,0 +1,216 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Solscan Pro Account API",
+    "version": "2.0"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "token",
+      "value": "{{token}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Account",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get account details",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://pro-api.solscan.io/v2.0/account/detail",
+            "params": [
+              {
+                "name": "address",
+                "value": "",
+                "type": "query",
+                "description": "Solana account address (base58)"
+              }
+            ]
+          },
+          "docs": "Get account details"
+        },
+        {
+          "info": {
+            "name": "Get decoded account data",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://pro-api.solscan.io/v2.0/account/data-decoded",
+            "params": [
+              {
+                "name": "address",
+                "value": "",
+                "type": "query",
+                "description": "Solana account address (base58)"
+              }
+            ]
+          },
+          "docs": "Get decoded account data"
+        },
+        {
+          "info": {
+            "name": "Get account transfer history",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://pro-api.solscan.io/v2.0/account/transfer",
+            "params": [
+              {
+                "name": "address",
+                "value": "",
+                "type": "query",
+                "description": "Solana account address (base58)"
+              }
+            ]
+          },
+          "docs": "Get account transfer history"
+        },
+        {
+          "info": {
+            "name": "Get aggregate transfer totals",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://pro-api.solscan.io/v2.0/account/transfer-total",
+            "params": [
+              {
+                "name": "address",
+                "value": "",
+                "type": "query",
+                "description": "Solana account address (base58)"
+              }
+            ]
+          },
+          "docs": "Get aggregate transfer totals"
+        },
+        {
+          "info": {
+            "name": "Get account DeFi activities",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://pro-api.solscan.io/v2.0/account/defi-activities",
+            "params": [
+              {
+                "name": "address",
+                "value": "",
+                "type": "query",
+                "description": "Solana account address (base58)"
+              }
+            ]
+          },
+          "docs": "Get account DeFi activities"
+        },
+        {
+          "info": {
+            "name": "Get balance change history",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://pro-api.solscan.io/v2.0/account/balance-change",
+            "params": [
+              {
+                "name": "address",
+                "value": "",
+                "type": "query",
+                "description": "Solana account address (base58)"
+              }
+            ]
+          },
+          "docs": "Get balance change history"
+        },
+        {
+          "info": {
+            "name": "List account transactions",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://pro-api.solscan.io/v2.0/account/transactions",
+            "params": [
+              {
+                "name": "address",
+                "value": "",
+                "type": "query",
+                "description": "Solana account address (base58)"
+              }
+            ]
+          },
+          "docs": "List account transactions"
+        },
+        {
+          "info": {
+            "name": "Get portfolio composition",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://pro-api.solscan.io/v2.0/account/portfolio",
+            "params": [
+              {
+                "name": "address",
+                "value": "",
+                "type": "query",
+                "description": "Solana account address (base58)"
+              }
+            ]
+          },
+          "docs": "Get portfolio composition"
+        },
+        {
+          "info": {
+            "name": "List associated token accounts",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://pro-api.solscan.io/v2.0/account/token-accounts",
+            "params": [
+              {
+                "name": "address",
+                "value": "",
+                "type": "query",
+                "description": "Solana account address (base58)"
+              }
+            ]
+          },
+          "docs": "List associated token accounts"
+        },
+        {
+          "info": {
+            "name": "Get staking information",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://pro-api.solscan.io/v2.0/account/stake",
+            "params": [
+              {
+                "name": "address",
+                "value": "",
+                "type": "query",
+                "description": "Solana account address (base58)"
+              }
+            ]
+          },
+          "docs": "Get staking information"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

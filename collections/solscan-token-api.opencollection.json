@@ -1,0 +1,146 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Solscan Pro Token API",
+    "version": "2.0"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "token",
+      "value": "{{token}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Token",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List token transfers",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://pro-api.solscan.io/v2.0/token/transfer",
+            "params": [
+              {
+                "name": "address",
+                "value": "",
+                "type": "query",
+                "description": "SPL token mint address"
+              }
+            ]
+          },
+          "docs": "List token transfers"
+        },
+        {
+          "info": {
+            "name": "List DeFi activity for a token",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://pro-api.solscan.io/v2.0/token/defi-activities",
+            "params": [
+              {
+                "name": "address",
+                "value": "",
+                "type": "query",
+                "description": "SPL token mint address"
+              }
+            ]
+          },
+          "docs": "List DeFi activity for a token"
+        },
+        {
+          "info": {
+            "name": "Get token markets",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://pro-api.solscan.io/v2.0/token/markets",
+            "params": [
+              {
+                "name": "address",
+                "value": "",
+                "type": "query",
+                "description": "SPL token mint address"
+              }
+            ]
+          },
+          "docs": "Get token markets"
+        },
+        {
+          "info": {
+            "name": "Get latest token price",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://pro-api.solscan.io/v2.0/token/price-latest",
+            "params": [
+              {
+                "name": "address",
+                "value": "",
+                "type": "query",
+                "description": "SPL token mint address"
+              }
+            ]
+          },
+          "docs": "Get latest token price"
+        },
+        {
+          "info": {
+            "name": "Get historical token price",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://pro-api.solscan.io/v2.0/token/price-history",
+            "params": [
+              {
+                "name": "address",
+                "value": "",
+                "type": "query",
+                "description": "SPL token mint address"
+              },
+              {
+                "name": "time",
+                "value": "",
+                "type": "query",
+                "description": "Time range for historical data"
+              }
+            ]
+          },
+          "docs": "Get historical token price"
+        },
+        {
+          "info": {
+            "name": "Get token holder distribution",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://pro-api.solscan.io/v2.0/token/holders",
+            "params": [
+              {
+                "name": "address",
+                "value": "",
+                "type": "query",
+                "description": "SPL token mint address"
+              }
+            ]
+          },
+          "docs": "Get token holder distribution"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

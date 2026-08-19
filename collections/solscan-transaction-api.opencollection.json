@@ -1,0 +1,74 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Solscan Pro Transaction API",
+    "version": "2.0"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "token",
+      "value": "{{token}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Transaction",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List most recent transactions",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://pro-api.solscan.io/v2.0/transaction/last"
+          },
+          "docs": "List most recent transactions"
+        },
+        {
+          "info": {
+            "name": "Get transaction details",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://pro-api.solscan.io/v2.0/transaction/detail",
+            "params": [
+              {
+                "name": "tx",
+                "value": "",
+                "type": "query",
+                "description": "Transaction signature / hash"
+              }
+            ]
+          },
+          "docs": "Get transaction details"
+        },
+        {
+          "info": {
+            "name": "Get decoded transaction actions",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://pro-api.solscan.io/v2.0/transaction/decoded",
+            "params": [
+              {
+                "name": "tx",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Get decoded transaction actions"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

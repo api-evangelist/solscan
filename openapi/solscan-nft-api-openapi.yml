@@ -1,0 +1,54 @@
+openapi: 3.2.0
+info:
+  title: Solscan Pro NFT API
+  version: '2.0'
+  summary: Solscan Pro REST API for Solana account, token, transaction, block, and NFT data.
+  description: 'The Solscan Pro API exposes decoded Solana on-chain data including account
+
+    details, token holdings, transfers, DeFi activities, transaction details,
+
+    block info, and NFT collections. The Public API is a free, lower-rate-limit
+
+    surface; the Pro API is a paid service requiring an API token.
+
+
+    Authentication uses a token sent in the ''token'' request header.
+
+    '
+  contact:
+    name: Solscan API Documentation
+    url: https://docs.solscan.io/
+servers:
+- url: https://pro-api.solscan.io/v2.0
+  description: Solscan Pro API v2.0
+security:
+- apiKeyAuth: []
+tags:
+- name: NFT
+  description: NFT collection data
+paths:
+  /nft/news:
+    get:
+      tags:
+      - NFT
+      summary: List emerging NFT releases
+      operationId: getNftNews
+      responses:
+        '200':
+          description: NFT news
+  /nft/collection-lists:
+    get:
+      tags:
+      - NFT
+      summary: List NFT collections
+      operationId: getNftCollectionLists
+      responses:
+        '200':
+          description: NFT collection metadata
+components:
+  securitySchemes:
+    apiKeyAuth:
+      type: apiKey
+      in: header
+      name: token
+      description: 'Solscan API token sent as ''token: {API_KEY}'' header.'

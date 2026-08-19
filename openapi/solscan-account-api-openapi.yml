@@ -1,0 +1,154 @@
+openapi: 3.2.0
+info:
+  title: Solscan Pro Account API
+  version: '2.0'
+  summary: Solscan Pro REST API for Solana account, token, transaction, block, and NFT data.
+  description: 'The Solscan Pro API exposes decoded Solana on-chain data including account
+
+    details, token holdings, transfers, DeFi activities, transaction details,
+
+    block info, and NFT collections. The Public API is a free, lower-rate-limit
+
+    surface; the Pro API is a paid service requiring an API token.
+
+
+    Authentication uses a token sent in the ''token'' request header.
+
+    '
+  contact:
+    name: Solscan API Documentation
+    url: https://docs.solscan.io/
+servers:
+- url: https://pro-api.solscan.io/v2.0
+  description: Solscan Pro API v2.0
+security:
+- apiKeyAuth: []
+tags:
+- name: Account
+  description: Solana account data
+paths:
+  /account/detail:
+    get:
+      tags:
+      - Account
+      summary: Get account details
+      operationId: getAccountDetail
+      parameters:
+      - $ref: '#/components/parameters/Address'
+      responses:
+        '200':
+          description: Account details
+  /account/data-decoded:
+    get:
+      tags:
+      - Account
+      summary: Get decoded account data
+      operationId: getAccountDecoded
+      parameters:
+      - $ref: '#/components/parameters/Address'
+      responses:
+        '200':
+          description: Decoded account data
+  /account/transfer:
+    get:
+      tags:
+      - Account
+      summary: Get account transfer history
+      operationId: getAccountTransfer
+      parameters:
+      - $ref: '#/components/parameters/Address'
+      responses:
+        '200':
+          description: Transfer history
+  /account/transfer-total:
+    get:
+      tags:
+      - Account
+      summary: Get aggregate transfer totals
+      operationId: getAccountTransferTotal
+      parameters:
+      - $ref: '#/components/parameters/Address'
+      responses:
+        '200':
+          description: Aggregate transfer totals
+  /account/defi-activities:
+    get:
+      tags:
+      - Account
+      summary: Get account DeFi activities
+      operationId: getAccountDefiActivities
+      parameters:
+      - $ref: '#/components/parameters/Address'
+      responses:
+        '200':
+          description: DeFi activity list
+  /account/balance-change:
+    get:
+      tags:
+      - Account
+      summary: Get balance change history
+      operationId: getAccountBalanceChange
+      parameters:
+      - $ref: '#/components/parameters/Address'
+      responses:
+        '200':
+          description: Balance changes
+  /account/transactions:
+    get:
+      tags:
+      - Account
+      summary: List account transactions
+      operationId: getAccountTransactions
+      parameters:
+      - $ref: '#/components/parameters/Address'
+      responses:
+        '200':
+          description: Transactions list
+  /account/portfolio:
+    get:
+      tags:
+      - Account
+      summary: Get portfolio composition
+      operationId: getAccountPortfolio
+      parameters:
+      - $ref: '#/components/parameters/Address'
+      responses:
+        '200':
+          description: Portfolio data
+  /account/token-accounts:
+    get:
+      tags:
+      - Account
+      summary: List associated token accounts
+      operationId: getAccountTokenAccounts
+      parameters:
+      - $ref: '#/components/parameters/Address'
+      responses:
+        '200':
+          description: Token accounts
+  /account/stake:
+    get:
+      tags:
+      - Account
+      summary: Get staking information
+      operationId: getAccountStake
+      parameters:
+      - $ref: '#/components/parameters/Address'
+      responses:
+        '200':
+          description: Stake details
+components:
+  parameters:
+    Address:
+      name: address
+      in: query
+      required: true
+      schema:
+        type: string
+      description: Solana account address (base58)
+  securitySchemes:
+    apiKeyAuth:
+      type: apiKey
+      in: header
+      name: token
+      description: 'Solscan API token sent as ''token: {API_KEY}'' header.'

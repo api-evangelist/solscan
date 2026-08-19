@@ -1,0 +1,183 @@
+{
+  "item": [
+    {
+      "id": "3a5c42eb-6d97-4f42-9136-7ad6920b0818",
+      "name": "NFT",
+      "description": {
+        "content": "NFT collection data",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "1dba79b2-fc00-4080-b1eb-5f8febb85d52",
+          "name": "List emerging NFT releases",
+          "request": {
+            "name": "List emerging NFT releases",
+            "description": {},
+            "url": {
+              "path": [
+                "nft",
+                "news"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "38a2b90a-8681-40d4-b376-b54c92c19b47",
+              "name": "NFT news",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "nft",
+                    "news"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "token",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "ba87bda8-3b3b-4693-97a6-7729bff0be53",
+          "name": "List NFT collections",
+          "request": {
+            "name": "List NFT collections",
+            "description": {},
+            "url": {
+              "path": [
+                "nft",
+                "collection-lists"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "b50a5178-d0f1-4175-8554-423c315130ec",
+              "name": "NFT collection metadata",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "nft",
+                    "collection-lists"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "token",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://pro-api.solscan.io/v2.0",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "token"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "header"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "7c5e2599-31fb-41e4-a1a0-caaa37a9ed06",
+    "name": "Solscan Pro NFT API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The Solscan Pro API exposes decoded Solana on-chain data including account\ndetails, token holdings, transfers, DeFi activities, transaction details,\nblock info, and NFT collections. The Public API is a free, lower-rate-limit\nsurface; the Pro API is a paid service requiring an API token.\n\nAuthentication uses a token sent in the 'token' request header.\n\n\nContact Support:\n Name: Solscan API Documentation",
+      "type": "text/plain"
+    }
+  }
+}
