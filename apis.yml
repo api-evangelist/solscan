@@ -31,9 +31,9 @@ tags:
   - Web3
   - Solana
   - Explorer
-  - Onchain
+  - On-Chain
   - Tokens
-  - NFT
+  - NFTs
 tags_raw:
   - Web3
   - Solana
@@ -75,10 +75,10 @@ apis:
   name: Solscan Pro API
   tags:
   - Solana
-  - PRO
+  - Pro
   - Decoded Data
   - Tokens
-  - NFT
+  - NFTs
   - DeFi
   tags_raw:
   - Solana
