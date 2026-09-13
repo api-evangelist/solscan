@@ -1,0 +1,111 @@
+generated: '2026-09-11'
+method: probed
+source: https://mcp.solscan.io/mcp
+status: published
+server:
+  name: solscan
+  transport: http
+  url: https://mcp.solscan.io/mcp
+deployment:
+  mode: remote
+  endpoint: https://mcp.solscan.io/mcp
+  verified: probed
+  probe: live
+  checked: '2026-09-11'
+  source: docs-check 2026-09-11 (endpoint found in the provider's own documentation, then probed)
+tools_count: 46
+tools:
+- name: accountDetailApi
+  description: ''
+- name: accountDataDecodedApi
+  description: ''
+- name: accountTransferApi
+  description: ''
+- name: accountDefiActivitiesApi
+  description: ''
+- name: accountBalanceChangeApi
+  description: ''
+- name: accountTransactionsApi
+  description: ''
+- name: accountPortfolioApi
+  description: ''
+- name: accountTokenAccountApi
+  description: ''
+- name: accountStakeApi
+  description: ''
+- name: accountRewardExportApi
+  description: ''
+- name: accountTransferExportApi
+  description: ''
+- name: accountMetadataApi
+  description: ''
+- name: accountMetadataMultiApi
+  description: ''
+- name: accountLeaderboardApi
+  description: ''
+- name: accountDefiActivitiesExportApi
+  description: ''
+- name: tokenTransferApi
+  description: ''
+- name: tokenDefiActivitiesApi
+  description: ''
+- name: tokenMarketsApi
+  description: ''
+- name: tokenMetaApi
+  description: ''
+- name: tokenMetaMultiApi
+  description: ''
+- name: tokenPriceApi
+  description: ''
+- name: tokenPriceMultiApi
+  description: ''
+- name: tokenHoldersApi
+  description: ''
+- name: tokenListApi
+  description: ''
+- name: tokenTopApi
+  description: ''
+- name: tokenTrendingApi
+  description: ''
+- name: tokenLatestApi
+  description: ''
+- name: tokenDefiActivitiesExportApi
+  description: ''
+- name: nftNewApi
+  description: ''
+- name: nftActivitiesApi
+  description: ''
+- name: nftCollectionListApi
+  description: ''
+- name: nftCollectionItemApi
+  description: ''
+- name: transactionLastApi
+  description: ''
+- name: transactionDetailApi
+  description: ''
+- name: transactionDetailMultiApi
+  description: ''
+- name: transactionActionsApi
+  description: ''
+- name: transactionActionsMultiApi
+  description: ''
+- name: blockLastApi
+  description: ''
+- name: blockTransactionApi
+  description: ''
+- name: blockDetailApi
+  description: ''
+- name: marketListApi
+  description: ''
+- name: marketInfoApi
+  description: ''
+- name: marketVolumeApi
+  description: ''
+- name: programLeaderboardApi
+  description: ''
+- name: programPopularPlatformsApi
+  description: ''
+- name: monitorUsageApi
+  description: ''
+tools_source: live tools/list via initialize handshake, 2026-09-11 (signals/audit_mcp_authorship.py --probe)
+authorship: provider
