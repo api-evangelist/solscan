@@ -28,27 +28,26 @@ accessModel:
   method: derived
 image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/solscan.png
 tags:
-  - Web3
-  - Solana
-  - Explorer
-  - Onchain
-  - Tokens
-  - NFT
+- Web3
+- Solana
+- Explorer
+- Onchain
+- Tokens
+- NFT
 tags_raw:
-  - Web3
-  - Solana
-  - Explorer
-  - On-Chain
-  - Tokens
-  - NFTs
+- Web3
+- Solana
+- Explorer
+- On-Chain
+- Tokens
+- NFTs
 created: '2026-05-08'
-modified: '2026-05-08'
+modified: '2026-09-16'
 specificationVersion: '0.23'
-description: >-
-  Solscan is a leading Solana block explorer with a Public API (free, basic) and a Pro API
-  (paid, with full account, transaction, token, NFT, and DeFi endpoints). The Pro API serves
-  decoded on-chain data and is the primary commercial product. Authentication uses a token
-  (Bearer or query parameter) and is required for all Pro endpoints.
+description: Solscan is a leading Solana block explorer with a Public API (free, basic) and a Pro API
+  (paid, with full account, transaction, token, NFT, and DeFi endpoints). The Pro API serves decoded on-chain
+  data and is the primary commercial product. Authentication uses a token (Bearer or query parameter)
+  and is required for all Pro endpoints.
 apis:
 - aid: solscan:public-api
   name: Solscan Public API
@@ -59,9 +58,8 @@ apis:
   image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
   baseURL: https://public-api.solscan.io
   humanURL: https://docs.solscan.io/
-  description: >-
-    Free, lower-rate-limit public API exposing basic account, transaction, and token endpoints used by
-    the Solscan UI.
+  description: Free, lower-rate-limit public API exposing basic account, transaction, and token endpoints
+    used by the Solscan UI.
   properties:
   - type: Documentation
     url: https://docs.solscan.io/
@@ -90,9 +88,8 @@ apis:
   image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
   baseURL: https://pro-api.solscan.io
   humanURL: https://pro-api.solscan.io/pro-api-docs/v2.0
-  description: >-
-    Commercial Pro API with full account, transaction, token, NFT, DeFi, and analytics endpoints. Higher
-    rate limits, decoded events, and historical depth. Authentication via token header.
+  description: Commercial Pro API with full account, transaction, token, NFT, DeFi, and analytics endpoints.
+    Higher rate limits, decoded events, and historical depth. Authentication via token header.
   properties:
   - type: Documentation
     url: https://pro-api.solscan.io/pro-api-docs/v2.0
@@ -158,24 +155,26 @@ apis:
   - type: OpenAPI
     url: openapi/solscan-transaction-api-openapi.yml
 common:
-  - type: DomainSecurity
-    url: security/solscan-domain-security.yml
-  - type: GitHubOrganization
-    url: https://github.com/solscanofficial
-  - type: Portal
-    url: https://solscan.io/
-  - type: Documentation
-    url: https://docs.solscan.io/
-  - type: Pricing
-    url: https://solscan.io/apis
-  - type: Plans
-    url: plans/solscan-plans-pricing.yml
-  - type: RateLimits
-    url: rate-limits/solscan-rate-limits.yml
-  - type: FinOps
-    url: finops/solscan-finops.yml
-  - type: LlmsText
-    url: https://docs.solscan.io/llms.txt
+- type: Website
+  url: https://solscan.io
+- type: DomainSecurity
+  url: security/solscan-domain-security.yml
+- type: GitHubOrganization
+  url: https://github.com/solscanofficial
+- type: Portal
+  url: https://solscan.io/
+- type: Documentation
+  url: https://docs.solscan.io/
+- type: Pricing
+  url: https://solscan.io/apis
+- type: Plans
+  url: plans/solscan-plans-pricing.yml
+- type: RateLimits
+  url: rate-limits/solscan-rate-limits.yml
+- type: FinOps
+  url: finops/solscan-finops.yml
+- type: LlmsText
+  url: https://docs.solscan.io/llms.txt
 maintainers:
-  - FN: Kin Lane
-    email: kin@apievangelist.com
+- FN: Kin Lane
+  email: kin@apievangelist.com
