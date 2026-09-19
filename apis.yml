@@ -140,6 +140,8 @@ apis:
   humanURL: https://docs.solscan.io/
   baseURL: https://public-api.solscan.io
   tags:
+  - Tokens
+  tags_raw:
   - Token
   properties:
   - type: OpenAPI
