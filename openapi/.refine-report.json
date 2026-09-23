@@ -1,11 +1,7 @@
 {
   "provider": "solscan",
   "sources": [
-    "solscan-account-api-openapi.yml",
-    "solscan-block-api-openapi.yml",
-    "solscan-nft-api-openapi.yml",
-    "solscan-token-api-openapi.yml",
-    "solscan-transaction-api-openapi.yml"
+    "_original/solscan-openapi.yml"
   ],
   "outputs": [
     "solscan-account-api-openapi.yml",
@@ -18,12 +14,15 @@
   "errors": [],
   "warnings": [],
   "notes": [
-    "solscan-account-api-openapi.yml: upgraded openapi 3.1.0 -> OpenAPI 3.2.0",
-    "solscan-block-api-openapi.yml: upgraded openapi 3.1.0 -> OpenAPI 3.2.0",
-    "solscan-nft-api-openapi.yml: upgraded openapi 3.1.0 -> OpenAPI 3.2.0",
-    "solscan-token-api-openapi.yml: upgraded openapi 3.1.0 -> OpenAPI 3.2.0",
-    "solscan-transaction-api-openapi.yml: upgraded openapi 3.1.0 -> OpenAPI 3.2.0",
+    "sourced from openapi/_original/ (1 archived document(s)); previously refined output at the top level was skipped rather than re-split",
+    "solscan-openapi.yml: upgraded openapi 3.1.0 -> OpenAPI 3.2.0",
     "apis.yml register: already-registered"
   ],
-  "skipped": []
+  "skipped": [
+    "solscan-account-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "solscan-block-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "solscan-nft-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "solscan-token-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "solscan-transaction-api-openapi.yml: previously refined output, superseded by openapi/_original/"
+  ]
 }

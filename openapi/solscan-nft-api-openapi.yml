@@ -12,9 +12,7 @@ info:
     surface; the Pro API is a paid service requiring an API token.
 
 
-    Authentication uses a token sent in the ''token'' request header.
-
-    '
+    Authentication uses a token sent in the ''token'' request header.'
   contact:
     name: Solscan API Documentation
     url: https://docs.solscan.io/
