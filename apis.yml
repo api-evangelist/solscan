@@ -180,3 +180,9 @@ common:
 maintainers:
 - FN: Kin Lane
   email: kin@apievangelist.com
+x-parent: etherscan
+x-relationship: acquisition
+x-status: acquired
+x-acquired-by: etherscan
+x-acquired: 2024
+x-acquired-evidence: Etherscan announced the acquisition of Solscan on 2024-01-03 (The Block, https://www.theblock.co/post/270096/etherscan-acquires-solscan-expand-blockchain-data-services); solscan.io remains live under its own brand.
