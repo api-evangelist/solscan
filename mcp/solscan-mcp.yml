@@ -16,96 +16,105 @@ deployment:
 tools_count: 46
 tools:
 - name: accountDetailApi
-  description: ''
+  description: Get the details of an account
 - name: accountDataDecodedApi
-  description: ''
+  description: Get data of account with decoded information
 - name: accountTransferApi
-  description: ''
+  description: Get transfer data of an account
 - name: accountDefiActivitiesApi
-  description: ''
+  description: Get defi activities involving an account
 - name: accountBalanceChangeApi
-  description: ''
+  description: Get balance change activities involving an account
 - name: accountTransactionsApi
-  description: ''
+  description: Get the list of transactions of an account
 - name: accountPortfolioApi
-  description: ''
+  description: Get the portfolio for a given address
 - name: accountTokenAccountApi
-  description: ''
+  description: Get token accounts of an account
 - name: accountStakeApi
-  description: ''
+  description: Get the list of stake accounts of an account
 - name: accountRewardExportApi
-  description: ''
+  description: 'Export the rewards for an account. Maximum items: 5000. Without time filter,data will
+    be return for 1 month staking reward. Max 1 request per minute.'
 - name: accountTransferExportApi
-  description: ''
+  description: 'Export transfer data of an account. Maximum items: 5000. Max 1 request per minute.'
 - name: accountMetadataApi
-  description: ''
+  description: Get the metadata of an account
 - name: accountMetadataMultiApi
-  description: ''
+  description: Get the metadata of multiple accounts
 - name: accountLeaderboardApi
-  description: ''
+  description: Get the account leaderboard
 - name: accountDefiActivitiesExportApi
-  description: ''
+  description: 'Export defi activities data of an account. Maximum items: 5000. Max 1 request per minute.'
 - name: tokenTransferApi
-  description: ''
+  description: Get transfer data of a token
 - name: tokenDefiActivitiesApi
-  description: ''
+  description: Get defi activities involving a token
 - name: tokenMarketsApi
-  description: ''
+  description: Get token markets
 - name: tokenMetaApi
-  description: ''
+  description: Get the metadata of a token
 - name: tokenMetaMultiApi
-  description: ''
+  description: Get the metadata of multiple tokens.
 - name: tokenPriceApi
-  description: ''
+  description: Get price of a token
 - name: tokenPriceMultiApi
-  description: ''
+  description: Get the metadata of multiple tokens.
 - name: tokenHoldersApi
-  description: ''
+  description: Get the list of token holders
 - name: tokenListApi
-  description: ''
+  description: Get the list of tokens. This endpoint supports up to 50,000 items per query.
 - name: tokenTopApi
-  description: ''
+  description: Get the list of top tokens
 - name: tokenTrendingApi
-  description: ''
+  description: Get the list of trending tokens
 - name: tokenLatestApi
-  description: ''
+  description: Get the list of recently created tokens
 - name: tokenDefiActivitiesExportApi
-  description: ''
+  description: Get defi activities involving a token
 - name: nftNewApi
-  description: ''
+  description: Get the list of new NFTs
 - name: nftActivitiesApi
-  description: ''
+  description: Get NFT activities
 - name: nftCollectionListApi
-  description: ''
+  description: Get the list of NFT collections
 - name: nftCollectionItemApi
-  description: ''
+  description: Get the list of items of a NFT collection
 - name: transactionLastApi
-  description: ''
+  description: Get the list of the latest transactions
 - name: transactionDetailApi
-  description: ''
+  description: 'Get the detail of a transaction. Return transaction data after parsed by Solscan Parser.
+    Data will include very helpful data such as: token and sol balance changes, IDL data, defi or transfer
+    activities of each instructions'
 - name: transactionDetailMultiApi
-  description: ''
+  description: 'Get the detail of multiple transactions. Return transaction data after parsed by Solscan
+    Parser. Data will include very helpful data such as: token and sol balance changes, IDL data, defi
+    or transfer activities of each instructions'
 - name: transactionActionsApi
-  description: ''
+  description: 'Get the actions of a transaction. Return the actions like: transfers, swap activities,
+    nft activities...'
 - name: transactionActionsMultiApi
-  description: ''
+  description: 'Get the actions of multiple transactions. Return the actions like: transfers, swap activities,
+    nft activities...'
 - name: blockLastApi
-  description: ''
+  description: Get the list of the latest blocks
 - name: blockTransactionApi
-  description: ''
+  description: Get the list of transactions of a block
 - name: blockDetailApi
-  description: ''
+  description: Get the details of a block
 - name: marketListApi
-  description: ''
+  description: Get the list of pool markets
 - name: marketInfoApi
-  description: ''
+  description: Get token market info
 - name: marketVolumeApi
-  description: ''
+  description: Get token market volume
 - name: programLeaderboardApi
-  description: ''
+  description: Get list of programs that active in 90 days
 - name: programPopularPlatformsApi
-  description: ''
+  description: Get the list of popular defi platforms
 - name: monitorUsageApi
-  description: ''
+  description: Get the used Compute Units of a subscriber
 tools_source: live tools/list via initialize handshake, 2026-09-11 (signals/audit_mcp_authorship.py --probe)
 authorship: provider
+descriptions_source: live tools/list (authorship probe or saved capture); filled by backfill-tools-from-authorship.py
+  --descriptions, 2026-09-28
