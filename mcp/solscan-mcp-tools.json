@@ -1,0 +1,3353 @@
+{
+  "endpoint": "https://mcp.solscan.io/mcp",
+  "captured": "2026-10-20",
+  "method": "initialize + tools/list (anonymous, no tool called; roadmap#992)",
+  "protocol_version": "2025-06-18",
+  "server_info": {
+    "name": "solscan-mcp-server",
+    "version": "1.0.0"
+  },
+  "result": {
+    "tools": [
+      {
+        "name": "accountDetailApi",
+        "description": "Get the details of an account",
+        "inputSchema": {
+          "type": "object",
+          "properties": {
+            "address": {
+              "type": "string",
+              "description": "A wallet address on solana blockchain"
+            }
+          },
+          "required": [
+            "address"
+          ]
+        }
+      },
+      {
+        "name": "accountDataDecodedApi",
+        "description": "Get data of account with decoded information",
+        "inputSchema": {
+          "type": "object",
+          "properties": {
+            "address": {
+              "type": "string",
+              "description": "A wallet address on solana blockchain"
+            }
+          },
+          "required": [
+            "address"
+          ]
+        }
+      },
+      {
+        "name": "accountTransferApi",
+        "description": "Get transfer data of an account",
+        "inputSchema": {
+          "type": "object",
+          "properties": {
+            "address": {
+              "type": "string",
+              "description": "Solana wallet address"
+            },
+            "activity_type": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              },
+              "description": "Type of transfer"
+            },
+            "token_account": {
+              "type": "string",
+              "description": "Filter transfers for a specific token account in the wallet"
+            },
+            "from": {
+              "type": "string",
+              "description": "Filter transfer data with direction is from one/multi address. You can filter by multiple addresses by separating them with commas. Example: ?from=address1,address2. Maximum 5 addresses"
+            },
+            "exclude_from": {
+              "type": "string",
+              "description": "Filter transfer data with direction is not from one/multi address. You can filter by multiple addresses by separating them with commas. Example: ?exclude_from=address1,address2. Maximum 5 addresses"
+            },
+            "to": {
+              "type": "string",
+              "description": "Filter transfer data with direction is to one/multi address. You can filter by multiple addresses by separating them with commas. Example: ?to=address1,address2. Maximum 5 addresses"
+            },
+            "exclude_to": {
+              "type": "string",
+              "description": "Filter transfer data with direction is not to one/multi address. You can filter by multiple addresses by separating them with commas. Example: ?exclude_to=address1,address2. Maximum 5 addresses"
+            },
+            "token": {
+              "type": "string",
+              "description": "Filter by token address. For native SOL transfers, use So11111111111111111111111111111111111111111. You can filter by multiple addresses by separating them with commas. Example: ?token=address1,address2. Maximum 5 addresses"
+            },
+            "amount": {
+              "type": "array",
+              "items": {
+                "type": "number"
+              },
+              "description": "Filter by amount range for a specific token. Example: ?amount[]=1&amount[]=2&token=So11111111111111111111111111111111111111112"
+            },
+            "from_time": {
+              "type": "number",
+              "description": "Filter by time range (Unix timestamp in seconds). Example: ?from_time=1720153259&to_time=1720153276"
+            },
+            "to_time": {
+              "type": "number",
+              "description": "Filter by time range (Unix timestamp in seconds). Example: ?from_time=1720153259&to_time=1720153276"
+            },
+            "exclude_amount_zero": {
+              "type": "boolean",
+              "description": "Exclude transfers with zero amount"
+            },
+            "flow": {
+              "type": "string",
+              "description": "Filter by transfer direction: in or out"
+            },
+            "page": {
+              "type": "number",
+              "description": "Page number for pagination"
+            },
+            "page_size": {
+              "type": "number",
+              "description": "Number of items per page"
+            },
+            "sort_by": {
+              "type": "string",
+              "description": "The parameter allows you to specify the field by which the returned list will be sorted"
+            },
+            "sort_order": {
+              "type": "string",
+              "description": "The parameter allows you to specify the sort order"
+            },
+            "value": {
+              "type": "array",
+              "items": {
+                "type": "number"
+              },
+              "description": "Filter by value range (dollar). Example: ?value[]=1&value[]=10"
+            },
+            "block_time": {
+              "type": "array",
+              "items": {
+                "type": "number"
+              },
+              "description": "Filter by block time range (Unix timestamp in seconds). Example: ?block_time[]=1720153259&block_time[]=1720153276"
+            }
+          },
+          "required": [
+            "address"
+          ]
+        }
+      },
+      {
+        "name": "accountDefiActivitiesApi",
+        "description": "Get defi activities involving an account",
+        "inputSchema": {
+          "type": "object",
+          "properties": {
+            "address": {
+              "type": "string",
+              "description": "A wallet address on solana blockchain"
+            },
+            "activity_type": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              },
+              "description": "Type of activity data"
+            },
+            "from": {
+              "type": "string",
+              "description": "Filter activities from an address"
+            },
+            "platform": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              },
+              "description": "Filter by list platform addresses. Maximum 5 addresses"
+            },
+            "source": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              },
+              "description": "Filter by list source addresses. Maximum 5 addresses"
+            },
+            "token": {
+              "type": "string",
+              "description": "Filter activities data by token address"
+            },
+            "from_time": {
+              "type": "number",
+              "description": "Filter by time range (Unix timestamp in seconds). Example: ?from_time=1720153259&to_time=1720153276"
+            },
+            "to_time": {
+              "type": "number",
+              "description": "Filter by time range (Unix timestamp in seconds). Example: ?from_time=1720153259&to_time=1720153276"
+            },
+            "page": {
+              "type": "number",
+              "description": "Page number for pagination"
+            },
+            "page_size": {
+              "type": "number",
+              "description": "Number items per page"
+            },
+            "sort_by": {
+              "type": "string",
+              "description": "The parameter allows you to specify the field by which the returned list will be sorted"
+            },
+            "sort_order": {
+              "type": "string",
+              "description": "The parameter allows you to specify the sort order"
+            },
+            "block_time": {
+              "type": "array",
+              "items": {
+                "type": "number"
+              },
+              "description": "Used when you want to filter data by block time. Format time: UnixTime in seconds. You need to pass array into http query to filter by start and stop block_time. Example: ?block_time[]=1720153259&block_time[]=1720153276"
+            }
+          },
+          "required": [
+            "address"
+          ]
+        }
+      },
+      {
+        "name": "accountBalanceChangeApi",
+        "description": "Get balance change activities involving an account",
+        "inputSchema": {
+          "type": "object",
+          "properties": {
+            "address": {
+              "type": "string",
+              "description": "A wallet address on solana blockchain"
+            },
+            "token_account": {
+              "type": "string",
+              "description": "A token account of wallet on solana blockchain"
+            },
+            "token": {
+              "type": "string",
+              "description": "Filter activities data by token address"
+            },
+            "from_time": {
+              "type": "number",
+              "description": "Filter by time range (Unix timestamp in seconds). Example: ?from_time=1720153259&to_time=1720153276"
+            },
+            "to_time": {
+              "type": "number",
+              "description": "Filter by time range (Unix timestamp in seconds). Example: ?from_time=1720153259&to_time=1720153276"
+            },
+            "page_size": {
+              "type": "number",
+              "description": "Number items per page"
+            },
+            "page": {
+              "type": "number",
+              "description": "Page number for pagination"
+            },
+            "remove_spam": {
+              "type": "string",
+              "description": "The query parameter to determine if spam activities have been removed or not"
+            },
+            "amount": {
+              "type": "array",
+              "items": {
+                "type": "number"
+              },
+              "description": "Filter by amount range for a specific token. Example: ?amount[]=1&amount[]=2&token=So11111111111111111111111111111111111111112"
+            },
+            "flow": {
+              "type": "string",
+              "description": "Filter by change direction: in or out"
+            },
+            "sort_by": {
+              "type": "string",
+              "description": "The parameter allows you to specify the field by which the returned list will be sorted"
+            },
+            "sort_order": {
+              "type": "string",
+              "description": "The parameter allows you to specify the sort order"
+            },
+            "block_time": {
+              "type": "array",
+              "items": {
+                "type": "number"
+              },
+              "description": "Used when you want to filter data by block time. Format time: UnixTime in seconds. You need to pass array into http query to filter by start and stop block_time. Example: ?block_time[]=1720153259&block_time[]=1720153276"
+            }
+          },
+          "required": [
+            "address"
+          ]
+        }
+      },
+      {
+        "name": "accountTransactionsApi",
+        "description": "Get the list of transactions of an account",
+        "inputSchema": {
+          "type": "object",
+          "properties": {
+            "address": {
+              "type": "string",
+              "description": "A wallet address on solana blockchain"
+            },
+            "before": {
+              "type": "string",
+              "description": "The signature of the latest transaction of previous page"
+            },
+            "limit": {
+              "type": "number",
+              "description": "The number of transactions should be returned"
+            }
+          },
+          "required": [
+            "address"
+          ]
+        }
+      },
+      {
+        "name": "accountPortfolioApi",
+        "description": "Get the portfolio for a given address",
+        "inputSchema": {
+          "type": "object",
+          "properties": {
+            "address": {
+              "type": "string",
+              "description": "A wallet address on solana blockchain"
+            },
+            "exclude_low_score_tokens": {
+              "type": "boolean",
+              "description": "Excludes tokens with low reputation scores"
+            }
+          },
+          "required": [
+            "address"
+          ]
+        }
+      },
+      {
+        "name": "accountTokenAccountApi",
+        "description": "Get token accounts of an account",
+        "inputSchema": {
+          "type": "object",
+          "properties": {
+            "address": {
+              "type": "string",
+              "description": "A wallet address on solana blockchain"
+            },
+            "type": {
+              "type": "string",
+              "description": "Type of token"
+            },
+            "page": {
+              "type": "number",
+              "description": "Page number for pagination"
+            },
+            "page_size": {
+              "type": "number",
+              "description": "The number of items per page"
+            },
+            "hide_zero": {
+              "type": "boolean",
+              "description": "Filter tokens that have amount is zero"
+            }
+          },
+          "required": [
+            "address",
+            "type"
+          ]
+        }
+      },
+      {
+        "name": "accountStakeApi",
+        "description": "Get the list of stake accounts of an account",
+        "inputSchema": {
+          "type": "object",
+          "properties": {
+            "address": {
+              "type": "string",
+              "description": "A wallet address on solana blockchain"
+            },
+            "page": {
+              "type": "number",
+              "description": "Page number for pagination"
+            },
+            "page_size": {
+              "type": "number",
+              "description": "The number of items per page"
+            },
+            "sort_by": {
+              "type": "string",
+              "description": "The parameter allows you to specify the field by which the returned list of accounts will be sorted"
+            },
+            "sort_order": {
+              "type": "string",
+              "description": "The parameter allows you to specify the sort order"
+            }
+          },
+          "required": [
+            "address"
+          ]
+        }
+      },
+      {
+        "name": "accountRewardExportApi",
+        "description": "Export the rewards for an account. Maximum items: 5000. Without time filter,data will be return for 1 month staking reward. Max 1 request per minute.",
+        "inputSchema": {
+          "type": "object",
+          "properties": {
+            "address": {
+              "type": "string",
+              "description": "A wallet address on solana blockchain"
+            },
+            "time_from": {
+              "type": "number",
+              "description": "The start time for the export. Format: Unix time in seconds. Default 1 month before time_to"
+            },
+            "time_to": {
+              "type": "number",
+              "description": "The end time for the export. Format: Unix time in seconds. Default current time."
+            }
+          },
+          "required": [
+            "address"
+          ]
+        }
+      },
+      {
+        "name": "accountTransferExportApi",
+        "description": "Export transfer data of an account. Maximum items: 5000. Max 1 request per minute.",
+        "inputSchema": {
+          "type": "object",
+          "properties": {
+            "address": {
+              "type": "string",
+              "description": "Solana wallet address"
+            },
+            "activity_type": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              },
+              "description": "Type of transfer"
+            },
+            "token_account": {
+              "type": "string",
+              "description": "Filter transfers for a specific token account in the wallet"
+            },
+            "from": {
+              "type": "string",
+              "description": "Filter transfer data with direction is from an address"
+            },
+            "to": {
+              "type": "string",
+              "description": "Filter transfers from a specific address"
+            },
+            "token": {
+              "type": "string",
+              "description": "Filter by token address. For native SOL transfers, use So11111111111111111111111111111111111111111"
+            },
+            "amount": {
+              "type": "array",
+              "items": {
+                "type": "number"
+              },
+              "description": "Filter by amount range for a specific token. Example: ?amount[]=1&amount[]=2&token=So11111111111111111111111111111111111111112"
+            },
+            "from_time": {
+              "type": "number",
+              "description": "Filter by time range (Unix timestamp in seconds). Example: ?from_time=1720153259&to_time=1720153276"
+            },
+            "to_time": {
+              "type": "number",
+              "description": "Filter by time range (Unix timestamp in seconds). Example: ?from_time=1720153259&to_time=1720153276"
+            },
+            "exclude_amount_zero": {
+              "type": "boolean",
+              "description": "Exclude transfers with zero amount"
+            },
+            "flow": {
+              "type": "string",
+              "description": "Filter by transfer direction: in or out"
+            },
+            "block_time": {
+              "type": "array",
+              "items": {
+                "type": "number"
+              },
+              "description": "Used when you want to filter data by block time. Format time: UnixTime in seconds. You need to pass array into http query to filter by start and stop block_time. Example: ?block_time[]=1720153259&block_time[]=1720153276"
+            }
+          },
+          "required": [
+            "address"
+          ]
+        }
+      },
+      {
+        "name": "accountMetadataApi",
+        "description": "Get the metadata of an account",
+        "inputSchema": {
+          "type": "object",
+          "properties": {
+            "address": {
+              "type": "string",
+              "description": "A wallet address on solana blockchain"
+            }
+          },
+          "required": [
+            "address"
+          ]
+        }
+      },
+      {
+        "name": "accountMetadataMultiApi",
+        "description": "Get the metadata of multiple accounts",
+        "inputSchema": {
+          "type": "object",
+          "properties": {
+            "address": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              },
+              "description": "A list of wallet addresses on solana blockchain. Maximum of 20 account addresses."
+            }
+          },
+          "required": [
+            "address"
+          ]
+        }
+      },
+      {
+        "name": "accountLeaderboardApi",
+        "description": "Get the account leaderboard",
+        "inputSchema": {
+          "type": "object",
+          "properties": {
+            "sort_by": {
+              "type": "string",
+              "description": "The parameter allows you to specify the field by which the returned list of accounts will be sorted"
+            },
+            "sort_order": {
+              "type": "string",
+              "description": "The parameter allows you to specify the sort order"
+            },
+            "page": {
+              "type": "number",
+              "description": "Page number for pagination"
+            },
+            "page_size": {
+              "type": "number",
+              "description": "Number items per page"
+            }
+          },
+          "required": []
+        }
+      },
+      {
+        "name": "accountDefiActivitiesExportApi",
+        "description": "Export defi activities data of an account. Maximum items: 5000. Max 1 request per minute.",
+        "inputSchema": {
+          "type": "object",
+          "properties": {
+            "address": {
+              "type": "string",
+              "description": "A wallet address on solana blockchain"
+            },
+            "activity_type": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              },
+              "description": "Type of activity data"
+            },
+            "from": {
+              "type": "string",
+              "description": "Filter activities from an address"
+            },
+            "platform": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              },
+              "description": "Filter by list platform addresses. Maximum 5 addresses"
+            },
+            "source": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              },
+              "description": "Filter by list source addresses. Maximum 5 addresses"
+            },
+            "token": {
+              "type": "string",
+              "description": "Filter activities data by token address"
+            },
+            "from_time": {
+              "type": "number",
+              "description": "Filter by time range (Unix timestamp in seconds). Example: ?from_time=1720153259&to_time=1720153276"
+            },
+            "to_time": {
+              "type": "number",
+              "description": "Filter by time range (Unix timestamp in seconds). Example: ?from_time=1720153259&to_time=1720153276"
+            },
+            "sort_by": {
+              "type": "string",
+              "description": "The parameter allows you to specify the field by which the returned list will be sorted"
+            },
+            "sort_order": {
+              "type": "string",
+              "description": "The parameter allows you to specify the sort order"
+            },
+            "block_time": {
+              "type": "array",
+              "items": {
+                "type": "number"
+              },
+              "description": "Used when you want to filter data by block time. Format time: UnixTime in seconds. You need to pass array into http query to filter by start and stop block_time. Example: ?block_time[]=1720153259&block_time[]=1720153276"
+            }
+          },
+          "required": [
+            "address"
+          ]
+        }
+      },
+      {
+        "name": "accountFundingActivitiesApi",
+        "description": "Get the list of funding activities performed by an address (native SOL transfers that created/funded other accounts).",
+        "inputSchema": {
+          "type": "object",
+          "properties": {
+            "address": {
+              "type": "string",
+              "description": "Solana wallet address of the funder"
+            },
+            "to": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              },
+              "description": "Filter funding activities with direction is to one/multi funded address. You can filter by multiple addresses. Maximum 5 addresses"
+            },
+            "exclude_to": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              },
+              "description": "Filter funding activities with direction is not to one/multi funded address. You can filter by multiple addresses. Maximum 5 addresses"
+            },
+            "program": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              },
+              "description": "Filter by program address that executed the funding activity. You can filter by multiple addresses. Maximum 5 addresses"
+            },
+            "amount": {
+              "type": "array",
+              "items": {
+                "type": "number"
+              },
+              "description": "Filter by amount range (non-negative integer, raw lamports). Pass one value for a lower bound only, or two values for a closed range"
+            },
+            "value": {
+              "type": "array",
+              "items": {
+                "type": "number"
+              },
+              "description": "Filter by value range (USD, non-negative). Pass one value for a lower bound only, or two values for a closed range"
+            },
+            "from_time": {
+              "type": "number",
+              "description": "Filter by time range (Unix timestamp in seconds). Example: ?from_time=1720153259&to_time=1720153276"
+            },
+            "to_time": {
+              "type": "number",
+              "description": "Filter by time range (Unix timestamp in seconds). Example: ?from_time=1720153259&to_time=1720153276"
+            },
+            "page": {
+              "type": "number",
+              "description": "Page number for pagination"
+            },
+            "page_size": {
+              "type": "number",
+              "description": "Number of items per page"
+            },
+            "sort_by": {
+              "type": "string",
+              "description": "The parameter allows you to specify the field by which the returned list will be sorted"
+            },
+            "sort_order": {
+              "type": "string",
+              "description": "The parameter allows you to specify the sort order"
+            }
+          },
+          "required": [
+            "address"
+          ]
+        }
+      },
+      {
+        "name": "accountCountFundingActivitiesApi",
+        "description": "Get the total funding activities count of an address.",
+        "inputSchema": {
+          "type": "object",
+          "properties": {
+            "address": {
+              "type": "string",
+              "description": "Solana wallet address of the funder"
+            },
+            "to": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              },
+              "description": "Filter funding activities with direction is to one/multi funded address. You can filter by multiple addresses. Maximum 5 addresses"
+            },
+            "exclude_to": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              },
+              "description": "Filter funding activities with direction is not to one/multi funded address. You can filter by multiple addresses. Maximum 5 addresses"
+            },
+            "program": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              },
+              "description": "Filter by program address that executed the funding activity. You can filter by multiple addresses. Maximum 5 addresses"
+            },
+            "amount": {
+              "type": "array",
+              "items": {
+                "type": "number"
+              },
+              "description": "Filter by amount range (non-negative integer, raw lamports). Pass one value for a lower bound only, or two values for a closed range"
+            },
+            "value": {
+              "type": "array",
+              "items": {
+                "type": "number"
+              },
+              "description": "Filter by value range (USD, non-negative). Pass one value for a lower bound only, or two values for a closed range"
+            },
+            "from_time": {
+              "type": "number",
+              "description": "Filter by time range (Unix timestamp in seconds). Example: ?from_time=1720153259&to_time=1720153276"
+            },
+            "to_time": {
+              "type": "number",
+              "description": "Filter by time range (Unix timestamp in seconds). Example: ?from_time=1720153259&to_time=1720153276"
+            }
+          },
+          "required": [
+            "address"
+          ]
+        }
+      },
+      {
+        "name": "accountFundedByApi",
+        "description": "Get funder accounts for multiple accounts.",
+        "inputSchema": {
+          "type": "object",
+          "properties": {
+            "address": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              },
+              "description": "A list of Solana wallet addresses. Maximum of 50 account addresses."
+            }
+          },
+          "required": [
+            "address"
+          ]
+        }
+      },
+      {
+        "name": "tokenTransferApi",
+        "description": "Get transfer data of a token",
+        "inputSchema": {
+          "type": "object",
+          "properties": {
+            "address": {
+              "type": "string",
+              "description": "A token address on solana blockchain"
+            },
+            "activity_type": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              },
+              "description": "Type of transfer data"
+            },
+            "from": {
+              "type": "string",
+              "description": "Filter transfer data with direction is from one/multi address. You can filter by multiple addresses by separating them with commas. Example: ?from=address1,address2. Maximum 5 addresses"
+            },
+            "exclude_from": {
+              "type": "string",
+              "description": "Filter transfer data with direction is not from one/multi address. You can filter by multiple addresses by separating them with commas. Example: ?exclude_from=address1,address2. Maximum 5 addresses"
+            },
+            "to": {
+              "type": "string",
+              "description": "Filter transfer data with direction is to one/multi address. You can filter by multiple addresses by separating them with commas. Example: ?to=address1,address2. Maximum 5 addresses"
+            },
+            "exclude_to": {
+              "type": "string",
+              "description": "Filter transfer data with direction is not to one/multi address. You can filter by multiple addresses by separating them with commas. Example: ?exclude_to=address1,address2. Maximum 5 addresses"
+            },
+            "amount": {
+              "type": "array",
+              "items": {
+                "type": "number"
+              },
+              "description": "Filter transfer data by by amount. But you need to pass token address first because amount filter will be belong to one token address. Ex: Filter amount from 1 to 2 SOL ?amount[]=1&amont[]=2&token=So11111111111111111111111111111111111111112"
+            },
+            "block_time": {
+              "type": "array",
+              "items": {
+                "type": "number"
+              },
+              "description": "Used when you want to filter data by block time. Format time: UnixTime in seconds. You need to pass array into http query to filter by start and stop block_time. Example: ?block_time[]=1720153259&block_time[]=1720153276"
+            },
+            "exclude_amount_zero": {
+              "type": "boolean",
+              "description": "Excludes transfer that has amount is zero"
+            },
+            "page": {
+              "type": "number",
+              "description": "Page number for pagination"
+            },
+            "page_size": {
+              "type": "number",
+              "description": "Number items per page"
+            },
+            "sort_by": {
+              "type": "string",
+              "description": "The parameter allows you to specify the field by which the returned list will be sorted"
+            },
+            "sort_order": {
+              "type": "string",
+              "description": "The parameter allows you to specify the sort order"
+            },
+            "value": {
+              "type": "array",
+              "items": {
+                "type": "number"
+              },
+              "description": "Filter by value range (dollar). Example: ?value[]=1&value[]=10"
+            }
+          },
+          "required": [
+            "address"
+          ]
+        }
+      },
+      {
+        "name": "tokenDefiActivitiesApi",
+        "description": "Get defi activities involving a token",
+        "inputSchema": {
+          "type": "object",
+          "properties": {
+            "address": {
+              "type": "string",
+              "description": "A token address on solana blockchain"
+            },
+            "from": {
+              "type": "string",
+              "description": "Filter activities from an address"
+            },
+            "platform": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              },
+              "description": "Filter by list platform addresses. Maximum 5 addresses"
+            },
+            "source": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              },
+              "description": "Filter by list source addresses. Maximum 5 addresses"
+            },
+            "activity_type": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              },
+              "description": "Type of defi-activity data"
+            },
+            "token": {
+              "type": "string",
+              "description": "Filter activities data by token address"
+            },
+            "from_time": {
+              "type": "number",
+              "description": "Filter by time range (Unix timestamp in seconds). Example: ?from_time=1720153259&to_time=1720153276"
+            },
+            "to_time": {
+              "type": "number",
+              "description": "Filter by time range (Unix timestamp in seconds). Example: ?from_time=1720153259&to_time=1720153276"
+            },
+            "page": {
+              "type": "number",
+              "description": "Page number for pagination"
+            },
+            "page_size": {
+              "type": "number",
+              "description": "Number items per page"
+            },
+            "sort_by": {
+              "type": "string",
+              "description": "The parameter allows you to specify the field by which the returned list will be sorted"
+            },
+            "sort_order": {
+              "type": "string",
+              "description": "The parameter allows you to specify the sort order"
+            },
+            "block_time": {
+              "type": "array",
+              "items": {
+                "type": "number"
+              },
+              "description": "Used when you want to filter data by block time. Format time: UnixTime in seconds. You need to pass array into http query to filter by start and stop block_time. Example: ?block_time[]=1720153259&block_time[]=1720153276"
+            }
+          },
+          "required": [
+            "address"
+          ]
+        }
+      },
+      {
+        "name": "tokenMarketsApi",
+        "description": "Get token markets",
+        "inputSchema": {
+          "type": "object",
+          "properties": {
+            "token": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              },
+              "description": "Token pair address"
+            },
+            "sort_by": {
+              "type": "string",
+              "description": "The parameter allows you to specify the field by which the returned list will be sorted"
+            },
+            "program": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              },
+              "description": "Filter by list program addresses. Maximum 5 addresses"
+            },
+            "page": {
+              "type": "number",
+              "description": "Page number for pagination"
+            },
+            "page_size": {
+              "type": "number",
+              "description": "Number items per page"
+            }
+          },
+          "required": [
+            "token"
+          ]
+        }
+      },
+      {
+        "name": "tokenMetaApi",
+        "description": "Get the metadata of a token",
+        "inputSchema": {
+          "type": "object",
+          "properties": {
+            "address": {
+              "type": "string",
+              "description": "A token address on solana blockchain"
+            }
+          },
+          "required": [
+            "address"
+          ]
+        }
+      },
+      {
+        "name": "tokenMetaMultiApi",
+        "description": "Get the metadata of multiple tokens.",
+        "inputSchema": {
+          "type": "object",
+          "properties": {
+            "address": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              },
+              "description": "A list of token addresses on solana blockchain. Maximum of 20 token addresses."
+            }
+          },
+          "required": [
+            "address"
+          ]
+        }
+      },
+      {
+        "name": "tokenPriceApi",
+        "description": "Get price of a token",
+        "inputSchema": {
+          "type": "object",
+          "properties": {
+            "address": {
+              "type": "string",
+              "description": "A token address on solana blockchain"
+            },
+            "from_time": {
+              "type": "number",
+              "description": "Used when you want to filter data by time. Format time: YYYYMMDD. You need to pass array into http query to filter by start and end time. Example: ?from_time=20240701&to_time=20240715"
+            },
+            "to_time": {
+              "type": "number",
+              "description": "Used when you want to filter data by time. Format time: YYYYMMDD. You need to pass array into http query to filter by start and end time. Example: ?from_time=20240701&to_time=20240715"
+            },
+            "time": {
+              "type": "array",
+              "items": {
+                "type": "number"
+              },
+              "description": "Used when you want to filter data by time. Format time: YYYYMMDD. You need to pass array into http query to filter by start and end time. Example: ?time[]=20240701&time[]=20240715"
+            }
+          },
+          "required": [
+            "address"
+          ]
+        }
+      },
+      {
+        "name": "tokenPriceMultiApi",
+        "description": "Get the metadata of multiple tokens.",
+        "inputSchema": {
+          "type": "object",
+          "properties": {
+            "address": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              },
+              "description": "A list of token addresses on solana blockchain. Maximum of 20 token addresses."
+            },
+            "from_time": {
+              "type": "number",
+              "description": "Used when you want to filter data by time. Format time: YYYYMMDD. You need to pass array into http query to filter by start and end time. Example: ?from_time=20240701&to_time=20240715"
+            },
+            "to_time": {
+              "type": "number",
+              "description": "Used when you want to filter data by time. Format time: YYYYMMDD. You need to pass array into http query to filter by start and end time. Example: ?from_time=20240701&to_time=20240715"
+            },
+            "time": {
+              "type": "array",
+              "items": {
+                "type": "number"
+              },
+              "description": "Used when you want to filter data by time. Format time: YYYYMMDD. You need to pass array into http query to filter by start and end time. Example: ?time[]=20240701&time[]=20240715"
+            }
+          },
+          "required": [
+            "address"
+          ]
+        }
+      },
+      {
+        "name": "tokenHoldersApi",
+        "description": "Get the list of token holders",
+        "inputSchema": {
+          "type": "object",
+          "properties": {
+            "address": {
+              "type": "string",
+              "description": "A token address on solana blockchain"
+            },
+            "page": {
+              "type": "number",
+              "description": "Page number for pagination"
+            },
+            "page_size": {
+              "type": "number",
+              "description": "Number items per page"
+            },
+            "from_amount": {
+              "type": "string",
+              "description": "Filter holders by minimum token holding amount. The number should be in string format"
+            },
+            "to_amount": {
+              "type": "string",
+              "description": "Filter holders by maximum token holding amount. The number should be in string format"
+            }
+          },
+          "required": [
+            "address"
+          ]
+        }
+      },
+      {
+        "name": "tokenTopApi",
+        "description": "Get the list of top tokens",
+        "inputSchema": {
+          "type": "object",
+          "properties": {},
+          "required": []
+        }
+      },
+      {
+        "name": "tokenTrendingApi",
+        "description": "Get the list of trending tokens",
+        "inputSchema": {
+          "type": "object",
+          "properties": {
+            "limit": {
+              "type": "number",
+              "description": "Number items should be returned"
+            }
+          },
+          "required": []
+        }
+      },
+      {
+        "name": "tokenDefiActivitiesExportApi",
+        "description": "Get defi activities involving a token",
+        "inputSchema": {
+          "type": "object",
+          "properties": {
+            "address": {
+              "type": "string",
+              "description": "A token address on solana blockchain"
+            },
+            "from": {
+              "type": "string",
+              "description": "Filter activities from an address"
+            },
+            "platform": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              },
+              "description": "Filter by list platform addresses. Maximum 5 addresses"
+            },
+            "source": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              },
+              "description": "Filter by list source addresses. Maximum 5 addresses"
+            },
+            "activity_type": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              },
+              "description": "Type of defi-activity data"
+            },
+            "token": {
+              "type": "string",
+              "description": "Filter activities data by token address"
+            },
+            "from_time": {
+              "type": "number",
+              "description": "Filter by time range (Unix timestamp in seconds). Example: ?from_time=1720153259&to_time=1720153276"
+            },
+            "to_time": {
+              "type": "number",
+              "description": "Filter by time range (Unix timestamp in seconds). Example: ?from_time=1720153259&to_time=1720153276"
+            },
+            "sort_by": {
+              "type": "string",
+              "description": "The parameter allows you to specify the field by which the returned list will be sorted"
+            },
+            "sort_order": {
+              "type": "string",
+              "description": "The parameter allows you to specify the sort order"
+            },
+            "block_time": {
+              "type": "array",
+              "items": {
+                "type": "number"
+              },
+              "description": "Used when you want to filter data by block time. Format time: UnixTime in seconds. You need to pass array into http query to filter by start and stop block_time. Example: ?block_time[]=1720153259&block_time[]=1720153276"
+            }
+          },
+          "required": [
+            "address"
+          ]
+        }
+      },
+      {
+        "name": "nftNewApi",
+        "description": "Get the list of new NFTs",
+        "inputSchema": {
+          "type": "object",
+          "properties": {
+            "filter": {
+              "type": "string",
+              "description": "Filter ('created_time')"
+            },
+            "page": {
+              "type": "number",
+              "description": "Page number for pagination"
+            },
+            "page_size": {
+              "type": "number",
+              "description": "Number items per page"
+            }
+          },
+          "required": [
+            "filter"
+          ]
+        }
+      },
+      {
+        "name": "nftActivitiesApi",
+        "description": "Get NFT activities",
+        "inputSchema": {
+          "type": "object",
+          "properties": {
+            "from": {
+              "type": "string",
+              "description": "From"
+            },
+            "to": {
+              "type": "string",
+              "description": "To"
+            },
+            "source": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              },
+              "description": "Filter by list source addresses. Maximum 5 addresses"
+            },
+            "activity_type": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              },
+              "description": "Type of defiactivity data"
+            },
+            "from_time": {
+              "type": "number",
+              "description": "Filter by time range (Unix timestamp in seconds). Example: ?from_time=1720153259&to_time=1720153276"
+            },
+            "to_time": {
+              "type": "number",
+              "description": "Filter by time range (Unix timestamp in seconds). Example: ?from_time=1720153259&to_time=1720153276"
+            },
+            "token": {
+              "type": "string",
+              "description": "Filter activities data by token address"
+            },
+            "collection": {
+              "type": "string",
+              "description": "collection"
+            },
+            "currency_token": {
+              "type": "string",
+              "description": "currency_token"
+            },
+            "price": {
+              "type": "array",
+              "items": {
+                "type": "number"
+              },
+              "description": "Filter transfer data by by amount. But you need to pass token address in field currency_token first because price filter will be belong to one currency token address. Ex: Filter price from 1 to 2 SOL ?price[]=1&price[]=2&currency_token=So11111111111111111111111111111111111111112"
+            },
+            "page": {
+              "type": "number",
+              "description": "Page number for pagination"
+            },
+            "page_size": {
+              "type": "number",
+              "description": "Number items per page"
+            },
+            "block_time": {
+              "type": "array",
+              "items": {
+                "type": "number"
+              },
+              "description": "Used when you want to filter data by block time. Format time: UnixTime in seconds. You need to pass array into http query to filter by start and stop block_time. Example: ?block_time[]=1720153259&block_time[]=1720153276"
+            }
+          },
+          "required": []
+        }
+      },
+      {
+        "name": "nftCollectionListApi",
+        "description": "Get the list of NFT collections",
+        "inputSchema": {
+          "type": "object",
+          "properties": {
+            "range": {
+              "type": "number",
+              "description": "Days range"
+            },
+            "sort_order": {
+              "type": "string",
+              "description": "The parameter allows you to specify the sort order"
+            },
+            "sort_by": {
+              "type": "string",
+              "description": "The parameter allows you to specify the field by which the returned list will be sorted"
+            },
+            "page": {
+              "type": "number",
+              "description": "Page number for pagination"
+            },
+            "page_size": {
+              "type": "number",
+              "description": "Number items per page"
+            },
+            "collection": {
+              "type": "string",
+              "description": "Collection ID, if not provided, will return all collections"
+            }
+          },
+          "required": []
+        }
+      },
+      {
+        "name": "nftCollectionItemApi",
+        "description": "Get the list of items of a NFT collection",
+        "inputSchema": {
+          "type": "object",
+          "properties": {
+            "collection": {
+              "type": "string",
+              "description": "Collection ID"
+            },
+            "sort_by": {
+              "type": "string",
+              "description": "The parameter allows you to specify the field by which the returned list will be sorted"
+            },
+            "page": {
+              "type": "number",
+              "description": "Page number for pagination"
+            },
+            "page_size": {
+              "type": "number",
+              "description": "Number items per page"
+            }
+          },
+          "required": [
+            "collection"
+          ]
+        }
+      },
+      {
+        "name": "transactionLastApi",
+        "description": "Get the list of the latest transactions",
+        "inputSchema": {
+          "type": "object",
+          "properties": {
+            "limit": {
+              "type": "number",
+              "description": "The number of transactions should be returned"
+            },
+            "filter": {
+              "type": "string",
+              "description": "The filter parameter for excluding vote transactions"
+            }
+          },
+          "required": []
+        }
+      },
+      {
+        "name": "transactionDetailApi",
+        "description": "Get the detail of a transaction. Return transaction data after parsed by Solscan Parser. Data will include very helpful data such as: token and sol balance changes, IDL data, defi or transfer activities of each instructions",
+        "inputSchema": {
+          "type": "object",
+          "properties": {
+            "tx": {
+              "type": "string",
+              "description": "The signature of the transaction"
+            }
+          },
+          "required": [
+            "tx"
+          ]
+        }
+      },
+      {
+        "name": "transactionDetailMultiApi",
+        "description": "Get the detail of multiple transactions. Return transaction data after parsed by Solscan Parser. Data will include very helpful data such as: token and sol balance changes, IDL data, defi or transfer activities of each instructions",
+        "inputSchema": {
+          "type": "object",
+          "properties": {
+            "tx": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              },
+              "description": "A list of transaction signatures. Maximum of 20 transaction signatures."
+            }
+          },
+          "required": [
+            "tx"
+          ]
+        }
+      },
+      {
+        "name": "transactionActionsApi",
+        "description": "Get the actions of a transaction. Return the actions like: transfers, swap activities, nft activities...",
+        "inputSchema": {
+          "type": "object",
+          "properties": {
+            "tx": {
+              "type": "string",
+              "description": "The signature of the transaction"
+            }
+          },
+          "required": [
+            "tx"
+          ]
+        }
+      },
+      {
+        "name": "transactionActionsMultiApi",
+        "description": "Get the actions of multiple transactions. Return the actions like: transfers, swap activities, nft activities...",
+        "inputSchema": {
+          "type": "object",
+          "properties": {
+            "tx": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              },
+              "description": "A list of transaction signatures. Maximum of 20 transaction signatures."
+            }
+          },
+          "required": [
+            "tx"
+          ]
+        }
+      },
+      {
+        "name": "blockLastApi",
+        "description": "Get the list of the latest blocks",
+        "inputSchema": {
+          "type": "object",
+          "properties": {
+            "limit": {
+              "type": "number",
+              "description": "The number of blocks should be returned"
+            }
+          },
+          "required": []
+        }
+      },
+      {
+        "name": "blockTransactionApi",
+        "description": "Get the list of transactions of a block",
+        "inputSchema": {
+          "type": "object",
+          "properties": {
+            "block": {
+              "type": "number",
+              "description": "The slot index of a block"
+            },
+            "page": {
+              "type": "number",
+              "description": "Page number for pagination"
+            },
+            "page_size": {
+              "type": "number",
+              "description": "Number of items per page"
+            },
+            "exclude_vote": {
+              "type": "boolean",
+              "description": "Excludes vote transactions from the results"
+            },
+            "program": {
+              "type": "string",
+              "description": "The program used to filter transactions that interact with it"
+            }
+          },
+          "required": [
+            "block"
+          ]
+        }
+      },
+      {
+        "name": "blockDetailApi",
+        "description": "Get the details of a block",
+        "inputSchema": {
+          "type": "object",
+          "properties": {
+            "block": {
+              "type": "number",
+              "description": "The slot index of a block"
+            }
+          },
+          "required": [
+            "block"
+          ]
+        }
+      },
+      {
+        "name": "marketListApi",
+        "description": "Get the list of pool markets",
+        "inputSchema": {
+          "type": "object",
+          "properties": {
+            "page": {
+              "type": "number",
+              "description": "Page number for pagination"
+            },
+            "page_size": {
+              "type": "number",
+              "description": "Number items per page"
+            },
+            "program": {
+              "type": "string",
+              "description": "Program owner address"
+            },
+            "token_address": {
+              "type": "string",
+              "description": "Token address involving"
+            },
+            "sort_by": {
+              "type": "string",
+              "description": "The parameter allows you to specify the field by which the returned list will be sorted"
+            },
+            "sort_order": {
+              "type": "string",
+              "description": "The parameter allows you to specify the sort order"
+            }
+          },
+          "required": []
+        }
+      },
+      {
+        "name": "marketInfoApi",
+        "description": "Get token market info",
+        "inputSchema": {
+          "type": "object",
+          "properties": {
+            "address": {
+              "type": "string",
+              "description": "Market Id"
+            }
+          },
+          "required": [
+            "address"
+          ]
+        }
+      },
+      {
+        "name": "marketVolumeApi",
+        "description": "Get token market volume",
+        "inputSchema": {
+          "type": "object",
+          "properties": {
+            "address": {
+              "type": "string",
+              "description": "Market Id"
+            },
+            "time": {
+              "type": "array",
+              "items": {
+                "type": "number"
+              },
+              "description": "Used when you want to filter data by time. Format time: YYYYMMDD. You need to pass array into http query to filter by start and end time. Example: ?time[]=20240701&time[]=20240715"
+            }
+          },
+          "required": [
+            "address"
+          ]
+        }
+      },
+      {
+        "name": "programLeaderboardApi",
+        "description": "Get list of programs that active in 90 days",
+        "inputSchema": {
+          "type": "object",
+          "properties": {
+            "sort_by": {
+              "type": "string",
+              "description": "The parameter allows you to specify the field by which the returned list of programs will be sorted"
+            },
+            "sort_order": {
+              "type": "string",
+              "description": "The parameter allows you to specify the sort order"
+            },
+            "page": {
+              "type": "number",
+              "description": "Page number for pagination"
+            },
+            "page_size": {
+              "type": "number",
+              "description": "Number items per page"
+            }
+          },
+          "required": []
+        }
+      },
+      {
+        "name": "programPopularPlatformsApi",
+        "description": "Get the list of popular defi platforms",
+        "inputSchema": {
+          "type": "object",
+          "properties": {},
+          "required": []
+        }
+      },
+      {
+        "name": "monitorUsageApi",
+        "description": "Get the used Compute Units of a subscriber",
+        "inputSchema": {
+          "type": "object",
+          "properties": {},
+          "required": []
+        }
+      },
+      {
+        "name": "userLabelListApi",
+        "description": "Get list of labels for the authenticated user",
+        "inputSchema": {
+          "type": "object",
+          "properties": {},
+          "required": []
+        }
+      },
+      {
+        "name": "userLabelCreateApi",
+        "description": "Create a label for a wallet address or transaction",
+        "inputSchema": {
+          "type": "object",
+          "properties": {
+            "type": {
+              "type": "string",
+              "description": "Type of label target: \"tx\" for transaction, \"account\" for wallet address"
+            },
+            "hash": {
+              "type": "string",
+              "description": "The transaction signature (when type=tx) or wallet address (when type=account) to label"
+            },
+            "label": {
+              "type": "string",
+              "description": "Label text (1–100 characters)"
+            },
+            "note": {
+              "type": "string",
+              "description": "Optional note (max 150 characters)"
+            }
+          },
+          "required": [
+            "type",
+            "hash",
+            "label"
+          ]
+        }
+      },
+      {
+        "name": "userLabelUpdateApi",
+        "description": "Update an existing label by its ID",
+        "inputSchema": {
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "string",
+              "description": "The label ID (24-character MongoDB ObjectId)"
+            },
+            "type": {
+              "type": "string",
+              "description": "Type of label target: \"tx\" for transaction, \"account\" for wallet address"
+            },
+            "hash": {
+              "type": "string",
+              "description": "The transaction signature (when type=tx) or wallet address (when type=account)"
+            },
+            "label": {
+              "type": "string",
+              "description": "New label text (0–100 characters)"
+            },
+            "note": {
+              "type": "string",
+              "description": "New note (max 150 characters, can be empty)"
+            }
+          },
+          "required": [
+            "id"
+          ]
+        }
+      },
+      {
+        "name": "userLabelDeleteApi",
+        "description": "Delete a label by its ID",
+        "inputSchema": {
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "string",
+              "description": "The label ID to delete (24-character MongoDB ObjectId)"
+            }
+          },
+          "required": [
+            "id"
+          ]
+        }
+      },
+      {
+        "name": "tokenOHLCVApi",
+        "description": "Get OHLCV (Open, High, Low, Close, Volume) candlestick price data for a token",
+        "inputSchema": {
+          "type": "object",
+          "properties": {
+            "address": {
+              "type": "string",
+              "description": "A token address on solana blockchain"
+            },
+            "res": {
+              "type": "string",
+              "description": "Candlestick interval. Supported: 1m, 5m, 15m, 30m, 1h, 4h, 8h, 1d, 1W, 1M, 1Y. Default: 1m"
+            },
+            "pool_id": {
+              "type": "string",
+              "description": "Filter OHLCV data for a specific liquidity pool address"
+            },
+            "from_time": {
+              "type": "number",
+              "description": "Start time filter (Unix timestamp in seconds)"
+            },
+            "to_time": {
+              "type": "number",
+              "description": "End time filter (Unix timestamp in seconds)"
+            },
+            "cursor": {
+              "type": "number",
+              "description": "Pagination cursor from a previous response to fetch the next set of data."
+            },
+            "candles": {
+              "type": "number",
+              "description": "Number of candles to return. Default: 600"
+            },
+            "currency": {
+              "type": "string",
+              "description": "Price currency: \"usd\" (default) or \"quote\" (priced in the pool's quote token)"
+            }
+          },
+          "required": [
+            "address"
+          ]
+        }
+      },
+      {
+        "name": "tokenListV2Api",
+        "description": "Get the Solscan token list v2 with real-time trading metrics. Can get the list of recently created tokens by using listing time metric. Supports filtering by trading volume, buy/sell volume, trade count, trader counts, and price change % across 9 time intervals (1m, 5m, 30m, 1h, 4h, 8h, 24h, 7d, 30d). Also supports filtering by static snapshot metrics: market cap, FDV, liquidity, holder count, supply, listing time. Supports trader concentration metrics: trader HHI (24h) and top-N trader volume percentage (top 1/5/20/100 over 24h). Supports holder distribution metrics: holder Gini coefficient, holder HHI, and top-N holder balance percentage (top 1/5/20/100). All numeric filters are from_/to_ range pairs. Useful for screening tokens by activity, momentum, market size, ownership concentration, or trading liquidity distribution. Example status code 200 response: { \"success\": true, \"data\": { \"items\": [{ \"token_address\": \"FAp2KjVCAXM5gWp2CGqTnYDa2MjP2HcxTt4UbntYZVkJ\", \"volume_1m\": 29922.50, \"volume_1m_change_pct\": 767.65, \"volume_5m\": 43734.98, \"volume_5m_change_pct\": 709.23, \"volume_30m\": 78325.25, \"volume_30m_change_pct\": 709.23, \"volume_1h\": 78325.25, \"volume_1h_change_pct\": 709.23, \"volume_4h\": 78325.25, \"volume_4h_change_pct\": 709.23, \"volume_8h\": 78325.25, \"volume_8h_change_pct\": 709.23, \"volume_24h\": 78325.25, \"volume_24h_change_pct\": 709.23, \"volume_7d\": 78325.25, \"volume_7d_change_pct\": 709.23, \"volume_30d\": 78325.25, \"volume_30d_change_pct\": 709.23, \"buy_volume_1m\": 2139.60, \"buy_volume_1m_change_pct\": -10.35, \"buy_volume_5m\": 11779.90, \"buy_volume_5m_change_pct\": 203.07, \"buy_volume_30m\": 44512.93, \"buy_volume_30m_change_pct\": 203.07, \"buy_volume_1h\": 44512.93, \"buy_volume_1h_change_pct\": 203.07, \"buy_volume_4h\": 44512.93, \"buy_volume_4h_change_pct\": 203.07, \"buy_volume_8h\": 44512.93, \"buy_volume_8h_change_pct\": 203.07, \"buy_volume_24h\": 44512.93, \"buy_volume_24h_change_pct\": 203.07, \"buy_volume_7d\": 44512.93, \"buy_volume_7d_change_pct\": 203.07, \"buy_volume_30d\": 44512.93, \"buy_volume_30d_change_pct\": 203.07, \"sell_volume_1m\": 27782.90, \"sell_volume_1m_change_pct\": 2516.04, \"sell_volume_5m\": 31955.08, \"sell_volume_5m_change_pct\": 2005.53, \"sell_volume_30m\": 33812.33, \"sell_volume_30m_change_pct\": 2005.53, \"sell_volume_1h\": 33812.33, \"sell_volume_1h_change_pct\": 2005.53, \"sell_volume_4h\": 33812.33, \"sell_volume_4h_change_pct\": 2005.53, \"sell_volume_8h\": 33812.33, \"sell_volume_8h_change_pct\": 2005.53, \"sell_volume_24h\": 33812.33, \"sell_volume_24h_change_pct\": 2005.53, \"sell_volume_7d\": 33812.33, \"sell_volume_7d_change_pct\": 2005.53, \"sell_volume_30d\": 33812.33, \"sell_volume_30d_change_pct\": 2005.53, \"num_trade_1m\": 1124, \"num_trade_1m_change_pct\": 27.44, \"num_trade_5m\": 4661, \"num_trade_5m_change_pct\": 14.63, \"num_trade_30m\": 12252, \"num_trade_30m_change_pct\": 14.63, \"num_trade_1h\": 12252, \"num_trade_1h_change_pct\": 14.63, \"num_trade_4h\": 12252, \"num_trade_4h_change_pct\": 14.63, \"num_trade_8h\": 12252, \"num_trade_8h_change_pct\": 14.63, \"num_trade_24h\": 12252, \"num_trade_24h_change_pct\": 14.63, \"num_trade_7d\": 12252, \"num_trade_7d_change_pct\": 14.63, \"num_trade_30d\": 12252, \"num_trade_30d_change_pct\": 14.63, \"num_buy_trade_1m\": 475, \"num_buy_trade_1m_change_pct\": -7.59, \"num_buy_trade_5m\": 2534, \"num_buy_trade_5m_change_pct\": 7.97, \"num_buy_trade_30m\": 6910, \"num_buy_trade_30m_change_pct\": 7.97, \"num_buy_trade_1h\": 6910, \"num_buy_trade_1h_change_pct\": 7.97, \"num_buy_trade_4h\": 6910, \"num_buy_trade_4h_change_pct\": 7.97, \"num_buy_trade_8h\": 6910, \"num_buy_trade_8h_change_pct\": 7.97, \"num_buy_trade_24h\": 6910, \"num_buy_trade_24h_change_pct\": 7.97, \"num_buy_trade_7d\": 6910, \"num_buy_trade_7d_change_pct\": 7.97, \"num_buy_trade_30d\": 6910, \"num_buy_trade_30d_change_pct\": 7.97, \"num_sell_trade_1m\": 649, \"num_sell_trade_1m_change_pct\": 76.36, \"num_sell_trade_5m\": 2127, \"num_sell_trade_5m_change_pct\": 23.73, \"num_sell_trade_30m\": 5342, \"num_sell_trade_30m_change_pct\": 23.73, \"num_sell_trade_1h\": 5342, \"num_sell_trade_1h_change_pct\": 23.73, \"num_sell_trade_4h\": 5342, \"num_sell_trade_4h_change_pct\": 23.73, \"num_sell_trade_8h\": 5342, \"num_sell_trade_8h_change_pct\": 23.73, \"num_sell_trade_24h\": 5342, \"num_sell_trade_24h_change_pct\": 23.73, \"num_sell_trade_7d\": 5342, \"num_sell_trade_7d_change_pct\": 23.73, \"num_sell_trade_30d\": 5342, \"num_sell_trade_30d_change_pct\": 23.73, \"num_trader_1m\": 608, \"num_trader_1m_change_pct\": 104.03, \"num_trader_5m\": 635, \"num_trader_5m_change_pct\": 93.01, \"num_trader_30m\": 668, \"num_trader_30m_change_pct\": 93.01, \"num_trader_1h\": 668, \"num_trader_1h_change_pct\": 93.01, \"num_trader_4h\": 668, \"num_trader_4h_change_pct\": 93.01, \"num_trader_8h\": 668, \"num_trader_8h_change_pct\": 93.01, \"num_trader_24h\": 668, \"num_trader_24h_change_pct\": 93.01, \"num_trader_7d\": 668, \"num_trader_7d_change_pct\": 93.01, \"num_trader_30d\": 668, \"num_trader_30d_change_pct\": 93.01, \"num_buyer_1m\": 231, \"num_buyer_1m_change_pct\": -5.71, \"num_buyer_5m\": 323, \"num_buyer_5m_change_pct\": 0.31, \"num_buyer_30m\": 363, \"num_buyer_30m_change_pct\": 0.31, \"num_buyer_1h\": 363, \"num_buyer_1h_change_pct\": 0.31, \"num_buyer_4h\": 363, \"num_buyer_4h_change_pct\": 0.31, \"num_buyer_8h\": 363, \"num_buyer_8h_change_pct\": 0.31, \"num_buyer_24h\": 363, \"num_buyer_24h_change_pct\": 0.31, \"num_buyer_7d\": 363, \"num_buyer_7d_change_pct\": 0.31, \"num_buyer_30d\": 363, \"num_buyer_30d_change_pct\": 0.31, \"num_seller_1m\": 506, \"num_seller_1m_change_pct\": 137.56, \"num_seller_5m\": 612, \"num_seller_5m_change_pct\": 99.35, \"num_seller_30m\": 633, \"num_seller_30m_change_pct\": 99.35, \"num_seller_1h\": 633, \"num_seller_1h_change_pct\": 99.35, \"num_seller_4h\": 633, \"num_seller_4h_change_pct\": 99.35, \"num_seller_8h\": 633, \"num_seller_8h_change_pct\": 99.35, \"num_seller_24h\": 633, \"num_seller_24h_change_pct\": 99.35, \"num_seller_7d\": 633, \"num_seller_7d_change_pct\": 99.35, \"num_seller_30d\": 633, \"num_seller_30d_change_pct\": 99.35, \"price_1m_change_pct\": -70.20, \"price_5m_change_pct\": -59.68, \"price_30m_change_pct\": -59.68, \"price_1h_change_pct\": -59.68, \"price_4h_change_pct\": -59.68, \"price_8h_change_pct\": -59.68, \"price_24h_change_pct\": -59.68, \"price_7d_change_pct\": 0, \"price_30d_change_pct\": 0, \"trader_hhi_24h\": 0.08405198090510263, \"trader_top_1_volume_pct_24h\": 22.582196380625735, \"trader_top_5_volume_pct_24h\": 51.379139443722785, \"trader_top_20_volume_pct_24h\": 73.26734274505655, \"trader_top_100_volume_pct_24h\": 85.6459602770452, \"market_cap\": 94026.99, \"total_supply\": 999770536.69, \"liquidity\": 10049.59, \"num_pool\": 2, \"num_holder\": 2231, \"fdv\": 94493.68, \"circulating_supply\": 994832881.38, \"first_listing_time\": 1790756012, \"holder_gini\": 0.4106221823955727, \"holder_hhi\": 0.04765331211878633, \"holder_top_1_balance_pct\": 17.31726060793157, \"holder_top_5_balance_pct\": 31.17049728017564, \"holder_top_20_balance_pct\": 31.714055912103245, \"holder_top_100_balance_pct\": 34.61303528238381, \"updated_time\": 1790756952, \"platform\": [\"pumpfun\"] }], \"total\": 1 } }",
+        "inputSchema": {
+          "type": "object",
+          "properties": {
+            "from_volume_1m": {
+              "type": "number",
+              "description": "Minimum total trading volume (USD) in the last 1 minute. Use with to_volume_1m for a range filter."
+            },
+            "to_volume_1m": {
+              "type": "number",
+              "description": "Maximum total trading volume (USD) in the last 1 minute. Use with from_volume_1m for a range filter."
+            },
+            "from_volume_1m_change_pct": {
+              "type": "number",
+              "description": "Minimum % change in total trading volume (USD) over the last 1 minute. Positive = growth, negative = decline. Example: 50 means at least +50%."
+            },
+            "to_volume_1m_change_pct": {
+              "type": "number",
+              "description": "Maximum % change in total trading volume (USD) over the last 1 minute. Positive = growth, negative = decline. Example: -10 means at most -10%."
+            },
+            "from_buy_volume_1m": {
+              "type": "number",
+              "description": "Minimum total buy volume (USD) in the last 1 minute. Use with to_buy_volume_1m for a range filter."
+            },
+            "to_buy_volume_1m": {
+              "type": "number",
+              "description": "Maximum total buy volume (USD) in the last 1 minute. Use with from_buy_volume_1m for a range filter."
+            },
+            "from_buy_volume_1m_change_pct": {
+              "type": "number",
+              "description": "Minimum % change in total buy volume (USD) over the last 1 minute. Positive = growth, negative = decline. Example: 50 means at least +50%."
+            },
+            "to_buy_volume_1m_change_pct": {
+              "type": "number",
+              "description": "Maximum % change in total buy volume (USD) over the last 1 minute. Positive = growth, negative = decline. Example: -10 means at most -10%."
+            },
+            "from_sell_volume_1m": {
+              "type": "number",
+              "description": "Minimum total sell volume (USD) in the last 1 minute. Use with to_sell_volume_1m for a range filter."
+            },
+            "to_sell_volume_1m": {
+              "type": "number",
+              "description": "Maximum total sell volume (USD) in the last 1 minute. Use with from_sell_volume_1m for a range filter."
+            },
+            "from_sell_volume_1m_change_pct": {
+              "type": "number",
+              "description": "Minimum % change in total sell volume (USD) over the last 1 minute. Positive = growth, negative = decline. Example: 50 means at least +50%."
+            },
+            "to_sell_volume_1m_change_pct": {
+              "type": "number",
+              "description": "Maximum % change in total sell volume (USD) over the last 1 minute. Positive = growth, negative = decline. Example: -10 means at most -10%."
+            },
+            "from_num_trade_1m": {
+              "type": "number",
+              "description": "Minimum total number of trades in the last 1 minute. Use with to_num_trade_1m for a range filter."
+            },
+            "to_num_trade_1m": {
+              "type": "number",
+              "description": "Maximum total number of trades in the last 1 minute. Use with from_num_trade_1m for a range filter."
+            },
+            "from_num_trade_1m_change_pct": {
+              "type": "number",
+              "description": "Minimum % change in total number of trades over the last 1 minute. Positive = growth, negative = decline. Example: 50 means at least +50%."
+            },
+            "to_num_trade_1m_change_pct": {
+              "type": "number",
+              "description": "Maximum % change in total number of trades over the last 1 minute. Positive = growth, negative = decline. Example: -10 means at most -10%."
+            },
+            "from_num_buy_trade_1m": {
+              "type": "number",
+              "description": "Minimum number of buy trades in the last 1 minute. Use with to_num_buy_trade_1m for a range filter."
+            },
+            "to_num_buy_trade_1m": {
+              "type": "number",
+              "description": "Maximum number of buy trades in the last 1 minute. Use with from_num_buy_trade_1m for a range filter."
+            },
+            "from_num_buy_trade_1m_change_pct": {
+              "type": "number",
+              "description": "Minimum % change in number of buy trades over the last 1 minute. Positive = growth, negative = decline. Example: 50 means at least +50%."
+            },
+            "to_num_buy_trade_1m_change_pct": {
+              "type": "number",
+              "description": "Maximum % change in number of buy trades over the last 1 minute. Positive = growth, negative = decline. Example: -10 means at most -10%."
+            },
+            "from_num_sell_trade_1m": {
+              "type": "number",
+              "description": "Minimum number of sell trades in the last 1 minute. Use with to_num_sell_trade_1m for a range filter."
+            },
+            "to_num_sell_trade_1m": {
+              "type": "number",
+              "description": "Maximum number of sell trades in the last 1 minute. Use with from_num_sell_trade_1m for a range filter."
+            },
+            "from_num_sell_trade_1m_change_pct": {
+              "type": "number",
+              "description": "Minimum % change in number of sell trades over the last 1 minute. Positive = growth, negative = decline. Example: 50 means at least +50%."
+            },
+            "to_num_sell_trade_1m_change_pct": {
+              "type": "number",
+              "description": "Maximum % change in number of sell trades over the last 1 minute. Positive = growth, negative = decline. Example: -10 means at most -10%."
+            },
+            "from_num_trader_1m": {
+              "type": "number",
+              "description": "Minimum number of unique traders in the last 1 minute. Use with to_num_trader_1m for a range filter."
+            },
+            "to_num_trader_1m": {
+              "type": "number",
+              "description": "Maximum number of unique traders in the last 1 minute. Use with from_num_trader_1m for a range filter."
+            },
+            "from_num_trader_1m_change_pct": {
+              "type": "number",
+              "description": "Minimum % change in number of unique traders over the last 1 minute. Positive = growth, negative = decline. Example: 50 means at least +50%."
+            },
+            "to_num_trader_1m_change_pct": {
+              "type": "number",
+              "description": "Maximum % change in number of unique traders over the last 1 minute. Positive = growth, negative = decline. Example: -10 means at most -10%."
+            },
+            "from_num_buyer_1m": {
+              "type": "number",
+              "description": "Minimum number of unique buyers in the last 1 minute. Use with to_num_buyer_1m for a range filter."
+            },
+            "to_num_buyer_1m": {
+              "type": "number",
+              "description": "Maximum number of unique buyers in the last 1 minute. Use with from_num_buyer_1m for a range filter."
+            },
+            "from_num_buyer_1m_change_pct": {
+              "type": "number",
+              "description": "Minimum % change in number of unique buyers over the last 1 minute. Positive = growth, negative = decline. Example: 50 means at least +50%."
+            },
+            "to_num_buyer_1m_change_pct": {
+              "type": "number",
+              "description": "Maximum % change in number of unique buyers over the last 1 minute. Positive = growth, negative = decline. Example: -10 means at most -10%."
+            },
+            "from_num_seller_1m": {
+              "type": "number",
+              "description": "Minimum number of unique sellers in the last 1 minute. Use with to_num_seller_1m for a range filter."
+            },
+            "to_num_seller_1m": {
+              "type": "number",
+              "description": "Maximum number of unique sellers in the last 1 minute. Use with from_num_seller_1m for a range filter."
+            },
+            "from_num_seller_1m_change_pct": {
+              "type": "number",
+              "description": "Minimum % change in number of unique sellers over the last 1 minute. Positive = growth, negative = decline. Example: 50 means at least +50%."
+            },
+            "to_num_seller_1m_change_pct": {
+              "type": "number",
+              "description": "Maximum % change in number of unique sellers over the last 1 minute. Positive = growth, negative = decline. Example: -10 means at most -10%."
+            },
+            "from_volume_5m": {
+              "type": "number",
+              "description": "Minimum total trading volume (USD) in the last 5 minutes. Use with to_volume_5m for a range filter."
+            },
+            "to_volume_5m": {
+              "type": "number",
+              "description": "Maximum total trading volume (USD) in the last 5 minutes. Use with from_volume_5m for a range filter."
+            },
+            "from_volume_5m_change_pct": {
+              "type": "number",
+              "description": "Minimum % change in total trading volume (USD) over the last 5 minutes. Positive = growth, negative = decline. Example: 50 means at least +50%."
+            },
+            "to_volume_5m_change_pct": {
+              "type": "number",
+              "description": "Maximum % change in total trading volume (USD) over the last 5 minutes. Positive = growth, negative = decline. Example: -10 means at most -10%."
+            },
+            "from_buy_volume_5m": {
+              "type": "number",
+              "description": "Minimum total buy volume (USD) in the last 5 minutes. Use with to_buy_volume_5m for a range filter."
+            },
+            "to_buy_volume_5m": {
+              "type": "number",
+              "description": "Maximum total buy volume (USD) in the last 5 minutes. Use with from_buy_volume_5m for a range filter."
+            },
+            "from_buy_volume_5m_change_pct": {
+              "type": "number",
+              "description": "Minimum % change in total buy volume (USD) over the last 5 minutes. Positive = growth, negative = decline. Example: 50 means at least +50%."
+            },
+            "to_buy_volume_5m_change_pct": {
+              "type": "number",
+              "description": "Maximum % change in total buy volume (USD) over the last 5 minutes. Positive = growth, negative = decline. Example: -10 means at most -10%."
+            },
+            "from_sell_volume_5m": {
+              "type": "number",
+              "description": "Minimum total sell volume (USD) in the last 5 minutes. Use with to_sell_volume_5m for a range filter."
+            },
+            "to_sell_volume_5m": {
+              "type": "number",
+              "description": "Maximum total sell volume (USD) in the last 5 minutes. Use with from_sell_volume_5m for a range filter."
+            },
+            "from_sell_volume_5m_change_pct": {
+              "type": "number",
+              "description": "Minimum % change in total sell volume (USD) over the last 5 minutes. Positive = growth, negative = decline. Example: 50 means at least +50%."
+            },
+            "to_sell_volume_5m_change_pct": {
+              "type": "number",
+              "description": "Maximum % change in total sell volume (USD) over the last 5 minutes. Positive = growth, negative = decline. Example: -10 means at most -10%."
+            },
+            "from_num_trade_5m": {
+              "type": "number",
+              "description": "Minimum total number of trades in the last 5 minutes. Use with to_num_trade_5m for a range filter."
+            },
+            "to_num_trade_5m": {
+              "type": "number",
+              "description": "Maximum total number of trades in the last 5 minutes. Use with from_num_trade_5m for a range filter."
+            },
+            "from_num_trade_5m_change_pct": {
+              "type": "number",
+              "description": "Minimum % change in total number of trades over the last 5 minutes. Positive = growth, negative = decline. Example: 50 means at least +50%."
+            },
+            "to_num_trade_5m_change_pct": {
+              "type": "number",
+              "description": "Maximum % change in total number of trades over the last 5 minutes. Positive = growth, negative = decline. Example: -10 means at most -10%."
+            },
+            "from_num_buy_trade_5m": {
+              "type": "number",
+              "description": "Minimum number of buy trades in the last 5 minutes. Use with to_num_buy_trade_5m for a range filter."
+            },
+            "to_num_buy_trade_5m": {
+              "type": "number",
+              "description": "Maximum number of buy trades in the last 5 minutes. Use with from_num_buy_trade_5m for a range filter."
+            },
+            "from_num_buy_trade_5m_change_pct": {
+              "type": "number",
+              "description": "Minimum % change in number of buy trades over the last 5 minutes. Positive = growth, negative = decline. Example: 50 means at least +50%."
+            },
+            "to_num_buy_trade_5m_change_pct": {
+              "type": "number",
+              "description": "Maximum % change in number of buy trades over the last 5 minutes. Positive = growth, negative = decline. Example: -10 means at most -10%."
+            },
+            "from_num_sell_trade_5m": {
+              "type": "number",
+              "description": "Minimum number of sell trades in the last 5 minutes. Use with to_num_sell_trade_5m for a range filter."
+            },
+            "to_num_sell_trade_5m": {
+              "type": "number",
+              "description": "Maximum number of sell trades in the last 5 minutes. Use with from_num_sell_trade_5m for a range filter."
+            },
+            "from_num_sell_trade_5m_change_pct": {
+              "type": "number",
+              "description": "Minimum % change in number of sell trades over the last 5 minutes. Positive = growth, negative = decline. Example: 50 means at least +50%."
+            },
+            "to_num_sell_trade_5m_change_pct": {
+              "type": "number",
+              "description": "Maximum % change in number of sell trades over the last 5 minutes. Positive = growth, negative = decline. Example: -10 means at most -10%."
+            },
+            "from_num_trader_5m": {
+              "type": "number",
+              "description": "Minimum number of unique traders in the last 5 minutes. Use with to_num_trader_5m for a range filter."
+            },
+            "to_num_trader_5m": {
+              "type": "number",
+              "description": "Maximum number of unique traders in the last 5 minutes. Use with from_num_trader_5m for a range filter."
+            },
+            "from_num_trader_5m_change_pct": {
+              "type": "number",
+              "description": "Minimum % change in number of unique traders over the last 5 minutes. Positive = growth, negative = decline. Example: 50 means at least +50%."
+            },
+            "to_num_trader_5m_change_pct": {
+              "type": "number",
+              "description": "Maximum % change in number of unique traders over the last 5 minutes. Positive = growth, negative = decline. Example: -10 means at most -10%."
+            },
+            "from_num_buyer_5m": {
+              "type": "number",
+              "description": "Minimum number of unique buyers in the last 5 minutes. Use with to_num_buyer_5m for a range filter."
+            },
+            "to_num_buyer_5m": {
+              "type": "number",
+              "description": "Maximum number of unique buyers in the last 5 minutes. Use with from_num_buyer_5m for a range filter."
+            },
+            "from_num_buyer_5m_change_pct": {
+              "type": "number",
+              "description": "Minimum % change in number of unique buyers over the last 5 minutes. Positive = growth, negative = decline. Example: 50 means at least +50%."
+            },
+            "to_num_buyer_5m_change_pct": {
+              "type": "number",
+              "description": "Maximum % change in number of unique buyers over the last 5 minutes. Positive = growth, negative = decline. Example: -10 means at most -10%."
+            },
+            "from_num_seller_5m": {
+              "type": "number",
+              "description": "Minimum number of unique sellers in the last 5 minutes. Use with to_num_seller_5m for a range filter."
+            },
+            "to_num_seller_5m": {
+              "type": "number",
+              "description": "Maximum number of unique sellers in the last 5 minutes. Use with from_num_seller_5m for a range filter."
+            },
+            "from_num_seller_5m_change_pct": {
+              "type": "number",
+              "description": "Minimum % change in number of unique sellers over the last 5 minutes. Positive = growth, negative = decline. Example: 50 means at least +50%."
+            },
+            "to_num_seller_5m_change_pct": {
+              "type": "number",
+              "description": "Maximum % change in number of unique sellers over the last 5 minutes. Positive = growth, negative = decline. Example: -10 means at most -10%."
+            },
+            "from_volume_30m": {
+              "type": "number",
+              "description": "Minimum total trading volume (USD) in the last 30 minutes. Use with to_volume_30m for a range filter."
+            },
+            "to_volume_30m": {
+              "type": "number",
+              "description": "Maximum total trading volume (USD) in the last 30 minutes. Use with from_volume_30m for a range filter."
+            },
+            "from_volume_30m_change_pct": {
+              "type": "number",
+              "description": "Minimum % change in total trading volume (USD) over the last 30 minutes. Positive = growth, negative = decline. Example: 50 means at least +50%."
+            },
+            "to_volume_30m_change_pct": {
+              "type": "number",
+              "description": "Maximum % change in total trading volume (USD) over the last 30 minutes. Positive = growth, negative = decline. Example: -10 means at most -10%."
+            },
+            "from_buy_volume_30m": {
+              "type": "number",
+              "description": "Minimum total buy volume (USD) in the last 30 minutes. Use with to_buy_volume_30m for a range filter."
+            },
+            "to_buy_volume_30m": {
+              "type": "number",
+              "description": "Maximum total buy volume (USD) in the last 30 minutes. Use with from_buy_volume_30m for a range filter."
+            },
+            "from_buy_volume_30m_change_pct": {
+              "type": "number",
+              "description": "Minimum % change in total buy volume (USD) over the last 30 minutes. Positive = growth, negative = decline. Example: 50 means at least +50%."
+            },
+            "to_buy_volume_30m_change_pct": {
+              "type": "number",
+              "description": "Maximum % change in total buy volume (USD) over the last 30 minutes. Positive = growth, negative = decline. Example: -10 means at most -10%."
+            },
+            "from_sell_volume_30m": {
+              "type": "number",
+              "description": "Minimum total sell volume (USD) in the last 30 minutes. Use with to_sell_volume_30m for a range filter."
+            },
+            "to_sell_volume_30m": {
+              "type": "number",
+              "description": "Maximum total sell volume (USD) in the last 30 minutes. Use with from_sell_volume_30m for a range filter."
+            },
+            "from_sell_volume_30m_change_pct": {
+              "type": "number",
+              "description": "Minimum % change in total sell volume (USD) over the last 30 minutes. Positive = growth, negative = decline. Example: 50 means at least +50%."
+            },
+            "to_sell_volume_30m_change_pct": {
+              "type": "number",
+              "description": "Maximum % change in total sell volume (USD) over the last 30 minutes. Positive = growth, negative = decline. Example: -10 means at most -10%."
+            },
+            "from_num_trade_30m": {
+              "type": "number",
+              "description": "Minimum total number of trades in the last 30 minutes. Use with to_num_trade_30m for a range filter."
+            },
+            "to_num_trade_30m": {
+              "type": "number",
+              "description": "Maximum total number of trades in the last 30 minutes. Use with from_num_trade_30m for a range filter."
+            },
+            "from_num_trade_30m_change_pct": {
+              "type": "number",
+              "description": "Minimum % change in total number of trades over the last 30 minutes. Positive = growth, negative = decline. Example: 50 means at least +50%."
+            },
+            "to_num_trade_30m_change_pct": {
+              "type": "number",
+              "description": "Maximum % change in total number of trades over the last 30 minutes. Positive = growth, negative = decline. Example: -10 means at most -10%."
+            },
+            "from_num_buy_trade_30m": {
+              "type": "number",
+              "description": "Minimum number of buy trades in the last 30 minutes. Use with to_num_buy_trade_30m for a range filter."
+            },
+            "to_num_buy_trade_30m": {
+              "type": "number",
+              "description": "Maximum number of buy trades in the last 30 minutes. Use with from_num_buy_trade_30m for a range filter."
+            },
+            "from_num_buy_trade_30m_change_pct": {
+              "type": "number",
+              "description": "Minimum % change in number of buy trades over the last 30 minutes. Positive = growth, negative = decline. Example: 50 means at least +50%."
+            },
+            "to_num_buy_trade_30m_change_pct": {
+              "type": "number",
+              "description": "Maximum % change in number of buy trades over the last 30 minutes. Positive = growth, negative = decline. Example: -10 means at most -10%."
+            },
+            "from_num_sell_trade_30m": {
+              "type": "number",
+              "description": "Minimum number of sell trades in the last 30 minutes. Use with to_num_sell_trade_30m for a range filter."
+            },
+            "to_num_sell_trade_30m": {
+              "type": "number",
+              "description": "Maximum number of sell trades in the last 30 minutes. Use with from_num_sell_trade_30m for a range filter."
+            },
+            "from_num_sell_trade_30m_change_pct": {
+              "type": "number",
+              "description": "Minimum % change in number of sell trades over the last 30 minutes. Positive = growth, negative = decline. Example: 50 means at least +50%."
+            },
+            "to_num_sell_trade_30m_change_pct": {
+              "type": "number",
+              "description": "Maximum % change in number of sell trades over the last 30 minutes. Positive = growth, negative = decline. Example: -10 means at most -10%."
+            },
+            "from_num_trader_30m": {
+              "type": "number",
+              "description": "Minimum number of unique traders in the last 30 minutes. Use with to_num_trader_30m for a range filter."
+            },
+            "to_num_trader_30m": {
+              "type": "number",
+              "description": "Maximum number of unique traders in the last 30 minutes. Use with from_num_trader_30m for a range filter."
+            },
+            "from_num_trader_30m_change_pct": {
+              "type": "number",
+              "description": "Minimum % change in number of unique traders over the last 30 minutes. Positive = growth, negative = decline. Example: 50 means at least +50%."
+            },
+            "to_num_trader_30m_change_pct": {
+              "type": "number",
+              "description": "Maximum % change in number of unique traders over the last 30 minutes. Positive = growth, negative = decline. Example: -10 means at most -10%."
+            },
+            "from_num_buyer_30m": {
+              "type": "number",
+              "description": "Minimum number of unique buyers in the last 30 minutes. Use with to_num_buyer_30m for a range filter."
+            },
+            "to_num_buyer_30m": {
+              "type": "number",
+              "description": "Maximum number of unique buyers in the last 30 minutes. Use with from_num_buyer_30m for a range filter."
+            },
+            "from_num_buyer_30m_change_pct": {
+              "type": "number",
+              "description": "Minimum % change in number of unique buyers over the last 30 minutes. Positive = growth, negative = decline. Example: 50 means at least +50%."
+            },
+            "to_num_buyer_30m_change_pct": {
+              "type": "number",
+              "description": "Maximum % change in number of unique buyers over the last 30 minutes. Positive = growth, negative = decline. Example: -10 means at most -10%."
+            },
+            "from_num_seller_30m": {
+              "type": "number",
+              "description": "Minimum number of unique sellers in the last 30 minutes. Use with to_num_seller_30m for a range filter."
+            },
+            "to_num_seller_30m": {
+              "type": "number",
+              "description": "Maximum number of unique sellers in the last 30 minutes. Use with from_num_seller_30m for a range filter."
+            },
+            "from_num_seller_30m_change_pct": {
+              "type": "number",
+              "description": "Minimum % change in number of unique sellers over the last 30 minutes. Positive = growth, negative = decline. Example: 50 means at least +50%."
+            },
+            "to_num_seller_30m_change_pct": {
+              "type": "number",
+              "description": "Maximum % change in number of unique sellers over the last 30 minutes. Positive = growth, negative = decline. Example: -10 means at most -10%."
+            },
+            "from_volume_1h": {
+              "type": "number",
+              "description": "Minimum total trading volume (USD) in the last 1 hour. Use with to_volume_1h for a range filter."
+            },
+            "to_volume_1h": {
+              "type": "number",
+              "description": "Maximum total trading volume (USD) in the last 1 hour. Use with from_volume_1h for a range filter."
+            },
+            "from_volume_1h_change_pct": {
+              "type": "number",
+              "description": "Minimum % change in total trading volume (USD) over the last 1 hour. Positive = growth, negative = decline. Example: 50 means at least +50%."
+            },
+            "to_volume_1h_change_pct": {
+              "type": "number",
+              "description": "Maximum % change in total trading volume (USD) over the last 1 hour. Positive = growth, negative = decline. Example: -10 means at most -10%."
+            },
+            "from_buy_volume_1h": {
+              "type": "number",
+              "description": "Minimum total buy volume (USD) in the last 1 hour. Use with to_buy_volume_1h for a range filter."
+            },
+            "to_buy_volume_1h": {
+              "type": "number",
+              "description": "Maximum total buy volume (USD) in the last 1 hour. Use with from_buy_volume_1h for a range filter."
+            },
+            "from_buy_volume_1h_change_pct": {
+              "type": "number",
+              "description": "Minimum % change in total buy volume (USD) over the last 1 hour. Positive = growth, negative = decline. Example: 50 means at least +50%."
+            },
+            "to_buy_volume_1h_change_pct": {
+              "type": "number",
+              "description": "Maximum % change in total buy volume (USD) over the last 1 hour. Positive = growth, negative = decline. Example: -10 means at most -10%."
+            },
+            "from_sell_volume_1h": {
+              "type": "number",
+              "description": "Minimum total sell volume (USD) in the last 1 hour. Use with to_sell_volume_1h for a range filter."
+            },
+            "to_sell_volume_1h": {
+              "type": "number",
+              "description": "Maximum total sell volume (USD) in the last 1 hour. Use with from_sell_volume_1h for a range filter."
+            },
+            "from_sell_volume_1h_change_pct": {
+              "type": "number",
+              "description": "Minimum % change in total sell volume (USD) over the last 1 hour. Positive = growth, negative = decline. Example: 50 means at least +50%."
+            },
+            "to_sell_volume_1h_change_pct": {
+              "type": "number",
+              "description": "Maximum % change in total sell volume (USD) over the last 1 hour. Positive = growth, negative = decline. Example: -10 means at most -10%."
+            },
+            "from_num_trade_1h": {
+              "type": "number",
+              "description": "Minimum total number of trades in the last 1 hour. Use with to_num_trade_1h for a range filter."
+            },
+            "to_num_trade_1h": {
+              "type": "number",
+              "description": "Maximum total number of trades in the last 1 hour. Use with from_num_trade_1h for a range filter."
+            },
+            "from_num_trade_1h_change_pct": {
+              "type": "number",
+              "description": "Minimum % change in total number of trades over the last 1 hour. Positive = growth, negative = decline. Example: 50 means at least +50%."
+            },
+            "to_num_trade_1h_change_pct": {
+              "type": "number",
+              "description": "Maximum % change in total number of trades over the last 1 hour. Positive = growth, negative = decline. Example: -10 means at most -10%."
+            },
+            "from_num_buy_trade_1h": {
+              "type": "number",
+              "description": "Minimum number of buy trades in the last 1 hour. Use with to_num_buy_trade_1h for a range filter."
+            },
+            "to_num_buy_trade_1h": {
+              "type": "number",
+              "description": "Maximum number of buy trades in the last 1 hour. Use with from_num_buy_trade_1h for a range filter."
+            },
+            "from_num_buy_trade_1h_change_pct": {
+              "type": "number",
+              "description": "Minimum % change in number of buy trades over the last 1 hour. Positive = growth, negative = decline. Example: 50 means at least +50%."
+            },
+            "to_num_buy_trade_1h_change_pct": {
+              "type": "number",
+              "description": "Maximum % change in number of buy trades over the last 1 hour. Positive = growth, negative = decline. Example: -10 means at most -10%."
+            },
+            "from_num_sell_trade_1h": {
+              "type": "number",
+              "description": "Minimum number of sell trades in the last 1 hour. Use with to_num_sell_trade_1h for a range filter."
+            },
+            "to_num_sell_trade_1h": {
+              "type": "number",
+              "description": "Maximum number of sell trades in the last 1 hour. Use with from_num_sell_trade_1h for a range filter."
+            },
+            "from_num_sell_trade_1h_change_pct": {
+              "type": "number",
+              "description": "Minimum % change in number of sell trades over the last 1 hour. Positive = growth, negative = decline. Example: 50 means at least +50%."
+            },
+            "to_num_sell_trade_1h_change_pct": {
+              "type": "number",
+              "description": "Maximum % change in number of sell trades over the last 1 hour. Positive = growth, negative = decline. Example: -10 means at most -10%."
+            },
+            "from_num_trader_1h": {
+              "type": "number",
+              "description": "Minimum number of unique traders in the last 1 hour. Use with to_num_trader_1h for a range filter."
+            },
+            "to_num_trader_1h": {
+              "type": "number",
+              "description": "Maximum number of unique traders in the last 1 hour. Use with from_num_trader_1h for a range filter."
+            },
+            "from_num_trader_1h_change_pct": {
+              "type": "number",
+              "description": "Minimum % change in number of unique traders over the last 1 hour. Positive = growth, negative = decline. Example: 50 means at least +50%."
+            },
+            "to_num_trader_1h_change_pct": {
+              "type": "number",
+              "description": "Maximum % change in number of unique traders over the last 1 hour. Positive = growth, negative = decline. Example: -10 means at most -10%."
+            },
+            "from_num_buyer_1h": {
+              "type": "number",
+              "description": "Minimum number of unique buyers in the last 1 hour. Use with to_num_buyer_1h for a range filter."
+            },
+            "to_num_buyer_1h": {
+              "type": "number",
+              "description": "Maximum number of unique buyers in the last 1 hour. Use with from_num_buyer_1h for a range filter."
+            },
+            "from_num_buyer_1h_change_pct": {
+              "type": "number",
+              "description": "Minimum % change in number of unique buyers over the last 1 hour. Positive = growth, negative = decline. Example: 50 means at least +50%."
+            },
+            "to_num_buyer_1h_change_pct": {
+              "type": "number",
+              "description": "Maximum % change in number of unique buyers over the last 1 hour. Positive = growth, negative = decline. Example: -10 means at most -10%."
+            },
+            "from_num_seller_1h": {
+              "type": "number",
+              "description": "Minimum number of unique sellers in the last 1 hour. Use with to_num_seller_1h for a range filter."
+            },
+            "to_num_seller_1h": {
+              "type": "number",
+              "description": "Maximum number of unique sellers in the last 1 hour. Use with from_num_seller_1h for a range filter."
+            },
+            "from_num_seller_1h_change_pct": {
+              "type": "number",
+              "description": "Minimum % change in number of unique sellers over the last 1 hour. Positive = growth, negative = decline. Example: 50 means at least +50%."
+            },
+            "to_num_seller_1h_change_pct": {
+              "type": "number",
+              "description": "Maximum % change in number of unique sellers over the last 1 hour. Positive = growth, negative = decline. Example: -10 means at most -10%."
+            },
+            "from_volume_4h": {
+              "type": "number",
+              "description": "Minimum total trading volume (USD) in the last 4 hours. Use with to_volume_4h for a range filter."
+            },
+            "to_volume_4h": {
+              "type": "number",
+              "description": "Maximum total trading volume (USD) in the last 4 hours. Use with from_volume_4h for a range filter."
+            },
+            "from_volume_4h_change_pct": {
+              "type": "number",
+              "description": "Minimum % change in total trading volume (USD) over the last 4 hours. Positive = growth, negative = decline. Example: 50 means at least +50%."
+            },
+            "to_volume_4h_change_pct": {
+              "type": "number",
+              "description": "Maximum % change in total trading volume (USD) over the last 4 hours. Positive = growth, negative = decline. Example: -10 means at most -10%."
+            },
+            "from_buy_volume_4h": {
+              "type": "number",
+              "description": "Minimum total buy volume (USD) in the last 4 hours. Use with to_buy_volume_4h for a range filter."
+            },
+            "to_buy_volume_4h": {
+              "type": "number",
+              "description": "Maximum total buy volume (USD) in the last 4 hours. Use with from_buy_volume_4h for a range filter."
+            },
+            "from_buy_volume_4h_change_pct": {
+              "type": "number",
+              "description": "Minimum % change in total buy volume (USD) over the last 4 hours. Positive = growth, negative = decline. Example: 50 means at least +50%."
+            },
+            "to_buy_volume_4h_change_pct": {
+              "type": "number",
+              "description": "Maximum % change in total buy volume (USD) over the last 4 hours. Positive = growth, negative = decline. Example: -10 means at most -10%."
+            },
+            "from_sell_volume_4h": {
+              "type": "number",
+              "description": "Minimum total sell volume (USD) in the last 4 hours. Use with to_sell_volume_4h for a range filter."
+            },
+            "to_sell_volume_4h": {
+              "type": "number",
+              "description": "Maximum total sell volume (USD) in the last 4 hours. Use with from_sell_volume_4h for a range filter."
+            },
+            "from_sell_volume_4h_change_pct": {
+              "type": "number",
+              "description": "Minimum % change in total sell volume (USD) over the last 4 hours. Positive = growth, negative = decline. Example: 50 means at least +50%."
+            },
+            "to_sell_volume_4h_change_pct": {
+              "type": "number",
+              "description": "Maximum % change in total sell volume (USD) over the last 4 hours. Positive = growth, negative = decline. Example: -10 means at most -10%."
+            },
+            "from_num_trade_4h": {
+              "type": "number",
+              "description": "Minimum total number of trades in the last 4 hours. Use with to_num_trade_4h for a range filter."
+            },
+            "to_num_trade_4h": {
+              "type": "number",
+              "description": "Maximum total number of trades in the last 4 hours. Use with from_num_trade_4h for a range filter."
+            },
+            "from_num_trade_4h_change_pct": {
+              "type": "number",
+              "description": "Minimum % change in total number of trades over the last 4 hours. Positive = growth, negative = decline. Example: 50 means at least +50%."
+            },
+            "to_num_trade_4h_change_pct": {
+              "type": "number",
+              "description": "Maximum % change in total number of trades over the last 4 hours. Positive = growth, negative = decline. Example: -10 means at most -10%."
+            },
+            "from_num_buy_trade_4h": {
+              "type": "number",
+              "description": "Minimum number of buy trades in the last 4 hours. Use with to_num_buy_trade_4h for a range filter."
+            },
+            "to_num_buy_trade_4h": {
+              "type": "number",
+              "description": "Maximum number of buy trades in the last 4 hours. Use with from_num_buy_trade_4h for a range filter."
+            },
+            "from_num_buy_trade_4h_change_pct": {
+              "type": "number",
+              "description": "Minimum % change in number of buy trades over the last 4 hours. Positive = growth, negative = decline. Example: 50 means at least +50%."
+            },
+            "to_num_buy_trade_4h_change_pct": {
+              "type": "number",
+              "description": "Maximum % change in number of buy trades over the last 4 hours. Positive = growth, negative = decline. Example: -10 means at most -10%."
+            },
+            "from_num_sell_trade_4h": {
+              "type": "number",
+              "description": "Minimum number of sell trades in the last 4 hours. Use with to_num_sell_trade_4h for a range filter."
+            },
+            "to_num_sell_trade_4h": {
+              "type": "number",
+              "description": "Maximum number of sell trades in the last 4 hours. Use with from_num_sell_trade_4h for a range filter."
+            },
+            "from_num_sell_trade_4h_change_pct": {
+              "type": "number",
+              "description": "Minimum % change in number of sell trades over the last 4 hours. Positive = growth, negative = decline. Example: 50 means at least +50%."
+            },
+            "to_num_sell_trade_4h_change_pct": {
+              "type": "number",
+              "description": "Maximum % change in number of sell trades over the last 4 hours. Positive = growth, negative = decline. Example: -10 means at most -10%."
+            },
+            "from_num_trader_4h": {
+              "type": "number",
+              "description": "Minimum number of unique traders in the last 4 hours. Use with to_num_trader_4h for a range filter."
+            },
+            "to_num_trader_4h": {
+              "type": "number",
+              "description": "Maximum number of unique traders in the last 4 hours. Use with from_num_trader_4h for a range filter."
+            },
+            "from_num_trader_4h_change_pct": {
+              "type": "number",
+              "description": "Minimum % change in number of unique traders over the last 4 hours. Positive = growth, negative = decline. Example: 50 means at least +50%."
+            },
+            "to_num_trader_4h_change_pct": {
+              "type": "number",
+              "description": "Maximum % change in number of unique traders over the last 4 hours. Positive = growth, negative = decline. Example: -10 means at most -10%."
+            },
+            "from_num_buyer_4h": {
+              "type": "number",
+              "description": "Minimum number of unique buyers in the last 4 hours. Use with to_num_buyer_4h for a range filter."
+            },
+            "to_num_buyer_4h": {
+              "type": "number",
+              "description": "Maximum number of unique buyers in the last 4 hours. Use with from_num_buyer_4h for a range filter."
+            },
+            "from_num_buyer_4h_change_pct": {
+              "type": "number",
+              "description": "Minimum % change in number of unique buyers over the last 4 hours. Positive = growth, negative = decline. Example: 50 means at least +50%."
+            },
+            "to_num_buyer_4h_change_pct": {
+              "type": "number",
+              "description": "Maximum % change in number of unique buyers over the last 4 hours. Positive = growth, negative = decline. Example: -10 means at most -10%."
+            },
+            "from_num_seller_4h": {
+              "type": "number",
+              "description": "Minimum number of unique sellers in the last 4 hours. Use with to_num_seller_4h for a range filter."
+            },
+            "to_num_seller_4h": {
+              "type": "number",
+              "description": "Maximum number of unique sellers in the last 4 hours. Use with from_num_seller_4h for a range filter."
+            },
+            "from_num_seller_4h_change_pct": {
+              "type": "number",
+              "description": "Minimum % change in number of unique sellers over the last 4 hours. Positive = growth, negative = decline. Example: 50 means at least +50%."
+            },
+            "to_num_seller_4h_change_pct": {
+              "type": "number",
+              "description": "Maximum % change in number of unique sellers over the last 4 hours. Positive = growth, negative = decline. Example: -10 means at most -10%."
+            },
+            "from_volume_8h": {
+              "type": "number",
+              "description": "Minimum total trading volume (USD) in the last 8 hours. Use with to_volume_8h for a range filter."
+            },
+            "to_volume_8h": {
+              "type": "number",
+              "description": "Maximum total trading volume (USD) in the last 8 hours. Use with from_volume_8h for a range filter."
+            },
+            "from_volume_8h_change_pct": {
+              "type": "number",
+              "description": "Minimum % change in total trading volume (USD) over the last 8 hours. Positive = growth, negative = decline. Example: 50 means at least +50%."
+            },
+            "to_volume_8h_change_pct": {
+              "type": "number",
+              "description": "Maximum % change in total trading volume (USD) over the last 8 hours. Positive = growth, negative = decline. Example: -10 means at most -10%."
+            },
+            "from_buy_volume_8h": {
+              "type": "number",
+              "description": "Minimum total buy volume (USD) in the last 8 hours. Use with to_buy_volume_8h for a range filter."
+            },
+            "to_buy_volume_8h": {
+              "type": "number",
+              "description": "Maximum total buy volume (USD) in the last 8 hours. Use with from_buy_volume_8h for a range filter."
+            },
+            "from_buy_volume_8h_change_pct": {
+              "type": "number",
+              "description": "Minimum % change in total buy volume (USD) over the last 8 hours. Positive = growth, negative = decline. Example: 50 means at least +50%."
+            },
+            "to_buy_volume_8h_change_pct": {
+              "type": "number",
+              "description": "Maximum % change in total buy volume (USD) over the last 8 hours. Positive = growth, negative = decline. Example: -10 means at most -10%."
+            },
+            "from_sell_volume_8h": {
+              "type": "number",
+              "description": "Minimum total sell volume (USD) in the last 8 hours. Use with to_sell_volume_8h for a range filter."
+            },
+            "to_sell_volume_8h": {
+              "type": "number",
+              "description": "Maximum total sell volume (USD) in the last 8 hours. Use with from_sell_volume_8h for a range filter."
+            },
+            "from_sell_volume_8h_change_pct": {
+              "type": "number",
+              "description": "Minimum % change in total sell volume (USD) over the last 8 hours. Positive = growth, negative = decline. Example: 50 means at least +50%."
+            },
+            "to_sell_volume_8h_change_pct": {
+              "type": "number",
+              "description": "Maximum % change in total sell volume (USD) over the last 8 hours. Positive = growth, negative = decline. Example: -10 means at most -10%."
+            },
+            "from_num_trade_8h": {
+              "type": "number",
+              "description": "Minimum total number of trades in the last 8 hours. Use with to_num_trade_8h for a range filter."
+            },
+            "to_num_trade_8h": {
+              "type": "number",
+              "description": "Maximum total number of trades in the last 8 hours. Use with from_num_trade_8h for a range filter."
+            },
+            "from_num_trade_8h_change_pct": {
+              "type": "number",
+              "description": "Minimum % change in total number of trades over the last 8 hours. Positive = growth, negative = decline. Example: 50 means at least +50%."
+            },
+            "to_num_trade_8h_change_pct": {
+              "type": "number",
+              "description": "Maximum % change in total number of trades over the last 8 hours. Positive = growth, negative = decline. Example: -10 means at most -10%."
+            },
+            "from_num_buy_trade_8h": {
+              "type": "number",
+              "description": "Minimum number of buy trades in the last 8 hours. Use with to_num_buy_trade_8h for a range filter."
+            },
+            "to_num_buy_trade_8h": {
+              "type": "number",
+              "description": "Maximum number of buy trades in the last 8 hours. Use with from_num_buy_trade_8h for a range filter."
+            },
+            "from_num_buy_trade_8h_change_pct": {
+              "type": "number",
+              "description": "Minimum % change in number of buy trades over the last 8 hours. Positive = growth, negative = decline. Example: 50 means at least +50%."
+            },
+            "to_num_buy_trade_8h_change_pct": {
+              "type": "number",
+              "description": "Maximum % change in number of buy trades over the last 8 hours. Positive = growth, negative = decline. Example: -10 means at most -10%."
+            },
+            "from_num_sell_trade_8h": {
+              "type": "number",
+              "description": "Minimum number of sell trades in the last 8 hours. Use with to_num_sell_trade_8h for a range filter."
+            },
+            "to_num_sell_trade_8h": {
+              "type": "number",
+              "description": "Maximum number of sell trades in the last 8 hours. Use with from_num_sell_trade_8h for a range filter."
+            },
+            "from_num_sell_trade_8h_change_pct": {
+              "type": "number",
+              "description": "Minimum % change in number of sell trades over the last 8 hours. Positive = growth, negative = decline. Example: 50 means at least +50%."
+            },
+            "to_num_sell_trade_8h_change_pct": {
+              "type": "number",
+              "description": "Maximum % change in number of sell trades over the last 8 hours. Positive = growth, negative = decline. Example: -10 means at most -10%."
+            },
+            "from_num_trader_8h": {
+              "type": "number",
+              "description": "Minimum number of unique traders in the last 8 hours. Use with to_num_trader_8h for a range filter."
+            },
+            "to_num_trader_8h": {
+              "type": "number",
+              "description": "Maximum number of unique traders in the last 8 hours. Use with from_num_trader_8h for a range filter."
+            },
+            "from_num_trader_8h_change_pct": {
+              "type": "number",
+              "description": "Minimum % change in number of unique traders over the last 8 hours. Positive = growth, negative = decline. Example: 50 means at least +50%."
+            },
+            "to_num_trader_8h_change_pct": {
+              "type": "number",
+              "description": "Maximum % change in number of unique traders over the last 8 hours. Positive = growth, negative = decline. Example: -10 means at most -10%."
+            },
+            "from_num_buyer_8h": {
+              "type": "number",
+              "description": "Minimum number of unique buyers in the last 8 hours. Use with to_num_buyer_8h for a range filter."
+            },
+            "to_num_buyer_8h": {
+              "type": "number",
+              "description": "Maximum number of unique buyers in the last 8 hours. Use with from_num_buyer_8h for a range filter."
+            },
+            "from_num_buyer_8h_change_pct": {
+              "type": "number",
+              "description": "Minimum % change in number of unique buyers over the last 8 hours. Positive = growth, negative = decline. Example: 50 means at least +50%."
+            },
+            "to_num_buyer_8h_change_pct": {
+              "type": "number",
+              "description": "Maximum % change in number of unique buyers over the last 8 hours. Positive = growth, negative = decline. Example: -10 means at most -10%."
+            },
+            "from_num_seller_8h": {
+              "type": "number",
+              "description": "Minimum number of unique sellers in the last 8 hours. Use with to_num_seller_8h for a range filter."
+            },
+            "to_num_seller_8h": {
+              "type": "number",
+              "description": "Maximum number of unique sellers in the last 8 hours. Use with from_num_seller_8h for a range filter."
+            },
+            "from_num_seller_8h_change_pct": {
+              "type": "number",
+              "description": "Minimum % change in number of unique sellers over the last 8 hours. Positive = growth, negative = decline. Example: 50 means at least +50%."
+            },
+            "to_num_seller_8h_change_pct": {
+              "type": "number",
+              "description": "Maximum % change in number of unique sellers over the last 8 hours. Positive = growth, negative = decline. Example: -10 means at most -10%."
+            },
+            "from_volume_24h": {
+              "type": "number",
+              "description": "Minimum total trading volume (USD) in the last 24 hours. Use with to_volume_24h for a range filter."
+            },
+            "to_volume_24h": {
+              "type": "number",
+              "description": "Maximum total trading volume (USD) in the last 24 hours. Use with from_volume_24h for a range filter."
+            },
+            "from_volume_24h_change_pct": {
+              "type": "number",
+              "description": "Minimum % change in total trading volume (USD) over the last 24 hours. Positive = growth, negative = decline. Example: 50 means at least +50%."
+            },
+            "to_volume_24h_change_pct": {
+              "type": "number",
+              "description": "Maximum % change in total trading volume (USD) over the last 24 hours. Positive = growth, negative = decline. Example: -10 means at most -10%."
+            },
+            "from_buy_volume_24h": {
+              "type": "number",
+              "description": "Minimum total buy volume (USD) in the last 24 hours. Use with to_buy_volume_24h for a range filter."
+            },
+            "to_buy_volume_24h": {
+              "type": "number",
+              "description": "Maximum total buy volume (USD) in the last 24 hours. Use with from_buy_volume_24h for a range filter."
+            },
+            "from_buy_volume_24h_change_pct": {
+              "type": "number",
+              "description": "Minimum % change in total buy volume (USD) over the last 24 hours. Positive = growth, negative = decline. Example: 50 means at least +50%."
+            },
+            "to_buy_volume_24h_change_pct": {
+              "type": "number",
+              "description": "Maximum % change in total buy volume (USD) over the last 24 hours. Positive = growth, negative = decline. Example: -10 means at most -10%."
+            },
+            "from_sell_volume_24h": {
+              "type": "number",
+              "description": "Minimum total sell volume (USD) in the last 24 hours. Use with to_sell_volume_24h for a range filter."
+            },
+            "to_sell_volume_24h": {
+              "type": "number",
+              "description": "Maximum total sell volume (USD) in the last 24 hours. Use with from_sell_volume_24h for a range filter."
+            },
+            "from_sell_volume_24h_change_pct": {
+              "type": "number",
+              "description": "Minimum % change in total sell volume (USD) over the last 24 hours. Positive = growth, negative = decline. Example: 50 means at least +50%."
+            },
+            "to_sell_volume_24h_change_pct": {
+              "type": "number",
+              "description": "Maximum % change in total sell volume (USD) over the last 24 hours. Positive = growth, negative = decline. Example: -10 means at most -10%."
+            },
+            "from_num_trade_24h": {
+              "type": "number",
+              "description": "Minimum total number of trades in the last 24 hours. Use with to_num_trade_24h for a range filter."
+            },
+            "to_num_trade_24h": {
+              "type": "number",
+              "description": "Maximum total number of trades in the last 24 hours. Use with from_num_trade_24h for a range filter."
+            },
+            "from_num_trade_24h_change_pct": {
+              "type": "number",
+              "description": "Minimum % change in total number of trades over the last 24 hours. Positive = growth, negative = decline. Example: 50 means at least +50%."
+            },
+            "to_num_trade_24h_change_pct": {
+              "type": "number",
+              "description": "Maximum % change in total number of trades over the last 24 hours. Positive = growth, negative = decline. Example: -10 means at most -10%."
+            },
+            "from_num_buy_trade_24h": {
+              "type": "number",
+              "description": "Minimum number of buy trades in the last 24 hours. Use with to_num_buy_trade_24h for a range filter."
+            },
+            "to_num_buy_trade_24h": {
+              "type": "number",
+              "description": "Maximum number of buy trades in the last 24 hours. Use with from_num_buy_trade_24h for a range filter."
+            },
+            "from_num_buy_trade_24h_change_pct": {
+              "type": "number",
+              "description": "Minimum % change in number of buy trades over the last 24 hours. Positive = growth, negative = decline. Example: 50 means at least +50%."
+            },
+            "to_num_buy_trade_24h_change_pct": {
+              "type": "number",
+              "description": "Maximum % change in number of buy trades over the last 24 hours. Positive = growth, negative = decline. Example: -10 means at most -10%."
+            },
+            "from_num_sell_trade_24h": {
+              "type": "number",
+              "description": "Minimum number of sell trades in the last 24 hours. Use with to_num_sell_trade_24h for a range filter."
+            },
+            "to_num_sell_trade_24h": {
+              "type": "number",
+              "description": "Maximum number of sell trades in the last 24 hours. Use with from_num_sell_trade_24h for a range filter."
+            },
+            "from_num_sell_trade_24h_change_pct": {
+              "type": "number",
+              "description": "Minimum % change in number of sell trades over the last 24 hours. Positive = growth, negative = decline. Example: 50 means at least +50%."
+            },
+            "to_num_sell_trade_24h_change_pct": {
+              "type": "number",
+              "description": "Maximum % change in number of sell trades over the last 24 hours. Positive = growth, negative = decline. Example: -10 means at most -10%."
+            },
+            "from_num_trader_24h": {
+              "type": "number",
+              "description": "Minimum number of unique traders in the last 24 hours. Use with to_num_trader_24h for a range filter."
+            },
+            "to_num_trader_24h": {
+              "type": "number",
+              "description": "Maximum number of unique traders in the last 24 hours. Use with from_num_trader_24h for a range filter."
+            },
+            "from_num_trader_24h_change_pct": {
+              "type": "number",
+              "description": "Minimum % change in number of unique traders over the last 24 hours. Positive = growth, negative = decline. Example: 50 means at least +50%."
+            },
+            "to_num_trader_24h_change_pct": {
+              "type": "number",
+              "description": "Maximum % change in number of unique traders over the last 24 hours. Positive = growth, negative = decline. Example: -10 means at most -10%."
+            },
+            "from_num_buyer_24h": {
+              "type": "number",
+              "description": "Minimum number of unique buyers in the last 24 hours. Use with to_num_buyer_24h for a range filter."
+            },
+            "to_num_buyer_24h": {
+              "type": "number",
+              "description": "Maximum number of unique buyers in the last 24 hours. Use with from_num_buyer_24h for a range filter."
+            },
+            "from_num_buyer_24h_change_pct": {
+              "type": "number",
+              "description": "Minimum % change in number of unique buyers over the last 24 hours. Positive = growth, negative = decline. Example: 50 means at least +50%."
+            },
+            "to_num_buyer_24h_change_pct": {
+              "type": "number",
+              "description": "Maximum % change in number of unique buyers over the last 24 hours. Positive = growth, negative = decline. Example: -10 means at most -10%."
+            },
+            "from_num_seller_24h": {
+              "type": "number",
+              "description": "Minimum number of unique sellers in the last 24 hours. Use with to_num_seller_24h for a range filter."
+            },
+            "to_num_seller_24h": {
+              "type": "number",
+              "description": "Maximum number of unique sellers in the last 24 hours. Use with from_num_seller_24h for a range filter."
+            },
+            "from_num_seller_24h_change_pct": {
+              "type": "number",
+              "description": "Minimum % change in number of unique sellers over the last 24 hours. Positive = growth, negative = decline. Example: 50 means at least +50%."
+            },
+            "to_num_seller_24h_change_pct": {
+              "type": "number",
+              "description": "Maximum % change in number of unique sellers over the last 24 hours. Positive = growth, negative = decline. Example: -10 means at most -10%."
+            },
+            "from_volume_7d": {
+              "type": "number",
+              "description": "Minimum total trading volume (USD) in the last 7 days. Use with to_volume_7d for a range filter."
+            },
+            "to_volume_7d": {
+              "type": "number",
+              "description": "Maximum total trading volume (USD) in the last 7 days. Use with from_volume_7d for a range filter."
+            },
+            "from_volume_7d_change_pct": {
+              "type": "number",
+              "description": "Minimum % change in total trading volume (USD) over the last 7 days. Positive = growth, negative = decline. Example: 50 means at least +50%."
+            },
+            "to_volume_7d_change_pct": {
+              "type": "number",
+              "description": "Maximum % change in total trading volume (USD) over the last 7 days. Positive = growth, negative = decline. Example: -10 means at most -10%."
+            },
+            "from_buy_volume_7d": {
+              "type": "number",
+              "description": "Minimum total buy volume (USD) in the last 7 days. Use with to_buy_volume_7d for a range filter."
+            },
+            "to_buy_volume_7d": {
+              "type": "number",
+              "description": "Maximum total buy volume (USD) in the last 7 days. Use with from_buy_volume_7d for a range filter."
+            },
+            "from_buy_volume_7d_change_pct": {
+              "type": "number",
+              "description": "Minimum % change in total buy volume (USD) over the last 7 days. Positive = growth, negative = decline. Example: 50 means at least +50%."
+            },
+            "to_buy_volume_7d_change_pct": {
+              "type": "number",
+              "description": "Maximum % change in total buy volume (USD) over the last 7 days. Positive = growth, negative = decline. Example: -10 means at most -10%."
+            },
+            "from_sell_volume_7d": {
+              "type": "number",
+              "description": "Minimum total sell volume (USD) in the last 7 days. Use with to_sell_volume_7d for a range filter."
+            },
+            "to_sell_volume_7d": {
+              "type": "number",
+              "description": "Maximum total sell volume (USD) in the last 7 days. Use with from_sell_volume_7d for a range filter."
+            },
+            "from_sell_volume_7d_change_pct": {
+              "type": "number",
+              "description": "Minimum % change in total sell volume (USD) over the last 7 days. Positive = growth, negative = decline. Example: 50 means at least +50%."
+            },
+            "to_sell_volume_7d_change_pct": {
+              "type": "number",
+              "description": "Maximum % change in total sell volume (USD) over the last 7 days. Positive = growth, negative = decline. Example: -10 means at most -10%."
+            },
+            "from_num_trade_7d": {
+              "type": "number",
+              "description": "Minimum total number of trades in the last 7 days. Use with to_num_trade_7d for a range filter."
+            },
+            "to_num_trade_7d": {
+              "type": "number",
+              "description": "Maximum total number of trades in the last 7 days. Use with from_num_trade_7d for a range filter."
+            },
+            "from_num_trade_7d_change_pct": {
+              "type": "number",
+              "description": "Minimum % change in total number of trades over the last 7 days. Positive = growth, negative = decline. Example: 50 means at least +50%."
+            },
+            "to_num_trade_7d_change_pct": {
+              "type": "number",
+              "description": "Maximum % change in total number of trades over the last 7 days. Positive = growth, negative = decline. Example: -10 means at most -10%."
+            },
+            "from_num_buy_trade_7d": {
+              "type": "number",
+              "description": "Minimum number of buy trades in the last 7 days. Use with to_num_buy_trade_7d for a range filter."
+            },
+            "to_num_buy_trade_7d": {
+              "type": "number",
+              "description": "Maximum number of buy trades in the last 7 days. Use with from_num_buy_trade_7d for a range filter."
+            },
+            "from_num_buy_trade_7d_change_pct": {
+              "type": "number",
+              "description": "Minimum % change in number of buy trades over the last 7 days. Positive = growth, negative = decline. Example: 50 means at least +50%."
+            },
+            "to_num_buy_trade_7d_change_pct": {
+              "type": "number",
+              "description": "Maximum % change in number of buy trades over the last 7 days. Positive = growth, negative = decline. Example: -10 means at most -10%."
+            },
+            "from_num_sell_trade_7d": {
+              "type": "number",
+              "description": "Minimum number of sell trades in the last 7 days. Use with to_num_sell_trade_7d for a range filter."
+            },
+            "to_num_sell_trade_7d": {
+              "type": "number",
+              "description": "Maximum number of sell trades in the last 7 days. Use with from_num_sell_trade_7d for a range filter."
+            },
+            "from_num_sell_trade_7d_change_pct": {
+              "type": "number",
+              "description": "Minimum % change in number of sell trades over the last 7 days. Positive = growth, negative = decline. Example: 50 means at least +50%."
+            },
+            "to_num_sell_trade_7d_change_pct": {
+              "type": "number",
+              "description": "Maximum % change in number of sell trades over the last 7 days. Positive = growth, negative = decline. Example: -10 means at most -10%."
+            },
+            "from_num_trader_7d": {
+              "type": "number",
+              "description": "Minimum number of unique traders in the last 7 days. Use with to_num_trader_7d for a range filter."
+            },
+            "to_num_trader_7d": {
+              "type": "number",
+              "description": "Maximum number of unique traders in the last 7 days. Use with from_num_trader_7d for a range filter."
+            },
+            "from_num_trader_7d_change_pct": {
+              "type": "number",
+              "description": "Minimum % change in number of unique traders over the last 7 days. Positive = growth, negative = decline. Example: 50 means at least +50%."
+            },
+            "to_num_trader_7d_change_pct": {
+              "type": "number",
+              "description": "Maximum % change in number of unique traders over the last 7 days. Positive = growth, negative = decline. Example: -10 means at most -10%."
+            },
+            "from_num_buyer_7d": {
+              "type": "number",
+              "description": "Minimum number of unique buyers in the last 7 days. Use with to_num_buyer_7d for a range filter."
+            },
+            "to_num_buyer_7d": {
+              "type": "number",
+              "description": "Maximum number of unique buyers in the last 7 days. Use with from_num_buyer_7d for a range filter."
+            },
+            "from_num_buyer_7d_change_pct": {
+              "type": "number",
+              "description": "Minimum % change in number of unique buyers over the last 7 days. Positive = growth, negative = decline. Example: 50 means at least +50%."
+            },
+            "to_num_buyer_7d_change_pct": {
+              "type": "number",
+              "description": "Maximum % change in number of unique buyers over the last 7 days. Positive = growth, negative = decline. Example: -10 means at most -10%."
+            },
+            "from_num_seller_7d": {
+              "type": "number",
+              "description": "Minimum number of unique sellers in the last 7 days. Use with to_num_seller_7d for a range filter."
+            },
+            "to_num_seller_7d": {
+              "type": "number",
+              "description": "Maximum number of unique sellers in the last 7 days. Use with from_num_seller_7d for a range filter."
+            },
+            "from_num_seller_7d_change_pct": {
+              "type": "number",
+              "description": "Minimum % change in number of unique sellers over the last 7 days. Positive = growth, negative = decline. Example: 50 means at least +50%."
+            },
+            "to_num_seller_7d_change_pct": {
+              "type": "number",
+              "description": "Maximum % change in number of unique sellers over the last 7 days. Positive = growth, negative = decline. Example: -10 means at most -10%."
+            },
+            "from_volume_30d": {
+              "type": "number",
+              "description": "Minimum total trading volume (USD) in the last 30 days. Use with to_volume_30d for a range filter."
+            },
+            "to_volume_30d": {
+              "type": "number",
+              "description": "Maximum total trading volume (USD) in the last 30 days. Use with from_volume_30d for a range filter."
+            },
+            "from_volume_30d_change_pct": {
+              "type": "number",
+              "description": "Minimum % change in total trading volume (USD) over the last 30 days. Positive = growth, negative = decline. Example: 50 means at least +50%."
+            },
+            "to_volume_30d_change_pct": {
+              "type": "number",
+              "description": "Maximum % change in total trading volume (USD) over the last 30 days. Positive = growth, negative = decline. Example: -10 means at most -10%."
+            },
+            "from_buy_volume_30d": {
+              "type": "number",
+              "description": "Minimum total buy volume (USD) in the last 30 days. Use with to_buy_volume_30d for a range filter."
+            },
+            "to_buy_volume_30d": {
+              "type": "number",
+              "description": "Maximum total buy volume (USD) in the last 30 days. Use with from_buy_volume_30d for a range filter."
+            },
+            "from_buy_volume_30d_change_pct": {
+              "type": "number",
+              "description": "Minimum % change in total buy volume (USD) over the last 30 days. Positive = growth, negative = decline. Example: 50 means at least +50%."
+            },
+            "to_buy_volume_30d_change_pct": {
+              "type": "number",
+              "description": "Maximum % change in total buy volume (USD) over the last 30 days. Positive = growth, negative = decline. Example: -10 means at most -10%."
+            },
+            "from_sell_volume_30d": {
+              "type": "number",
+              "description": "Minimum total sell volume (USD) in the last 30 days. Use with to_sell_volume_30d for a range filter."
+            },
+            "to_sell_volume_30d": {
+              "type": "number",
+              "description": "Maximum total sell volume (USD) in the last 30 days. Use with from_sell_volume_30d for a range filter."
+            },
+            "from_sell_volume_30d_change_pct": {
+              "type": "number",
+              "description": "Minimum % change in total sell volume (USD) over the last 30 days. Positive = growth, negative = decline. Example: 50 means at least +50%."
+            },
+            "to_sell_volume_30d_change_pct": {
+              "type": "number",
+              "description": "Maximum % change in total sell volume (USD) over the last 30 days. Positive = growth, negative = decline. Example: -10 means at most -10%."
+            },
+            "from_num_trade_30d": {
+              "type": "number",
+              "description": "Minimum total number of trades in the last 30 days. Use with to_num_trade_30d for a range filter."
+            },
+            "to_num_trade_30d": {
+              "type": "number",
+              "description": "Maximum total number of trades in the last 30 days. Use with from_num_trade_30d for a range filter."
+            },
+            "from_num_trade_30d_change_pct": {
+              "type": "number",
+              "description": "Minimum % change in total number of trades over the last 30 days. Positive = growth, negative = decline. Example: 50 means at least +50%."
+            },
+            "to_num_trade_30d_change_pct": {
+              "type": "number",
+              "description": "Maximum % change in total number of trades over the last 30 days. Positive = growth, negative = decline. Example: -10 means at most -10%."
+            },
+            "from_num_buy_trade_30d": {
+              "type": "number",
+              "description": "Minimum number of buy trades in the last 30 days. Use with to_num_buy_trade_30d for a range filter."
+            },
+            "to_num_buy_trade_30d": {
+              "type": "number",
+              "description": "Maximum number of buy trades in the last 30 days. Use with from_num_buy_trade_30d for a range filter."
+            },
+            "from_num_buy_trade_30d_change_pct": {
+              "type": "number",
+              "description": "Minimum % change in number of buy trades over the last 30 days. Positive = growth, negative = decline. Example: 50 means at least +50%."
+            },
+            "to_num_buy_trade_30d_change_pct": {
+              "type": "number",
+              "description": "Maximum % change in number of buy trades over the last 30 days. Positive = growth, negative = decline. Example: -10 means at most -10%."
+            },
+            "from_num_sell_trade_30d": {
+              "type": "number",
+              "description": "Minimum number of sell trades in the last 30 days. Use with to_num_sell_trade_30d for a range filter."
+            },
+            "to_num_sell_trade_30d": {
+              "type": "number",
+              "description": "Maximum number of sell trades in the last 30 days. Use with from_num_sell_trade_30d for a range filter."
+            },
+            "from_num_sell_trade_30d_change_pct": {
+              "type": "number",
+              "description": "Minimum % change in number of sell trades over the last 30 days. Positive = growth, negative = decline. Example: 50 means at least +50%."
+            },
+            "to_num_sell_trade_30d_change_pct": {
+              "type": "number",
+              "description": "Maximum % change in number of sell trades over the last 30 days. Positive = growth, negative = decline. Example: -10 means at most -10%."
+            },
+            "from_num_trader_30d": {
+              "type": "number",
+              "description": "Minimum number of unique traders in the last 30 days. Use with to_num_trader_30d for a range filter."
+            },
+            "to_num_trader_30d": {
+              "type": "number",
+              "description": "Maximum number of unique traders in the last 30 days. Use with from_num_trader_30d for a range filter."
+            },
+            "from_num_trader_30d_change_pct": {
+              "type": "number",
+              "description": "Minimum % change in number of unique traders over the last 30 days. Positive = growth, negative = decline. Example: 50 means at least +50%."
+            },
+            "to_num_trader_30d_change_pct": {
+              "type": "number",
+              "description": "Maximum % change in number of unique traders over the last 30 days. Positive = growth, negative = decline. Example: -10 means at most -10%."
+            },
+            "from_num_buyer_30d": {
+              "type": "number",
+              "description": "Minimum number of unique buyers in the last 30 days. Use with to_num_buyer_30d for a range filter."
+            },
+            "to_num_buyer_30d": {
+              "type": "number",
+              "description": "Maximum number of unique buyers in the last 30 days. Use with from_num_buyer_30d for a range filter."
+            },
+            "from_num_buyer_30d_change_pct": {
+              "type": "number",
+              "description": "Minimum % change in number of unique buyers over the last 30 days. Positive = growth, negative = decline. Example: 50 means at least +50%."
+            },
+            "to_num_buyer_30d_change_pct": {
+              "type": "number",
+              "description": "Maximum % change in number of unique buyers over the last 30 days. Positive = growth, negative = decline. Example: -10 means at most -10%."
+            },
+            "from_num_seller_30d": {
+              "type": "number",
+              "description": "Minimum number of unique sellers in the last 30 days. Use with to_num_seller_30d for a range filter."
+            },
+            "to_num_seller_30d": {
+              "type": "number",
+              "description": "Maximum number of unique sellers in the last 30 days. Use with from_num_seller_30d for a range filter."
+            },
+            "from_num_seller_30d_change_pct": {
+              "type": "number",
+              "description": "Minimum % change in number of unique sellers over the last 30 days. Positive = growth, negative = decline. Example: 50 means at least +50%."
+            },
+            "to_num_seller_30d_change_pct": {
+              "type": "number",
+              "description": "Maximum % change in number of unique sellers over the last 30 days. Positive = growth, negative = decline. Example: -10 means at most -10%."
+            },
+            "from_price_1m_change_pct": {
+              "type": "number",
+              "description": "Minimum token price % change over the last 1 minute. Example: 20 means price grew at least 20%."
+            },
+            "to_price_1m_change_pct": {
+              "type": "number",
+              "description": "Maximum token price % change over the last 1 minute. Example: -5 means price dropped at most 5%."
+            },
+            "from_price_5m_change_pct": {
+              "type": "number",
+              "description": "Minimum token price % change over the last 5 minutes. Example: 20 means price grew at least 20%."
+            },
+            "to_price_5m_change_pct": {
+              "type": "number",
+              "description": "Maximum token price % change over the last 5 minutes. Example: -5 means price dropped at most 5%."
+            },
+            "from_price_30m_change_pct": {
+              "type": "number",
+              "description": "Minimum token price % change over the last 30 minutes. Example: 20 means price grew at least 20%."
+            },
+            "to_price_30m_change_pct": {
+              "type": "number",
+              "description": "Maximum token price % change over the last 30 minutes. Example: -5 means price dropped at most 5%."
+            },
+            "from_price_1h_change_pct": {
+              "type": "number",
+              "description": "Minimum token price % change over the last 1 hour. Example: 20 means price grew at least 20%."
+            },
+            "to_price_1h_change_pct": {
+              "type": "number",
+              "description": "Maximum token price % change over the last 1 hour. Example: -5 means price dropped at most 5%."
+            },
+            "from_price_4h_change_pct": {
+              "type": "number",
+              "description": "Minimum token price % change over the last 4 hours. Example: 20 means price grew at least 20%."
+            },
+            "to_price_4h_change_pct": {
+              "type": "number",
+              "description": "Maximum token price % change over the last 4 hours. Example: -5 means price dropped at most 5%."
+            },
+            "from_price_8h_change_pct": {
+              "type": "number",
+              "description": "Minimum token price % change over the last 8 hours. Example: 20 means price grew at least 20%."
+            },
+            "to_price_8h_change_pct": {
+              "type": "number",
+              "description": "Maximum token price % change over the last 8 hours. Example: -5 means price dropped at most 5%."
+            },
+            "from_price_24h_change_pct": {
+              "type": "number",
+              "description": "Minimum token price % change over the last 24 hours. Example: 20 means price grew at least 20%."
+            },
+            "to_price_24h_change_pct": {
+              "type": "number",
+              "description": "Maximum token price % change over the last 24 hours. Example: -5 means price dropped at most 5%."
+            },
+            "from_price_7d_change_pct": {
+              "type": "number",
+              "description": "Minimum token price % change over the last 7 days. Example: 20 means price grew at least 20%."
+            },
+            "to_price_7d_change_pct": {
+              "type": "number",
+              "description": "Maximum token price % change over the last 7 days. Example: -5 means price dropped at most 5%."
+            },
+            "from_price_30d_change_pct": {
+              "type": "number",
+              "description": "Minimum token price % change over the last 30 days. Example: 20 means price grew at least 20%."
+            },
+            "to_price_30d_change_pct": {
+              "type": "number",
+              "description": "Maximum token price % change over the last 30 days. Example: -5 means price dropped at most 5%."
+            },
+            "from_market_cap": {
+              "type": "number",
+              "description": "Minimum market capitalization (USD). Calculated as circulating supply × current price. Use with to_market_cap for a range filter."
+            },
+            "to_market_cap": {
+              "type": "number",
+              "description": "Maximum market capitalization (USD). Calculated as circulating supply × current price. Use with from_market_cap for a range filter."
+            },
+            "from_total_supply": {
+              "type": "number",
+              "description": "Minimum total token supply (number of tokens). Use with to_total_supply for a range filter."
+            },
+            "to_total_supply": {
+              "type": "number",
+              "description": "Maximum total token supply (number of tokens). Use with from_total_supply for a range filter."
+            },
+            "from_liquidity": {
+              "type": "number",
+              "description": "Minimum total on-chain liquidity available across all pools (USD). Use with to_liquidity for a range filter."
+            },
+            "to_liquidity": {
+              "type": "number",
+              "description": "Maximum total on-chain liquidity available across all pools (USD). Use with from_liquidity for a range filter."
+            },
+            "from_num_pool": {
+              "type": "number",
+              "description": "Minimum number of active liquidity pools for this token. Use with to_num_pool for a range filter."
+            },
+            "to_num_pool": {
+              "type": "number",
+              "description": "Maximum number of active liquidity pools for this token. Use with from_num_pool for a range filter."
+            },
+            "from_num_holder": {
+              "type": "number",
+              "description": "Minimum number of unique token holders. Use with to_num_holder for a range filter."
+            },
+            "to_num_holder": {
+              "type": "number",
+              "description": "Maximum number of unique token holders. Use with from_num_holder for a range filter."
+            },
+            "from_fdv": {
+              "type": "number",
+              "description": "Minimum fully diluted valuation (USD). Calculated as total supply × current price. Use with to_fdv for a range filter."
+            },
+            "to_fdv": {
+              "type": "number",
+              "description": "Maximum fully diluted valuation (USD). Calculated as total supply × current price. Use with from_fdv for a range filter."
+            },
+            "from_circulating_supply": {
+              "type": "number",
+              "description": "Minimum circulating supply (number of tokens currently in circulation). Use with to_circulating_supply for a range filter."
+            },
+            "to_circulating_supply": {
+              "type": "number",
+              "description": "Maximum circulating supply (number of tokens currently in circulation). Use with from_circulating_supply for a range filter."
+            },
+            "from_first_listing_time": {
+              "type": "number",
+              "description": "Minimum The time for listing token. The data format is unix timestamp. Use with to_first_listing_time for a range filter."
+            },
+            "to_first_listing_time": {
+              "type": "number",
+              "description": "Maximum The time for listing token. The data format is unix timestamp. Use with from_first_listing_time for a range filter."
+            },
+            "from_trader_hhi_24h": {
+              "type": "number",
+              "description": "Minimum Trader Herfindahl-Hirschman Index (HHI) over the last 24 hours. Measures trader concentration and liquidity distribution for a token. Ranges from 0 to 1, where values close to 0 indicate highly diversified trading activity across many traders, and values close to 1 indicate trading is dominated by very few traders. A lower HHI suggests healthier, more decentralized trading liquidity. Example value: 0.073. Use with to_trader_hhi_24h for a range filter."
+            },
+            "to_trader_hhi_24h": {
+              "type": "number",
+              "description": "Maximum Trader Herfindahl-Hirschman Index (HHI) over the last 24 hours. Measures trader concentration and liquidity distribution for a token. Ranges from 0 to 1, where values close to 0 indicate highly diversified trading activity across many traders, and values close to 1 indicate trading is dominated by very few traders. A lower HHI suggests healthier, more decentralized trading liquidity. Example value: 0.073. Use with from_trader_hhi_24h for a range filter."
+            },
+            "from_trader_top_1_volume_pct_24h": {
+              "type": "number",
+              "description": "Minimum Percentage of total 24h trading volume contributed by the single largest trader. Indicates how much market influence the top trader has. A high value (e.g. >50%) suggests the token's volume is heavily reliant on one participant. Example value: 21.37. Use with to_trader_top_1_volume_pct_24h for a range filter."
+            },
+            "to_trader_top_1_volume_pct_24h": {
+              "type": "number",
+              "description": "Maximum Percentage of total 24h trading volume contributed by the single largest trader. Indicates how much market influence the top trader has. A high value (e.g. >50%) suggests the token's volume is heavily reliant on one participant. Example value: 21.37. Use with from_trader_top_1_volume_pct_24h for a range filter."
+            },
+            "from_trader_top_5_volume_pct_24h": {
+              "type": "number",
+              "description": "Minimum Percentage of total 24h trading volume contributed by the top 5 traders combined. Helps assess whether a small group of traders dominates the market. Values above 80% may signal concentrated, potentially manipulable trading activity. Example value: 47.82. Use with to_trader_top_5_volume_pct_24h for a range filter."
+            },
+            "to_trader_top_5_volume_pct_24h": {
+              "type": "number",
+              "description": "Maximum Percentage of total 24h trading volume contributed by the top 5 traders combined. Helps assess whether a small group of traders dominates the market. Values above 80% may signal concentrated, potentially manipulable trading activity. Example value: 47.82. Use with from_trader_top_5_volume_pct_24h for a range filter."
+            },
+            "from_trader_top_20_volume_pct_24h": {
+              "type": "number",
+              "description": "Minimum Percentage of total 24h trading volume contributed by the top 20 traders combined. Provides a broader view of trader concentration beyond just the very top. High values indicate that a relatively small cohort drives most trading activity. Example value: 79.15. Use with to_trader_top_20_volume_pct_24h for a range filter."
+            },
+            "to_trader_top_20_volume_pct_24h": {
+              "type": "number",
+              "description": "Maximum Percentage of total 24h trading volume contributed by the top 20 traders combined. Provides a broader view of trader concentration beyond just the very top. High values indicate that a relatively small cohort drives most trading activity. Example value: 79.15. Use with from_trader_top_20_volume_pct_24h for a range filter."
+            },
+            "from_trader_top_100_volume_pct_24h": {
+              "type": "number",
+              "description": "Minimum Percentage of total 24h trading volume contributed by the top 100 traders combined. For tokens with many traders, this shows how much the top 100 account for overall. Values near 100% with few total traders suggest limited market breadth. Example value: 99.83. Use with to_trader_top_100_volume_pct_24h for a range filter."
+            },
+            "to_trader_top_100_volume_pct_24h": {
+              "type": "number",
+              "description": "Maximum Percentage of total 24h trading volume contributed by the top 100 traders combined. For tokens with many traders, this shows how much the top 100 account for overall. Values near 100% with few total traders suggest limited market breadth. Example value: 99.83. Use with from_trader_top_100_volume_pct_24h for a range filter."
+            },
+            "from_holder_gini": {
+              "type": "number",
+              "description": "Minimum Holder Gini coefficient measuring how equally or unequally the token supply is distributed across wallet addresses. Scales from 0 (perfect equality — every holder owns the same amount) to 1 (absolute concentration — one holder owns everything). A value around 0.5 suggests moderate inequality; values above 0.8 indicate highly concentrated ownership. Useful for assessing decentralization and rug-pull risk. Example value: 0.819. Use with to_holder_gini for a range filter."
+            },
+            "to_holder_gini": {
+              "type": "number",
+              "description": "Maximum Holder Gini coefficient measuring how equally or unequally the token supply is distributed across wallet addresses. Scales from 0 (perfect equality — every holder owns the same amount) to 1 (absolute concentration — one holder owns everything). A value around 0.5 suggests moderate inequality; values above 0.8 indicate highly concentrated ownership. Useful for assessing decentralization and rug-pull risk. Example value: 0.819. Use with from_holder_gini for a range filter."
+            },
+            "from_holder_hhi": {
+              "type": "number",
+              "description": "Minimum Holder Herfindahl-Hirschman Index (HHI) measuring how concentrated or decentralized token ownership is among holders. Ranges from 0 to 1, where values close to 0 indicate wide distribution across many holders, and values close to 1 indicate extreme concentration in a few wallets. Used as a financial risk metric to evaluate ownership centralization risk. Example value: 0.0375. Use with to_holder_hhi for a range filter."
+            },
+            "to_holder_hhi": {
+              "type": "number",
+              "description": "Maximum Holder Herfindahl-Hirschman Index (HHI) measuring how concentrated or decentralized token ownership is among holders. Ranges from 0 to 1, where values close to 0 indicate wide distribution across many holders, and values close to 1 indicate extreme concentration in a few wallets. Used as a financial risk metric to evaluate ownership centralization risk. Example value: 0.0375. Use with from_holder_hhi for a range filter."
+            },
+            "from_holder_top_1_balance_pct": {
+              "type": "number",
+              "description": "Minimum Percentage of total token supply held by the single largest holder. A high value indicates potential centralization risk or whale dominance. Tokens with top-1 holder owning >50% of supply are often considered high-risk. Example value: 13.91. Use with to_holder_top_1_balance_pct for a range filter."
+            },
+            "to_holder_top_1_balance_pct": {
+              "type": "number",
+              "description": "Maximum Percentage of total token supply held by the single largest holder. A high value indicates potential centralization risk or whale dominance. Tokens with top-1 holder owning >50% of supply are often considered high-risk. Example value: 13.91. Use with from_holder_top_1_balance_pct for a range filter."
+            },
+            "from_holder_top_5_balance_pct": {
+              "type": "number",
+              "description": "Minimum Percentage of total token supply held by the top 5 largest holders combined. Helps identify whether a small group controls a significant portion of the supply. Values above 50% may indicate concentrated ownership and higher manipulation risk. Example value: 30.99. Use with to_holder_top_5_balance_pct for a range filter."
+            },
+            "to_holder_top_5_balance_pct": {
+              "type": "number",
+              "description": "Maximum Percentage of total token supply held by the top 5 largest holders combined. Helps identify whether a small group controls a significant portion of the supply. Values above 50% may indicate concentrated ownership and higher manipulation risk. Example value: 30.99. Use with from_holder_top_5_balance_pct for a range filter."
+            },
+            "from_holder_top_20_balance_pct": {
+              "type": "number",
+              "description": "Minimum Percentage of total token supply held by the top 20 largest holders combined. Provides a broader view of ownership concentration beyond just the top few wallets. Useful for evaluating governance risk in tokens with voting mechanisms. Example value: 65.37. Use with to_holder_top_20_balance_pct for a range filter."
+            },
+            "to_holder_top_20_balance_pct": {
+              "type": "number",
+              "description": "Maximum Percentage of total token supply held by the top 20 largest holders combined. Provides a broader view of ownership concentration beyond just the top few wallets. Useful for evaluating governance risk in tokens with voting mechanisms. Example value: 65.37. Use with from_holder_top_20_balance_pct for a range filter."
+            },
+            "from_holder_top_100_balance_pct": {
+              "type": "number",
+              "description": "Minimum Percentage of total token supply held by the top 100 largest holders combined. Shows overall breadth of token distribution. Values near 100% suggest most supply is held by a relatively small number of wallets. Example value: 97.51. Use with to_holder_top_100_balance_pct for a range filter."
+            },
+            "to_holder_top_100_balance_pct": {
+              "type": "number",
+              "description": "Maximum Percentage of total token supply held by the top 100 largest holders combined. Shows overall breadth of token distribution. Values near 100% suggest most supply is held by a relatively small number of wallets. Example value: 97.51. Use with from_holder_top_100_balance_pct for a range filter."
+            },
+            "sort_by": {
+              "type": "string",
+              "description": "Field to sort results by. Can be any metric key such as: volume_24h, buy_volume_1h, num_trader_5m, market_cap, liquidity, fdv, num_holder, price_1h_change_pct, holder_gini, holder_hhi, trader_hhi_24h, etc."
+            },
+            "sort_order": {
+              "type": "string",
+              "description": "Sort direction: \"desc\" (default, highest first) or \"asc\" (lowest first)."
+            },
+            "page": {
+              "type": "number",
+              "description": "Page number for pagination. Starts at 1, maximum value is 1000."
+            },
+            "page_size": {
+              "type": "number",
+              "description": "Number of tokens to return per page. Allowed values: 10, 20, 30, 40, 60, 100."
+            }
+          },
+          "required": []
+        }
+      },
+      {
+        "name": "marketOHLCVApi",
+        "description": "Get market/pool price OHLCV (Open, High, Low, Close, Volume) data. Note: - Data is sorted asc by time field. - Time field format: yyyyMMddHHmm. - Need to pass cursor to get next page data (The cursor for pagination, which can be obtained from the response of previous page). - Data is available from 2026-01-01.",
+        "inputSchema": {
+          "type": "object",
+          "properties": {
+            "address": {
+              "type": "string",
+              "description": "Pool market address to fetch OHLCV data for."
+            },
+            "from_time": {
+              "type": "number",
+              "description": "Start time filter (Unix timestamp in seconds)"
+            },
+            "to_time": {
+              "type": "number",
+              "description": "End time filter (Unix timestamp in seconds)"
+            },
+            "res": {
+              "type": "string",
+              "description": "Candlestick interval. Supported: 1m, 5m, 15m, 30m, 1h, 4h, 8h, 1d, 1W, 1M, 1Y. Default: 1m"
+            },
+            "candles": {
+              "type": "number",
+              "description": "Number of candles to return. Default: 600"
+            },
+            "cursor": {
+              "type": "number",
+              "description": "Pagination cursor from a previous response to fetch the next set of data."
+            },
+            "direction": {
+              "type": "string",
+              "description": "Direction of calculation, by quote or base token on pool. Default: 'quote'"
+            }
+          },
+          "required": [
+            "address"
+          ]
+        }
+      },
+      {
+        "name": "tokenStatisticApi",
+        "description": "Get comprehensive real-time trading statistics for a single Solana token by its address. Returns detailed metrics covering trading activity, price momentum, ownership distribution, and trader concentration. The response includes: (1) Trading volume metrics across 9 time intervals (1m, 5m, 30m, 1h, 4h, 8h, 24h, 7d, 30d) — total volume, buy volume, and sell volume in USD, each with a corresponding percentage change value. (2) Trade count metrics across the same intervals — total trades, buy trades, and sell trades, each with percentage change. (3) Trader count metrics — unique traders, unique buyers, and unique sellers per interval, each with percentage change. (4) Price change percentage across all intervals (e.g. price_1m_change_pct, price_24h_change_pct). (5) Trader concentration metrics over 24h: trader_hhi_24h (Trader Herfindahl-Hirschman Index — measures how concentrated trading activity is among participants, ranging from 0 = highly diversified to 1 = dominated by few traders); trader_top_1_volume_pct_24h (% of 24h volume from the single largest trader); trader_top_5_volume_pct_24h (% of 24h volume from top 5 traders); trader_top_20_volume_pct_24h (% of 24h volume from top 20 traders); trader_top_100_volume_pct_24h (% of 24h volume from top 100 traders). (6) Holder distribution metrics: holder_gini (Gini coefficient measuring supply distribution equality — 0 = perfect equality, 1 = absolute concentration, useful for rug-pull risk assessment); holder_hhi (Holder Herfindahl-Hirschman Index — measures ownership concentration risk, 0 = widely distributed, 1 = extremely concentrated); holder_top_1_balance_pct (% of supply held by the largest holder); holder_top_5_balance_pct (% of supply held by top 5 holders); holder_top_20_balance_pct (% of supply held by top 20 holders); holder_top_100_balance_pct (% of supply held by top 100 holders). (7) Static snapshot metrics: market_cap, total_supply, liquidity, num_pool, num_holder, fdv, circulating_supply, first_listing_time. (8) Metadata: updated_time (unix timestamp of last data refresh), platform (array of platforms where the token was launched, e.g. [\"pumpfun\"]). Example status code 200 response: { \"success\": true, \"data\": { \"token_address\": \"FAp2KjVCAXM5gWp2CGqTnYDa2MjP2HcxTt4UbntYZVkJ\", \"volume_1m\": 29922.50, \"volume_1m_change_pct\": 767.65, \"volume_5m\": 43734.98, \"volume_5m_change_pct\": 709.23, \"volume_30m\": 78325.25, \"volume_30m_change_pct\": 709.23, \"volume_1h\": 78325.25, \"volume_1h_change_pct\": 709.23, \"volume_4h\": 78325.25, \"volume_4h_change_pct\": 709.23, \"volume_8h\": 78325.25, \"volume_8h_change_pct\": 709.23, \"volume_24h\": 78325.25, \"volume_24h_change_pct\": 709.23, \"volume_7d\": 78325.25, \"volume_7d_change_pct\": 709.23, \"volume_30d\": 78325.25, \"volume_30d_change_pct\": 709.23, \"buy_volume_1m\": 2139.60, \"buy_volume_1m_change_pct\": -10.35, \"buy_volume_5m\": 11779.90, \"buy_volume_5m_change_pct\": 203.07, \"buy_volume_30m\": 44512.93, \"buy_volume_30m_change_pct\": 203.07, \"buy_volume_1h\": 44512.93, \"buy_volume_1h_change_pct\": 203.07, \"buy_volume_4h\": 44512.93, \"buy_volume_4h_change_pct\": 203.07, \"buy_volume_8h\": 44512.93, \"buy_volume_8h_change_pct\": 203.07, \"buy_volume_24h\": 44512.93, \"buy_volume_24h_change_pct\": 203.07, \"buy_volume_7d\": 44512.93, \"buy_volume_7d_change_pct\": 203.07, \"buy_volume_30d\": 44512.93, \"buy_volume_30d_change_pct\": 203.07, \"sell_volume_1m\": 27782.90, \"sell_volume_1m_change_pct\": 2516.04, \"sell_volume_5m\": 31955.08, \"sell_volume_5m_change_pct\": 2005.53, \"sell_volume_30m\": 33812.33, \"sell_volume_30m_change_pct\": 2005.53, \"sell_volume_1h\": 33812.33, \"sell_volume_1h_change_pct\": 2005.53, \"sell_volume_4h\": 33812.33, \"sell_volume_4h_change_pct\": 2005.53, \"sell_volume_8h\": 33812.33, \"sell_volume_8h_change_pct\": 2005.53, \"sell_volume_24h\": 33812.33, \"sell_volume_24h_change_pct\": 2005.53, \"sell_volume_7d\": 33812.33, \"sell_volume_7d_change_pct\": 2005.53, \"sell_volume_30d\": 33812.33, \"sell_volume_30d_change_pct\": 2005.53, \"num_trade_1m\": 1124, \"num_trade_1m_change_pct\": 27.44, \"num_trade_5m\": 4661, \"num_trade_5m_change_pct\": 14.63, \"num_trade_30m\": 12252, \"num_trade_30m_change_pct\": 14.63, \"num_trade_1h\": 12252, \"num_trade_1h_change_pct\": 14.63, \"num_trade_4h\": 12252, \"num_trade_4h_change_pct\": 14.63, \"num_trade_8h\": 12252, \"num_trade_8h_change_pct\": 14.63, \"num_trade_24h\": 12252, \"num_trade_24h_change_pct\": 14.63, \"num_trade_7d\": 12252, \"num_trade_7d_change_pct\": 14.63, \"num_trade_30d\": 12252, \"num_trade_30d_change_pct\": 14.63, \"num_buy_trade_1m\": 475, \"num_buy_trade_1m_change_pct\": -7.59, \"num_buy_trade_5m\": 2534, \"num_buy_trade_5m_change_pct\": 7.97, \"num_buy_trade_30m\": 6910, \"num_buy_trade_30m_change_pct\": 7.97, \"num_buy_trade_1h\": 6910, \"num_buy_trade_1h_change_pct\": 7.97, \"num_buy_trade_4h\": 6910, \"num_buy_trade_4h_change_pct\": 7.97, \"num_buy_trade_8h\": 6910, \"num_buy_trade_8h_change_pct\": 7.97, \"num_buy_trade_24h\": 6910, \"num_buy_trade_24h_change_pct\": 7.97, \"num_buy_trade_7d\": 6910, \"num_buy_trade_7d_change_pct\": 7.97, \"num_buy_trade_30d\": 6910, \"num_buy_trade_30d_change_pct\": 7.97, \"num_sell_trade_1m\": 649, \"num_sell_trade_1m_change_pct\": 76.36, \"num_sell_trade_5m\": 2127, \"num_sell_trade_5m_change_pct\": 23.73, \"num_sell_trade_30m\": 5342, \"num_sell_trade_30m_change_pct\": 23.73, \"num_sell_trade_1h\": 5342, \"num_sell_trade_1h_change_pct\": 23.73, \"num_sell_trade_4h\": 5342, \"num_sell_trade_4h_change_pct\": 23.73, \"num_sell_trade_8h\": 5342, \"num_sell_trade_8h_change_pct\": 23.73, \"num_sell_trade_24h\": 5342, \"num_sell_trade_24h_change_pct\": 23.73, \"num_sell_trade_7d\": 5342, \"num_sell_trade_7d_change_pct\": 23.73, \"num_sell_trade_30d\": 5342, \"num_sell_trade_30d_change_pct\": 23.73, \"num_trader_1m\": 608, \"num_trader_1m_change_pct\": 104.03, \"num_trader_5m\": 635, \"num_trader_5m_change_pct\": 93.01, \"num_trader_30m\": 668, \"num_trader_30m_change_pct\": 93.01, \"num_trader_1h\": 668, \"num_trader_1h_change_pct\": 93.01, \"num_trader_4h\": 668, \"num_trader_4h_change_pct\": 93.01, \"num_trader_8h\": 668, \"num_trader_8h_change_pct\": 93.01, \"num_trader_24h\": 668, \"num_trader_24h_change_pct\": 93.01, \"num_trader_7d\": 668, \"num_trader_7d_change_pct\": 93.01, \"num_trader_30d\": 668, \"num_trader_30d_change_pct\": 93.01, \"num_buyer_1m\": 231, \"num_buyer_1m_change_pct\": -5.71, \"num_buyer_5m\": 323, \"num_buyer_5m_change_pct\": 0.31, \"num_buyer_30m\": 363, \"num_buyer_30m_change_pct\": 0.31, \"num_buyer_1h\": 363, \"num_buyer_1h_change_pct\": 0.31, \"num_buyer_4h\": 363, \"num_buyer_4h_change_pct\": 0.31, \"num_buyer_8h\": 363, \"num_buyer_8h_change_pct\": 0.31, \"num_buyer_24h\": 363, \"num_buyer_24h_change_pct\": 0.31, \"num_buyer_7d\": 363, \"num_buyer_7d_change_pct\": 0.31, \"num_buyer_30d\": 363, \"num_buyer_30d_change_pct\": 0.31, \"num_seller_1m\": 506, \"num_seller_1m_change_pct\": 137.56, \"num_seller_5m\": 612, \"num_seller_5m_change_pct\": 99.35, \"num_seller_30m\": 633, \"num_seller_30m_change_pct\": 99.35, \"num_seller_1h\": 633, \"num_seller_1h_change_pct\": 99.35, \"num_seller_4h\": 633, \"num_seller_4h_change_pct\": 99.35, \"num_seller_8h\": 633, \"num_seller_8h_change_pct\": 99.35, \"num_seller_24h\": 633, \"num_seller_24h_change_pct\": 99.35, \"num_seller_7d\": 633, \"num_seller_7d_change_pct\": 99.35, \"num_seller_30d\": 633, \"num_seller_30d_change_pct\": 99.35, \"price_1m_change_pct\": -70.20, \"price_5m_change_pct\": -59.68, \"price_30m_change_pct\": -59.68, \"price_1h_change_pct\": -59.68, \"price_4h_change_pct\": -59.68, \"price_8h_change_pct\": -59.68, \"price_24h_change_pct\": -59.68, \"price_7d_change_pct\": 0, \"price_30d_change_pct\": 0, \"trader_hhi_24h\": 0.08405198090510263, \"trader_top_1_volume_pct_24h\": 22.582196380625735, \"trader_top_5_volume_pct_24h\": 51.379139443722785, \"trader_top_20_volume_pct_24h\": 73.26734274505655, \"trader_top_100_volume_pct_24h\": 85.6459602770452, \"market_cap\": 94026.99, \"total_supply\": 999770536.69, \"liquidity\": 10049.59, \"num_pool\": 2, \"num_holder\": 2231, \"fdv\": 94493.68, \"circulating_supply\": 994832881.38, \"first_listing_time\": 1790756012, \"holder_gini\": 0.4106221823955727, \"holder_hhi\": 0.04765331211878633, \"holder_top_1_balance_pct\": 17.31726060793157, \"holder_top_5_balance_pct\": 31.17049728017564, \"holder_top_20_balance_pct\": 31.714055912103245, \"holder_top_100_balance_pct\": 34.61303528238381, \"updated_time\": 1790756952, \"platform\": [\"pumpfun\"] } }",
+        "inputSchema": {
+          "type": "object",
+          "properties": {
+            "address": {
+              "type": "string",
+              "description": "The Solana token mint address to retrieve statistics for. Example: FAp2KjVCAXM5gWp2CGqTnYDa2MjP2HcxTt4UbntYZVkJ"
+            }
+          },
+          "required": [
+            "address"
+          ]
+        }
+      }
+    ]
+  }
+}
