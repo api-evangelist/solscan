@@ -13,7 +13,7 @@ deployment:
   probe: live
   checked: '2026-09-11'
   source: docs-check 2026-09-11 (endpoint found in the provider's own documentation, then probed)
-tools_count: 46
+tools_count: 55
 tools:
 - name: accountDetailApi
   description: Get the details of an account
@@ -46,6 +46,13 @@ tools:
   description: Get the account leaderboard
 - name: accountDefiActivitiesExportApi
   description: 'Export defi activities data of an account. Maximum items: 5000. Max 1 request per minute.'
+- name: accountFundingActivitiesApi
+  description: Get the list of funding activities performed by an address (native SOL transfers that created/funded
+    other accounts).
+- name: accountCountFundingActivitiesApi
+  description: Get the total funding activities count of an address.
+- name: accountFundedByApi
+  description: Get funder accounts for multiple accounts.
 - name: tokenTransferApi
   description: Get transfer data of a token
 - name: tokenDefiActivitiesApi
@@ -62,14 +69,10 @@ tools:
   description: Get the metadata of multiple tokens.
 - name: tokenHoldersApi
   description: Get the list of token holders
-- name: tokenListApi
-  description: Get the list of tokens. This endpoint supports up to 50,000 items per query.
 - name: tokenTopApi
   description: Get the list of top tokens
 - name: tokenTrendingApi
   description: Get the list of trending tokens
-- name: tokenLatestApi
-  description: Get the list of recently created tokens
 - name: tokenDefiActivitiesExportApi
   description: Get defi activities involving a token
 - name: nftNewApi
@@ -114,6 +117,163 @@ tools:
   description: Get the list of popular defi platforms
 - name: monitorUsageApi
   description: Get the used Compute Units of a subscriber
+- name: userLabelListApi
+  description: Get list of labels for the authenticated user
+- name: userLabelCreateApi
+  description: Create a label for a wallet address or transaction
+- name: userLabelUpdateApi
+  description: Update an existing label by its ID
+- name: userLabelDeleteApi
+  description: Delete a label by its ID
+- name: tokenOHLCVApi
+  description: Get OHLCV (Open, High, Low, Close, Volume) candlestick price data for a token
+- name: tokenListV2Api
+  description: 'Get the Solscan token list v2 with real-time trading metrics. Can get the list of recently
+    created tokens by using listing time metric. Supports filtering by trading volume, buy/sell volume,
+    trade count, trader counts, and price change % across 9 time intervals (1m, 5m, 30m, 1h, 4h, 8h, 24h,
+    7d, 30d). Also supports filtering by static snapshot metrics: market cap, FDV, liquidity, holder count,
+    supply, listing time. Supports trader concentration metrics: trader HHI (24h) and top-N trader volume
+    percentage (top 1/5/20/100 over 24h). Supports holder distribution metrics: holder Gini coefficient,
+    holder HHI, and top-N holder balance percentage (top 1/5/20/100). All numeric filters are from_/to_
+    range pairs. Useful for screening tokens by activity, momentum, market size, ownership concentration,
+    or trading liquidity distribution. Example status code 200 response: { "success": true, "data": {
+    "items": [{ "token_address": "FAp2KjVCAXM5gWp2CGqTnYDa2MjP2HcxTt4UbntYZVkJ", "volume_1m": 29922.50,
+    "volume_1m_change_pct": 767.65, "volume_5m": 43734.98, "volume_5m_change_pct": 709.23, "volume_30m":
+    78325.25, "volume_30m_change_pct": 709.23, "volume_1h": 78325.25, "volume_1h_change_pct": 709.23,
+    "volume_4h": 78325.25, "volume_4h_change_pct": 709.23, "volume_8h": 78325.25, "volume_8h_change_pct":
+    709.23, "volume_24h": 78325.25, "volume_24h_change_pct": 709.23, "volume_7d": 78325.25, "volume_7d_change_pct":
+    709.23, "volume_30d": 78325.25, "volume_30d_change_pct": 709.23, "buy_volume_1m": 2139.60, "buy_volume_1m_change_pct":
+    -10.35, "buy_volume_5m": 11779.90, "buy_volume_5m_change_pct": 203.07, "buy_volume_30m": 44512.93,
+    "buy_volume_30m_change_pct": 203.07, "buy_volume_1h": 44512.93, "buy_volume_1h_change_pct": 203.07,
+    "buy_volume_4h": 44512.93, "buy_volume_4h_change_pct": 203.07, "buy_volume_8h": 44512.93, "buy_volume_8h_change_pct":
+    203.07, "buy_volume_24h": 44512.93, "buy_volume_24h_change_pct": 203.07, "buy_volume_7d": 44512.93,
+    "buy_volume_7d_change_pct": 203.07, "buy_volume_30d": 44512.93, "buy_volume_30d_change_pct": 203.07,
+    "sell_volume_1m": 27782.90, "sell_volume_1m_change_pct": 2516.04, "sell_volume_5m": 31955.08, "sell_volume_5m_change_pct":
+    2005.53, "sell_volume_30m": 33812.33, "sell_volume_30m_change_pct": 2005.53, "sell_volume_1h": 33812.33,
+    "sell_volume_1h_change_pct": 2005.53, "sell_volume_4h": 33812.33, "sell_volume_4h_change_pct": 2005.53,
+    "sell_volume_8h": 33812.33, "sell_volume_8h_change_pct": 2005.53, "sell_volume_24h": 33812.33, "sell_volume_24h_change_pct":
+    2005.53, "sell_volume_7d": 33812.33, "sell_volume_7d_change_pct": 2005.53, "sell_volume_30d": 33812.33,
+    "sell_volume_30d_change_pct": 2005.53, "num_trade_1m": 1124, "num_trade_1m_change_pct": 27.44, "num_trade_5m":
+    4661, "num_trade_5m_change_pct": 14.63, "num_trade_30m": 12252, "num_trade_30m_change_pct": 14.63,
+    "num_trade_1h": 12252, "num_trade_1h_change_pct": 14.63, "num_trade_4h": 12252, "num_trade_4h_change_pct":
+    14.63, "num_trade_8h": 12252, "num_trade_8h_change_pct": 14.63, "num_trade_24h": 12252, "num_trade_24h_change_pct":
+    14.63, "num_trade_7d": 12252, "num_trade_7d_change_pct": 14.63, "num_trade_30d": 12252, "num_trade_30d_change_pct":
+    14.63, "num_buy_trade_1m": 475, "num_buy_trade_1m_change_pct": -7.59, "num_buy_trade_5m": 2534, "num_buy_trade_5m_change_pct":
+    7.97, "num_buy_trade_30m": 6910, "num_buy_trade_30m_change_pct": 7.97, "num_buy_trade_1h": 6910, "num_buy_trade_1h_change_pct":
+    7.97, "num_buy_trade_4h": 6910, "num_buy_trade_4h_change_pct": 7.97, "num_buy_trade_8h": 6910, "num_buy_trade_8h_change_pct":
+    7.97, "num_buy_trade_24h": 6910, "num_buy_trade_24h_change_pct": 7.97, "num_buy_trade_7d": 6910, "num_buy_trade_7d_change_pct":
+    7.97, "num_buy_trade_30d": 6910, "num_buy_trade_30d_change_pct": 7.97, "num_sell_trade_1m": 649, "num_sell_trade_1m_change_pct":
+    76.36, "num_sell_trade_5m": 2127, "num_sell_trade_5m_change_pct": 23.73, "num_sell_trade_30m": 5342,
+    "num_sell_trade_30m_change_pct": 23.73, "num_sell_trade_1h": 5342, "num_sell_trade_1h_change_pct":
+    23.73, "num_sell_trade_4h": 5342, "num_sell_trade_4h_change_pct": 23.73, "num_sell_trade_8h": 5342,
+    "num_sell_trade_8h_change_pct": 23.73, "num_sell_trade_24h": 5342, "num_sell_trade_24h_change_pct":
+    23.73, "num_sell_trade_7d": 5342, "num_sell_trade_7d_change_pct": 23.73, "num_sell_trade_30d": 5342,
+    "num_sell_trade_30d_change_pct": 23.73, "num_trader_1m": 608, "num_trader_1m_change_pct": 104.03,
+    "num_trader_5m": 635, "num_trader_5m_change_pct": 93.01, "num_trader_30m": 668, "num_trader_30m_change_pct":
+    93.01, "num_trader_1h": 668, "num_trader_1h_change_pct": 93.01, "num_trader_4h": 668, "num_trader_4h_change_pct":
+    93.01, "num_trader_8h": 668, "num_trader_8h_change_pct": 93.01, "num_trader_24h": 668, "num_trader_24h_change_pct":
+    93.01, "num_trader_7d": 668, "num_trader_7d_change_pct": 93.01, "num_trader_30d": 668, "num_trader_30d_change_pct":
+    93.01, "num_buyer_1m": 231, "num_buyer_1m_change_pct": -5.71, "num_buyer_5m": 323, "num_buyer_5m_change_pct":
+    0.31, "num_buyer_30m": 363, "num_buyer_30m_change_pct": 0.31, "num_buyer_1h": 363, "num_buyer_1h_change_pct":
+    0.31, "num_buyer_4h": 363, "num_buyer_4h_change_pct": 0.31, "num_buyer_8h": 363, "num_buyer_8h_change_pct":
+    0.31, "num_buyer_24h": 363, "num_buyer_24h_change_pct": 0.31, "num_buyer_7d": 363, "num_buyer_7d_change_pct":
+    0.31, "num_buyer_30d": 363, "num_buyer_30d_change_pct": 0.31, "num_seller_1m": 506, "num_seller_1m_change_pct":
+    137.56, "num_seller_5m": 612, "num_seller_5m_change_pct": 99.35, "num_seller_30m": 633, "num_seller_30m_change_pct":
+    99.35, "num_seller_1h": 633, "num_seller_1h_change_pct": 99.35, "num_seller_4h": 633, "num_seller_4h_change_pct":
+    99.35, "num_seller_8h": 633, "num_seller_8h_change_pct": 99.35, "num_seller_24h": 633, "num_seller_24h_change_pct":
+    99.35, "num_seller_7d": 633, "num_seller_7d_change_pct": 99.35, "num_seller_30d": 633, "num_seller_30d_change_pct":
+    99.35, "price_1m_change_pct": -70.20, "price_5m_change_pct": -59.68, "price_30m_change_pct": -59.68,
+    "price_1h_change_pct": -59.68, "price_4h_change_pct": -59.68, "price_8h_change_pct": -59.68, "price_24h_change_pct":
+    -59.68, "price_7d_change_pct": 0, "price_30d_change_pct": 0, "trader_hhi_24h": 0.08405198090510263,
+    "trader_top_1_volume_pct_24h": 22.582196380625735, "trader_top_5_volume_pct_24h": 51.379139443722785,
+    "trader_top_20_volume_pct_24h": 73.26734274505655, "trader_top_100_volume_pct_24h": 85.6459602770452,
+    "market_cap": 94026.99, "total_supply": 999770536.69, "liquidity": 10049.59, "num_pool": 2, "num_holder":
+    2231, "fdv": 94493.68, "circulating_supply": 994832881.38, "first_listing_time": 1790756012, "holder_gini":
+    0.4106221823955727, "holder_hhi": 0.04765331211878633, "holder_top_1_balance_pct": 17.31726060793157,
+    "holder_top_5_balance_pct": 31.17049728017564, "holder_top_20_balance_pct": 31.714055912103245, "holder_top_100_balance_pct":
+    34.61303528238381, "updated_time": 1790756952, "platform": ["pumpfun"] }], "total": 1 } }'
+- name: marketOHLCVApi
+  description: 'Get market/pool price OHLCV (Open, High, Low, Close, Volume) data. Note: - Data is sorted
+    asc by time field. - Time field format: yyyyMMddHHmm. - Need to pass cursor to get next page data
+    (The cursor for pagination, which can be obtained from the response of previous page). - Data is available
+    from 2026-01-01.'
+- name: tokenStatisticApi
+  description: 'Get comprehensive real-time trading statistics for a single Solana token by its address.
+    Returns detailed metrics covering trading activity, price momentum, ownership distribution, and trader
+    concentration. The response includes: (1) Trading volume metrics across 9 time intervals (1m, 5m,
+    30m, 1h, 4h, 8h, 24h, 7d, 30d) — total volume, buy volume, and sell volume in USD, each with a corresponding
+    percentage change value. (2) Trade count metrics across the same intervals — total trades, buy trades,
+    and sell trades, each with percentage change. (3) Trader count metrics — unique traders, unique buyers,
+    and unique sellers per interval, each with percentage change. (4) Price change percentage across all
+    intervals (e.g. price_1m_change_pct, price_24h_change_pct). (5) Trader concentration metrics over
+    24h: trader_hhi_24h (Trader Herfindahl-Hirschman Index — measures how concentrated trading activity
+    is among participants, ranging from 0 = highly diversified to 1 = dominated by few traders); trader_top_1_volume_pct_24h
+    (% of 24h volume from the single largest trader); trader_top_5_volume_pct_24h (% of 24h volume from
+    top 5 traders); trader_top_20_volume_pct_24h (% of 24h volume from top 20 traders); trader_top_100_volume_pct_24h
+    (% of 24h volume from top 100 traders). (6) Holder distribution metrics: holder_gini (Gini coefficient
+    measuring supply distribution equality — 0 = perfect equality, 1 = absolute concentration, useful
+    for rug-pull risk assessment); holder_hhi (Holder Herfindahl-Hirschman Index — measures ownership
+    concentration risk, 0 = widely distributed, 1 = extremely concentrated); holder_top_1_balance_pct
+    (% of supply held by the largest holder); holder_top_5_balance_pct (% of supply held by top 5 holders);
+    holder_top_20_balance_pct (% of supply held by top 20 holders); holder_top_100_balance_pct (% of supply
+    held by top 100 holders). (7) Static snapshot metrics: market_cap, total_supply, liquidity, num_pool,
+    num_holder, fdv, circulating_supply, first_listing_time. (8) Metadata: updated_time (unix timestamp
+    of last data refresh), platform (array of platforms where the token was launched, e.g. ["pumpfun"]).
+    Example status code 200 response: { "success": true, "data": { "token_address": "FAp2KjVCAXM5gWp2CGqTnYDa2MjP2HcxTt4UbntYZVkJ",
+    "volume_1m": 29922.50, "volume_1m_change_pct": 767.65, "volume_5m": 43734.98, "volume_5m_change_pct":
+    709.23, "volume_30m": 78325.25, "volume_30m_change_pct": 709.23, "volume_1h": 78325.25, "volume_1h_change_pct":
+    709.23, "volume_4h": 78325.25, "volume_4h_change_pct": 709.23, "volume_8h": 78325.25, "volume_8h_change_pct":
+    709.23, "volume_24h": 78325.25, "volume_24h_change_pct": 709.23, "volume_7d": 78325.25, "volume_7d_change_pct":
+    709.23, "volume_30d": 78325.25, "volume_30d_change_pct": 709.23, "buy_volume_1m": 2139.60, "buy_volume_1m_change_pct":
+    -10.35, "buy_volume_5m": 11779.90, "buy_volume_5m_change_pct": 203.07, "buy_volume_30m": 44512.93,
+    "buy_volume_30m_change_pct": 203.07, "buy_volume_1h": 44512.93, "buy_volume_1h_change_pct": 203.07,
+    "buy_volume_4h": 44512.93, "buy_volume_4h_change_pct": 203.07, "buy_volume_8h": 44512.93, "buy_volume_8h_change_pct":
+    203.07, "buy_volume_24h": 44512.93, "buy_volume_24h_change_pct": 203.07, "buy_volume_7d": 44512.93,
+    "buy_volume_7d_change_pct": 203.07, "buy_volume_30d": 44512.93, "buy_volume_30d_change_pct": 203.07,
+    "sell_volume_1m": 27782.90, "sell_volume_1m_change_pct": 2516.04, "sell_volume_5m": 31955.08, "sell_volume_5m_change_pct":
+    2005.53, "sell_volume_30m": 33812.33, "sell_volume_30m_change_pct": 2005.53, "sell_volume_1h": 33812.33,
+    "sell_volume_1h_change_pct": 2005.53, "sell_volume_4h": 33812.33, "sell_volume_4h_change_pct": 2005.53,
+    "sell_volume_8h": 33812.33, "sell_volume_8h_change_pct": 2005.53, "sell_volume_24h": 33812.33, "sell_volume_24h_change_pct":
+    2005.53, "sell_volume_7d": 33812.33, "sell_volume_7d_change_pct": 2005.53, "sell_volume_30d": 33812.33,
+    "sell_volume_30d_change_pct": 2005.53, "num_trade_1m": 1124, "num_trade_1m_change_pct": 27.44, "num_trade_5m":
+    4661, "num_trade_5m_change_pct": 14.63, "num_trade_30m": 12252, "num_trade_30m_change_pct": 14.63,
+    "num_trade_1h": 12252, "num_trade_1h_change_pct": 14.63, "num_trade_4h": 12252, "num_trade_4h_change_pct":
+    14.63, "num_trade_8h": 12252, "num_trade_8h_change_pct": 14.63, "num_trade_24h": 12252, "num_trade_24h_change_pct":
+    14.63, "num_trade_7d": 12252, "num_trade_7d_change_pct": 14.63, "num_trade_30d": 12252, "num_trade_30d_change_pct":
+    14.63, "num_buy_trade_1m": 475, "num_buy_trade_1m_change_pct": -7.59, "num_buy_trade_5m": 2534, "num_buy_trade_5m_change_pct":
+    7.97, "num_buy_trade_30m": 6910, "num_buy_trade_30m_change_pct": 7.97, "num_buy_trade_1h": 6910, "num_buy_trade_1h_change_pct":
+    7.97, "num_buy_trade_4h": 6910, "num_buy_trade_4h_change_pct": 7.97, "num_buy_trade_8h": 6910, "num_buy_trade_8h_change_pct":
+    7.97, "num_buy_trade_24h": 6910, "num_buy_trade_24h_change_pct": 7.97, "num_buy_trade_7d": 6910, "num_buy_trade_7d_change_pct":
+    7.97, "num_buy_trade_30d": 6910, "num_buy_trade_30d_change_pct": 7.97, "num_sell_trade_1m": 649, "num_sell_trade_1m_change_pct":
+    76.36, "num_sell_trade_5m": 2127, "num_sell_trade_5m_change_pct": 23.73, "num_sell_trade_30m": 5342,
+    "num_sell_trade_30m_change_pct": 23.73, "num_sell_trade_1h": 5342, "num_sell_trade_1h_change_pct":
+    23.73, "num_sell_trade_4h": 5342, "num_sell_trade_4h_change_pct": 23.73, "num_sell_trade_8h": 5342,
+    "num_sell_trade_8h_change_pct": 23.73, "num_sell_trade_24h": 5342, "num_sell_trade_24h_change_pct":
+    23.73, "num_sell_trade_7d": 5342, "num_sell_trade_7d_change_pct": 23.73, "num_sell_trade_30d": 5342,
+    "num_sell_trade_30d_change_pct": 23.73, "num_trader_1m": 608, "num_trader_1m_change_pct": 104.03,
+    "num_trader_5m": 635, "num_trader_5m_change_pct": 93.01, "num_trader_30m": 668, "num_trader_30m_change_pct":
+    93.01, "num_trader_1h": 668, "num_trader_1h_change_pct": 93.01, "num_trader_4h": 668, "num_trader_4h_change_pct":
+    93.01, "num_trader_8h": 668, "num_trader_8h_change_pct": 93.01, "num_trader_24h": 668, "num_trader_24h_change_pct":
+    93.01, "num_trader_7d": 668, "num_trader_7d_change_pct": 93.01, "num_trader_30d": 668, "num_trader_30d_change_pct":
+    93.01, "num_buyer_1m": 231, "num_buyer_1m_change_pct": -5.71, "num_buyer_5m": 323, "num_buyer_5m_change_pct":
+    0.31, "num_buyer_30m": 363, "num_buyer_30m_change_pct": 0.31, "num_buyer_1h": 363, "num_buyer_1h_change_pct":
+    0.31, "num_buyer_4h": 363, "num_buyer_4h_change_pct": 0.31, "num_buyer_8h": 363, "num_buyer_8h_change_pct":
+    0.31, "num_buyer_24h": 363, "num_buyer_24h_change_pct": 0.31, "num_buyer_7d": 363, "num_buyer_7d_change_pct":
+    0.31, "num_buyer_30d": 363, "num_buyer_30d_change_pct": 0.31, "num_seller_1m": 506, "num_seller_1m_change_pct":
+    137.56, "num_seller_5m": 612, "num_seller_5m_change_pct": 99.35, "num_seller_30m": 633, "num_seller_30m_change_pct":
+    99.35, "num_seller_1h": 633, "num_seller_1h_change_pct": 99.35, "num_seller_4h": 633, "num_seller_4h_change_pct":
+    99.35, "num_seller_8h": 633, "num_seller_8h_change_pct": 99.35, "num_seller_24h": 633, "num_seller_24h_change_pct":
+    99.35, "num_seller_7d": 633, "num_seller_7d_change_pct": 99.35, "num_seller_30d": 633, "num_seller_30d_change_pct":
+    99.35, "price_1m_change_pct": -70.20, "price_5m_change_pct": -59.68, "price_30m_change_pct": -59.68,
+    "price_1h_change_pct": -59.68, "price_4h_change_pct": -59.68, "price_8h_change_pct": -59.68, "price_24h_change_pct":
+    -59.68, "price_7d_change_pct": 0, "price_30d_change_pct": 0, "trader_hhi_24h": 0.08405198090510263,
+    "trader_top_1_volume_pct_24h": 22.582196380625735, "trader_top_5_volume_pct_24h": 51.379139443722785,
+    "trader_top_20_volume_pct_24h": 73.26734274505655, "trader_top_100_volume_pct_24h": 85.6459602770452,
+    "market_cap": 94026.99, "total_supply": 999770536.69, "liquidity": 10049.59, "num_pool": 2, "num_holder":
+    2231, "fdv": 94493.68, "circulating_supply": 994832881.38, "first_listing_time": 1790756012, "holder_gini":
+    0.4106221823955727, "holder_hhi": 0.04765331211878633, "holder_top_1_balance_pct": 17.31726060793157,
+    "holder_top_5_balance_pct": 31.17049728017564, "holder_top_20_balance_pct": 31.714055912103245, "holder_top_100_balance_pct":
+    34.61303528238381, "updated_time": 1790756952, "platform": ["pumpfun"] } }'
 tools_source: live tools/list via initialize handshake, 2026-09-11 (signals/audit_mcp_authorship.py --probe)
 authorship: provider
 descriptions_source: live tools/list (authorship probe or saved capture); filled by backfill-tools-from-authorship.py
