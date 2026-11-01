@@ -1,4 +1,4 @@
-# Solscan (solscan)
+# Solscan
 
 <!-- API-EVANGELIST-PROVENANCE:BEGIN -->
 > ### About this repository
@@ -64,76 +64,91 @@
 > Full detail: **[Where this data comes from](https://apievangelist.com/about/where-our-data-comes-from)**
 <!-- API-EVANGELIST-PROVENANCE:END -->
 
+> **Acquired or rebranded.** This company was acquired, merged or renamed. Its API, if it still exists, is offered under another name. This profile is kept as a historical record and is not maintained or rated.
+
 Solscan is a leading Solana block explorer with a Public API (free, basic) and a Pro API (paid, with full account, transaction, token, NFT, and DeFi endpoints). The Pro API serves decoded on-chain data and is the primary commercial product. Authentication uses a token (Bearer or query parameter) and is required for all Pro endpoints.
 
-**APIs.json:** [https://raw.githubusercontent.com/api-evangelist/solscan/refs/heads/main/apis.yml](https://raw.githubusercontent.com/api-evangelist/solscan/refs/heads/main/apis.yml)
+**Areas:** Web3 · Solana · Explorer · Onchain · Tokens · NFT
 
-## Tags
+## Solscan on APIs.io (historical record)
 
-- Web3
-- Solana
-- Explorer
-- On-Chain
-- Tokens
-- NFTs
+Everything profiled for Solscan is published on APIs.io rather than in this repository. Start at the provider page — **[apis.io/providers/solscan/](https://apis.io/providers/solscan/)** — or go straight to one of the APIs or properties below.
 
-## Timestamps
+### APIs (7)
 
-- **Created:** 2026-05-08
-- **Modified:** 2026-05-08
+- [Solscan Public API](https://apis.io/apis/solscan/public-api/) — Free, lower-rate-limit public API exposing basic account, transaction, and token endpoints used by the Solscan UI.
+- [Solscan Pro API](https://apis.io/apis/solscan/pro-api/) — Commercial Pro API with full account, transaction, token, NFT, DeFi, and analytics endpoints. Higher rate limits, decoded events, and historical depth.…
+- [Solscan Account API](https://apis.io/apis/solscan/solscan-account-api/) — Solana account data
+- [Solscan Block API](https://apis.io/apis/solscan/solscan-block-api/) — Block lookups
+- [Solscan NFT API](https://apis.io/apis/solscan/solscan-nft-api/) — NFT collection data
+- [Solscan Token API](https://apis.io/apis/solscan/solscan-token-api/) — SPL token data
+- [Solscan Transaction API](https://apis.io/apis/solscan/solscan-transaction-api/) — Transaction lookups
 
-## APIs
+### Published properties
 
-### Solscan Public API
+Each property below is a page on APIs.io carrying the machine-readable artifact and what it says.
 
-Free, lower-rate-limit public API exposing basic account, transaction, and token endpoints used by the Solscan UI.
+#### MCP servers (1)
 
-- **Human URL:** [https://docs.solscan.io/](https://docs.solscan.io/)
-- **Base URL:** `https://public-api.solscan.io`
+Model Context Protocol servers that expose the API to agents.
 
-#### Tags
+- [solscan](https://apis.io/servers/solscan/solscan/)
 
-- Solana
-- Explorer
-- Free
+#### Collections (5)
 
-#### Properties
+Postman and Open Collection request collections.
 
+- [Solscan Pro Account API](https://apis.io/collections/solscan/open-solscan-account-api/)
+- [Solscan Pro Block API](https://apis.io/collections/solscan/open-solscan-block-api/)
+- [Solscan Pro NFT API](https://apis.io/collections/solscan/open-solscan-nft-api/)
+- [Solscan Pro Token API](https://apis.io/collections/solscan/open-solscan-token-api/)
+- [Solscan Pro Transaction API](https://apis.io/collections/solscan/open-solscan-transaction-api/)
+
+#### Security (1)
+
+Authentication, trust centre, and vulnerability disclosure.
+
+- [Solscan Domain Security](https://apis.io/security/solscan/solscan-domain-security/)
+
+#### Plans and pricing (1)
+
+Published plans, tiers and prices.
+
+- [Solscan Plans Pricing](https://apis.io/plans/solscan/solscan-plans-pricing/)
+
+#### Rate limits (1)
+
+Published request limits.
+
+- [Solscan Rate Limits](https://apis.io/rate-limits/solscan/solscan-rate-limits/)
+
+#### FinOps (1)
+
+What the API costs to run, by operation.
+
+- [Solscan Finops](https://apis.io/finops/solscan/solscan-finops/)
+
+## Where to find this API
+
+Links to the company's own pages. This repository publishes no copy of their specifications — the canonical document is theirs and lives at the URLs below.
+
+- [Website](https://solscan.io)
 - [Documentation](https://docs.solscan.io/)
-
-### Solscan Pro API
-
-Commercial Pro API with full account, transaction, token, NFT, DeFi, and analytics endpoints. Higher rate limits, decoded events, and historical depth. Authentication via token header.
-
-- **Human URL:** [https://pro-api.solscan.io/pro-api-docs/v2.0](https://pro-api.solscan.io/pro-api-docs/v2.0)
-- **Base URL:** `https://pro-api.solscan.io`
-
-#### Tags
-
-- Solana
-- Pro
-- Decoded Data
-- Tokens
-- NFTs
-- DeFi
-
-#### Properties
-
-- [Documentation](https://pro-api.solscan.io/pro-api-docs/v2.0)
 - [Pricing](https://solscan.io/apis)
+- [GitHub](https://github.com/solscanofficial)
 
-## Common Properties
+## API Evangelist rating
 
-- [GitHub Organization](https://github.com/solscanofficial)
-- [Portal](https://solscan.io/)
-- [Documentation](https://docs.solscan.io/)
-- [Pricing](https://solscan.io/apis)
-- [Plans](plans/solscan-plans-pricing.yml)
-- [Rate Limits](rate-limits/solscan-rate-limits.yml)
-- [Fin Ops](finops/solscan-finops.yml)
-- [L L Ms Txt](https://docs.solscan.io/llms.txt)
+**Not rated** — this company is recorded as acquired or rebranded, so no score is published. If it is in fact operating, say so on this repository and it will be re-profiled.
 
-## Maintainers
+## How this profile is made
 
-**FN:** Kin Lane
-**Email:** kin@apievangelist.com
+API Evangelist profiles a company's public API surface the way a developer would find it: the website, developer portal and documentation, the specifications it publishes, its public repositories, and its pricing, status and changelog pages. From that it derives the properties above — contracts split per API, workflows, schemas, collections, governance rules, plans and rate limits — and scores them against the published [Kin Score rubric](https://github.com/api-evangelist/kin-score).
+
+The artifacts are published on [APIs.io](https://apis.io), not in this repository. This repository is the public record for Solscan: the place to say something is wrong, missing or out of date, and to ask for a re-score or a removal.
+
+## Open an issue
+
+- **Something about this listing** — a wrong description, a missing API, a stale artifact or a question about the rating: [open an issue on this repository](https://github.com/api-evangelist/solscan/issues/new).
+- **A new API, or one that is not in the catalog yet** — [submit it on APIs.io](https://apis.io/add/).
+- **Anything else** — [the APIs.io inbox](https://github.com/api-search/inbox/issues/new) or [info@apievangelist.com](mailto:info@apievangelist.com).
